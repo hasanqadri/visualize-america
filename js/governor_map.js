@@ -18,18 +18,31 @@ function governor_map()
         .attr('width', width)
         .attr('height', height);
 
-    d3.json('./Data/us2.json', function (error, us) {
+    queue()
+        .defer(d3.json, "./Data/us2.json")
+        .defer(d3.json, "./Data/legislators-current.json")
+        .await(ready);
+
+    function ready(error, us) {
+        if (error) throw error;
+
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
             .append('path')
             .attr('class', 'states')
             .attr('d', path)
-            .on('mouseover', function (d) {
-                var name = d.properties.STATE_ABBR;
-                return document.getElementById('name').innerHTML = name;
-            });
-    });
+            .attr("fill", initialState)
+
+    }
+
+    function initialState(data){
+        if(Math.random() > .5) {
+            return '#084594'
+        } else {
+            return '#cb181d'
+        }
+    };
 }
 
 function house_map()
