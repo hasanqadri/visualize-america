@@ -165,7 +165,7 @@ function senate_map() {
 
     }
     function initialState(d) {
-        var dualStates = ['NV', 'CO', 'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
+        var dualStates = ['NV', 'CO',  'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
         for (var z = 0; z < dualStates.length; z++) {
             if (d.properties.STATE_ABBR === dualStates[z]) {
                 return '#9c1ecb'
