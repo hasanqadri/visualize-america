@@ -1,7 +1,7 @@
 governor_map();
 house_map();
 senate_map();
-
+governorCount = 0;
 function governor_map()
 {
     var width = 1500,
@@ -18,14 +18,18 @@ function governor_map()
         .attr('width', width)
         .attr('height', height);
 
+    var usD = null;
+    var governorD = null;
+
     queue()
         .defer(d3.json, "./Data/us2.json")
-        .defer(d3.json, "./Data/legislators-current.json")
+        .defer(d3.json, "./Data/us-governor.json")
         .await(ready);
 
-    function ready(error, us) {
+    function ready(error, us, governor) {
         if (error) throw error;
-
+        usD = us;
+        governorD = governor;
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
@@ -33,16 +37,23 @@ function governor_map()
             .attr('class', 'states')
             .attr('d', path)
             .attr("fill", initialState)
-
     }
 
-    function initialState(data){
-        if(Math.random() > .5) {
-            return '#084594'
-        } else {
-            return '#cb181d'
+    function initialState(d) {
+        console.log(governorD);
+        for (var x = 0; x < governorD.length; x++) {
+            if (d.properties.STATE_ABBR === governorD[x].state_code) {
+                if (governorD[x].party === "democrat") {
+                    return '#084594'
+                } else if (governorD[x].party === "republican") {
+                    return '#cb181d'
+                } else {
+                    return '#22cb30'
+                }
+            }
         }
-    };
+        return '#bbb';
+    }
 }
 
 function house_map()
@@ -65,6 +76,7 @@ function house_map()
     queue()
         .defer(d3.json, "./Data/us.json")
         .defer(d3.json, "./Data/us-congress-113.json")
+        .defer(d3.json, "./Data/us-house.json")
         .await(ready);
 
     function ready(error, us, congress) {
@@ -87,13 +99,16 @@ function house_map()
             .data(topojson.feature(congress, congress.objects.districts).features)
             .enter().append("path")
             .attr("d", path)
+            .attr("fill", initialState)
             .append("title")
             .text(function(d) { return d.id; });
+
 
         svg.append("path")
             .attr("class", "district-boundaries")
             .datum(topojson.mesh(congress, congress.objects.districts, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
             .attr("d", path);
+
 
         svg.append("path")
             .attr("class", "state-boundaries")
@@ -102,6 +117,14 @@ function house_map()
     }
 
     d3.select(self.frameElement).style("height", height + "px");
+
+    function initialState(data){
+        if(Math.random() > .5) {
+            return '#084594'
+        } else {
+            return '#cb181d'
+        }
+    }
 }
 
 function senate_map() {
@@ -119,16 +142,44 @@ function senate_map() {
         .attr('width', width)
         .attr('height', height);
 
-    d3.json('./Data/us2.json', function(error, us) {
+    var usD = null;
+    var senateD = null;
+
+    queue()
+        .defer(d3.json, "./Data/us2.json")
+        .defer(d3.json, "./Data/us-senate.json")
+        .await(ready);
+
+    function ready(error, us, senate) {
+        usD = us;
+        senateD = senate;
+
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
             .append('path')
             .attr('class', 'states')
             .attr('d', path)
-            .on('mouseover', function(d){
-                var name = d.properties.STATE_ABBR;
-                return document.getElementById('name').innerHTML=name;
-            });
-    });
+            .attr("fill", initialState)
+            .attr("stroke", '#fff')
+
+    }
+    function initialState(d) {
+        var dualStates = ['NV', 'CO', 'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
+        for (var z = 0; z < dualStates.length; z++) {
+            if (d.properties.STATE_ABBR === dualStates[z]) {
+                return '#9c1ecb'
+            }
+        }
+
+        for (var x = 0; x < senateD.results[0].members.length; x++) {
+            if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+                if (senateD.results[0].members[x].party === "D") {
+                    return '#084594'
+                } else {
+                    return '#cb181d'
+                }
+            }
+        }
+    }
 }

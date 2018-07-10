@@ -21,13 +21,13 @@ h3 {
     stroke-width: 3px;
     stroke-opacity: 1;
 }
-
+/**
 .counties {
     fill: #e5e5e5;
     stroke: #fff;
     stroke-width:2px;
 }
-
+**/
 .treemap-margin {
     margin-right: 60px;
 }
@@ -48,9 +48,6 @@ h3 {
 .flex-item{
     flex-grow: 1;
 }
-
-
-
 
 .w3-margin-bot-custom {
     margin-bottom: 80px;
@@ -113,11 +110,18 @@ h1 {
     top: 10px;
     left: 10px;
 }
+/*
 .states {
     fill: #bbb;
     stroke: #fff;
     stroke-width:2px;
 }
+*/
 .states:hover {
-    fill: steelblue;
+    fill: orange;
+}
+
+.states {
+    stroke: #fff;
+    stroke-width:2px;
 }
