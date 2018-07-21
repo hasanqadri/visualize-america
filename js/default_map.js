@@ -12,7 +12,7 @@ var currentMapChecked = false;
 var legend = null;
 
 function default_map() {
-    var width = 1500,
+    var width = 1000,
         height = 700;
 
     var projection = d3.geo.albersUsa()
@@ -26,6 +26,10 @@ function default_map() {
         .attr('width', width)
         .attr('height', height);
 
+    var tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     // Define linear scale for output
     var color = d3.scale.linear()
         .range(["#003296","#084eb3","#1d90ff","#760d0f", "#bf1700", "#ff4941" ]);
@@ -34,7 +38,7 @@ function default_map() {
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-    legend = d3.select("body").append("svg")
+    legend = d3.select(".innerContainer").append("svg")
         .attr("class", "legend")
         .attr("width", 140)
         .attr("height", 200)
@@ -81,7 +85,27 @@ function default_map() {
             .append('path')
             .attr('class', 'states')
             .attr('d', path)
-            .attr("fill", '#807d85');
+            .attr("fill", '#807d85')
+            .on('mouseover', function(d){
+                var stateName = d.properties.STATE_ABBR;
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .75);
+                tooltip.html( function() {
+                    return stateName
+                })
+                    .style("left", (d3.event.pageX + 5) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+            .on('click', function(d) {
+                updateSidePane(d);
+
+            })
 
         svg.append("g")
             .attr("class", "bubble")
@@ -95,6 +119,7 @@ function default_map() {
             .attr("fill", '#807d85')
             .style('stroke', '#807d85')
             .style('stroke-width', 2);
+
 
         d3.select('#raceDropdown')
             .on('change', function() {
@@ -116,7 +141,7 @@ function default_map() {
             .on('change', function() {
                 var sect = document.getElementById("raceDropdown");
                 section = sect.options[sect.selectedIndex].value;
-                checked = !checked;
+                if (section !== 'Default') {checked = !checked};
                 var svg = d3.select('.default').transition();
                 if (!currentMapChecked) {
                     checkIncumbent(svg);
@@ -268,97 +293,6 @@ function getCandidateInfo(state) {
     return [bestCandidate, bestLead, party]
 }
 
-function getCurrentGovernors(d) {
-    for (var x = 0; x < governorD.length; x++) {
-        if (d.properties.STATE_ABBR === governorD[x].state_code) {
-            if (governorD[x].party === "democrat") {
-                return '#084594'
-            } else if (governorD[x].party === "republican") {
-                return '#cb181d'
-            } else {
-                return '#22cb30'
-            }
-        }
-    }
-    return '#bbb';
-}
-
-function getCurrentSenators(d) {
-    var dualStates = ['NV', 'CO', 'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
-    for (var z = 0; z < dualStates.length; z++) {
-        if (d.properties.STATE_ABBR === dualStates[z]) {
-            return '#9c1ecb'
-        }
-    }
-    for (var x = 0; x < senateD.results[0].members.length; x++) {
-        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
-            if (senateD.results[0].members[x].party === "D") {
-                return '#084594'
-            } else {
-                return '#cb181d'
-            }
-        }
-    }
-}
-
-
-function governorCircle(d) {
-    notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE'];
-    for (var x = 0; x < governorD.length; x++) {
-        if (d.properties.STATE_ABBR === governorD[x].state_code) {
-            if (!(notInState.includes(governorD[x].state_code))) {
-                if (governorD[x].party === "democrat") {
-                    return '#084594'
-                } else if (governorD[x].party === "republican") {
-                    return '#cb181d'
-                } else {
-                    return '#22cb30'
-                }
-            }
-        }
-    }
-    return '#807d85'
-}
-
-function governorCircleBorders(d) {
-    notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE']
-    for (var x = 0; x < governorD.length; x++) {
-        if (d.properties.STATE_ABBR === governorD[x].state_code) {
-            if (!(notInState.includes(governorD[x].state_code))) {
-                return 'black'
-            }
-        }
-    }
-    return '#807d85'
-}
-
-
-function senateCircle(d) {
-    for (var x = 0; x < senateD.results[0].members.length; x++) {
-        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
-            if (senateD.results[0].members[x].next_election == '2018') {
-                if (senateD.results[0].members[x].party === "D") {
-                    return '#000394'
-                } else {
-                    return '#cb0007'
-                }
-            }
-        }
-    }
-    return '#807d85'
-}
-
-function senateCircleBorders(d) {
-    for (var x = 0; x < senateD.results[0].members.length; x++) {
-        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
-            if (senateD.results[0].members[x].next_election == '2018') {
-                return 'black'
-            }
-        }
-    }
-    return '#807d85'
-}
-
 function checkLegend() {
     if (currentMapChecked) {
         legend.remove();
@@ -452,3 +386,58 @@ function htmlControls() {
     document.getElementsByClassName('text-color')[0].style.color = 'black';
     document.getElementsByClassName('text-color')[1].style.color = 'black';
 }
+
+
+function updateSidePane(d) {
+    drawPollingAverage(d);
+    drawPastOccupancies(d);
+}
+
+function drawPollingAverage(d) {
+
+    var width = 500,
+        height = 500,
+        radius = Math.min(width, height) / 2;
+
+    var color = d3.scale.ordinal()
+        .range(["#98abc5", "#8a89a6"]);
+
+    var arc = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(radius - 70);
+
+    var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.population; });
+
+    var svg = d3.select("polling-average").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    var g = svg.selectAll(".arc")
+        .data(pie(data))
+        .enter().append("g")
+        .attr("class", "arc");
+
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return color(d.data.age); });
+
+    g.append("text")
+        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+        .attr("dy", ".35em")
+        .text(function(d) { return d.data.age; });
+
+    function type(d) {
+        d.population = +d.population;
+        return d;
+    }
+}
+
+function drawPastOccupancies(d) {
+    return;
+}
+
+

@@ -43,6 +43,12 @@ h3 {
 
 .container{
     display: flex;
+    flex-direction: row;
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-item{
@@ -185,6 +191,12 @@ h1 {
     font-size: 46px;
 }
 
+.fontTitle {
+    font-family: Littler Serifada;
+    font-size: 30px;
+
+}
+
 .logo {
     display: inline-block;
 }
@@ -192,6 +204,28 @@ h1 {
 /* Legend Position Style */
 .legend {
     position:absolute;
-    left:100px;
-    bottom:35px;
+    left:850px;
+    bottom:100px;
+}
+
+
+.tooltip > p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.tooltip {
+    background: #101010;
+    color: #EAEAEA;
+    border-radius: 5px;
+    position: absolute;
+    padding: 8px;
+    pointer-events: none;
+    text-align: left;
+    opacity: .5;
+}
+
+
+#head-title {
+
 }

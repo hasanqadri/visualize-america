@@ -17,14 +17,12 @@ function getCurrentSenators(d) {
     }
 }
 
-
-
 function senateCircle(d) {
     for (var x = 0; x < senateD.results[0].members.length; x++) {
         if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
             if (senateD.results[0].members[x].next_election == '2018') {
                 if (senateD.results[0].members[x].party === "D") {
-                    return '#000394'
+                    return '`'
                 } else {
                     return '#cb0007'
                 }
