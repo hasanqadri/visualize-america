@@ -7,7 +7,7 @@
     <link href="css/styling.css" rel="stylesheet">
 </head>
 
-<body onload="toggleView()">
+<body onload="default_map()">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
     <script>
@@ -34,25 +34,25 @@
 
     <!-- Navbar (sit on top) -->
     <div class="w3-top" >
-        <ul class="w3-navbar w3-deep-orange w3-wide w3-padding-0 w3-card-2 w3-padding-left">
-            <font color="white" font-family = "Impact, Charcoal, sans-serif"><h3>Visualize America</h3></font>
+        <ul class="w3-navbar w3-deep-orange w3-wide w3-padding-0 w3-card-2 ">
+            <font color="white" font-family = "Impact, Charcoal, sans-serif">
+                <h3><img src = "./Data/logo.png" width="70px" height="40px" class="w3-margin-bot-logo">Visualize America</h3></font>
         </ul>
     </div>
 
     <!-- Selector for years -->
     <div  style="float: left; width:100%; display:inline;" class = "w3-margin-top-custom raisedbox">
-        <select onload="toggleView();" onchange="toggleView();" style="width:200px;" class = "w3-select w3-margin-left-custom w3-margin-top-custom1" id="raceDropdown">
+        <select style="width:200px;" class = "w3-select w3-margin-left-custom w3-margin-top-custom1" id="raceDropdown">
             <option value="Default">Select View</option>
             <option value="United States Senator">Senate</option>
             <option value="United States Governor">Governor</option>
-            <option value="United States House of Representative">House of Representative</option>
 
         </select>
-        <input onchange="toggleView()" type="checkbox" id="incumbent" name="feature"
-               value="incumbent" class="w3-margin-left-custom" checked />
+        <input type="checkbox" id="incumbent" name="feature"
+               value="incumbent" class="w3-margin-left-custom" />
         <label for="incumbent" class="checkmarkContainer text-color"><h4>Incumbents</h4></label>
 
-        <input onchange="toggleView()" type="checkbox" id="current-map" name="feature"
+        <input type="checkbox" id="current-map" name="feature"
                value="current-map" class="w3-margin-left-custom"  />
         <label for="current-map" class="checkmarkContainer text-color"><h4>Current Map</h4></label>
     </div>
@@ -60,7 +60,7 @@
     <!-- Holds the left and right divs -->
     <div class = "container " style = "width: 100%;   ">
         <div style="float: left; display:block;" class="w3-margin-left w3-left-align" id="left">
-            <h1 align="center" class="w3-margin-top" id="head-title">United States of America</h1>
+            <h1 align="center" class="w3-margin-top  fontCustom w3-margin-bottom" id="head-title">United States of America</h1>
             <svg class="senate governor house default"></svg>
         </div>
     </div>
