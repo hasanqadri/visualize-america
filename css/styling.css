@@ -188,3 +188,10 @@ h1 {
 .logo {
     display: inline-block;
 }
+
+/* Legend Position Style */
+.legend {
+    position:absolute;
+    left:100px;
+    bottom:35px;
+}
