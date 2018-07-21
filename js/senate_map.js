@@ -1,4 +1,3 @@
-senate_map();
 
 function senate_map() {
     var width = 1500,
@@ -77,7 +76,7 @@ function senate_map() {
                     else if (lead > 5)
                         return '#ac1600'
                     else
-                        return '#ff151c'
+                        return '#ff4941'
                 }
             }
         }

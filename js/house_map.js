@@ -1,4 +1,3 @@
-house_map();
 
 
 function house_map()
