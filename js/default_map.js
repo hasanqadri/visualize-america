@@ -106,22 +106,8 @@ function default_map() {
                 var svg = d3.select('.default').transition();
                 console.log(svg);
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
-                if (checked == true) {
-                    if (section === "United States Senator") {
-                        svg.selectAll('circle').duration(2000).attr('fill', senateCircle)
-                        svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders)
-                    } else if (section === "United States Governor") {
-                        svg.selectAll('circle').duration(2000).attr('fill', governorCircle)
-                        svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders)
-                    } else {
-                        console.log('bug');
-                        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-                        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                    }
-                } else {
-                    svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-                    svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                }
+                checkIncumbent(svg);
+
                 checkLegend();
 
             });
@@ -133,22 +119,7 @@ function default_map() {
                 checked = !checked;
                 var svg = d3.select('.default').transition();
                 if (!currentMapChecked) {
-                    if (checked == true) {
-                        if (section === "United States Senator") {
-                            svg.selectAll('circle').duration(2000).attr('fill', senateCircle)
-                            svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders)
-                        } else if (section === "United States Governor") {
-                            svg.selectAll('circle').duration(2000).attr('fill', governorCircle)
-                            svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders)
-                        } else {
-                            console.log('bug');
-                            svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-                            svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                        }
-                    } else {
-                        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-                        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                    }
+                    checkIncumbent(svg);
                 }
             });
 
@@ -161,22 +132,7 @@ function default_map() {
 
                 if (currentMapChecked != true) {
                     svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
-                    if (checked == true) {
-                        if (section === "United States Senator") {
-                            svg.selectAll('circle').duration(2000).attr('fill', senateCircle);
-                            svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders)
-                        } else if (section === "United States Governor") {
-                            svg.selectAll('circle').duration(2000).attr('fill', governorCircle);
-                            svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders)
-                        } else {
-                            console.log('bug');
-                            svg.selectAll('circle').duration(2000).attr('fill', determineStateColor);
-                            svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                        }
-                    } else {
-                        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor);
-                        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
-                    }
+                    checkIncumbent(svg)
                 } else {
                     if (section === "United States Senator") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentSenators);
@@ -208,18 +164,12 @@ function determineStateColor(d) {
         return '#807d85'
     } else if (selectedOption === "United States Senator") {
         document.getElementById('head-title').innerHTML = 'United States Senate';
-        document.getElementById("incumbent").disabled = false;
-        document.getElementById("current-map").disabled = false;
-        document.getElementsByClassName('text-color')[0].style.color = 'black';
-        document.getElementsByClassName('text-color')[1].style.color = 'black';
+        htmlControls();
         rcpD = rcpsD;
         return colorMapByLead(d, 17);
     } else if (selectedOption === "United States Governor") {
         document.getElementById('head-title').innerHTML = 'United States Governors';
-        document.getElementById("incumbent").disabled = false;
-        document.getElementById("current-map").disabled = false;
-        document.getElementsByClassName('text-color')[0].style.color = 'black';
-        document.getElementsByClassName('text-color')[1].style.color = 'black';
+        htmlControls();
         rcpD = rcpgD;
         return colorMapByLead(d, 11);
     }
@@ -475,4 +425,30 @@ function checkLegend() {
             .text(function(d) { console.log(d); return d; });
 
     }
+}
+
+function checkIncumbent(svg) {
+    if (checked == true) {
+        if (section === "United States Senator") {
+            svg.selectAll('circle').duration(2000).attr('fill', senateCircle)
+            svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders)
+        } else if (section === "United States Governor") {
+            svg.selectAll('circle').duration(2000).attr('fill', governorCircle)
+            svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders)
+        } else {
+            console.log('bug');
+            svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
+            svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
+        }
+    } else {
+        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
+        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
+    }
+}
+
+function htmlControls() {
+    document.getElementById("incumbent").disabled = false;
+    document.getElementById("current-map").disabled = false;
+    document.getElementsByClassName('text-color')[0].style.color = 'black';
+    document.getElementsByClassName('text-color')[1].style.color = 'black';
 }

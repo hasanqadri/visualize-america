@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fffbcf6-a536-43ec-9524-c5266c504602" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styling.css" afterPath="$PROJECT_DIR$/css/styling.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/default_map.js" afterPath="$PROJECT_DIR$/js/default_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/governor_map.js" afterPath="$PROJECT_DIR$/js/governor_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/senate_map.js" afterPath="$PROJECT_DIR$/js/senate_map.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +19,8 @@
           <file leaf-file-name="default_map.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/default_map.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="106" column="19" lean-forward="true" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+                <state relative-caret-position="382">
+                  <caret line="115" column="38" lean-forward="true" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -324,12 +320,12 @@
       <option name="presentableId" value="Default" />
       <updated>1531107093564</updated>
       <workItem from="1531107094710" duration="25129000" />
-      <workItem from="1531972911603" duration="56931000" />
+      <workItem from="1531972911603" duration="57387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82060000" />
+    <option name="totallyTimeSpent" value="82516000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -636,10 +632,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="1018" column="0" lean-forward="false" selection-start-line="1018" selection-start-column="0" selection-end-line="1018" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/default_map.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="106" column="19" lean-forward="true" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
+        <state relative-caret-position="382">
+          <caret line="115" column="38" lean-forward="true" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
           <folding />
         </state>
       </provider>
