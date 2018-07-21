@@ -37,7 +37,7 @@ h3 {
     opacity: .5;
 }
 
-.w3-margin-top-custom{margin-top:100px!important}
+.w3-margin-top-custom{margin-top:55px!important}
 .w3-margin-left-custom{margin-left:30px!important}
 .w3-margin-left-custom1{margin-left:50px!important}
 
@@ -54,7 +54,7 @@ h3 {
 }
 
 .w3-margin-top-custom1 {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 text {
@@ -63,13 +63,6 @@ text {
 
 rect {
     fill: none;
-}
-
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 960px;
-    height: 500px;
-    position: relative;
 }
 
 
@@ -176,4 +169,9 @@ h1 {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+.raisedbox {
+    box-shadow: 0 8px 6px -6px black;
+    background-color: lightyellow;
+
 }
