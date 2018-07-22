@@ -38,8 +38,13 @@ h3 {
 }
 
 .w3-margin-top-custom{margin-top:55px!important}
+
+.w3-margin-top-custom5{margin-top:90px!important}
+
+
 .w3-margin-left-custom{margin-left:30px!important}
 .w3-margin-left-custom1{margin-left:50px!important}
+.w3-margin-right-custom1{margin-right:150px!important}
 
 .container{
     display: flex;
@@ -200,6 +205,11 @@ h1 {
 .fontTitleSmall {
     font-family: Littler Serifada;
     font-size: 20px;
+}
+
+.fontTitleSmall {
+    font-family: Littler Serifada;
+    font-size: 25px;
 }
 
 .logo {

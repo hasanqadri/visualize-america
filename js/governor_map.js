@@ -35,7 +35,7 @@ function governorCircle(d) {
 }
 
 function governorCircleBorders(d) {
-    notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE']
+    notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE'];
     for (var x = 0; x < governorD.length; x++) {
         if (d.properties.STATE_ABBR === governorD[x].state_code) {
             if (!(notInState.includes(governorD[x].state_code))) {

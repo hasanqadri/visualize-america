@@ -12,7 +12,7 @@ var currentMapChecked = false;
 var legend = null;
 var numSenStates = 17;
 var numGovStates = 11;
-
+var stateD = null;
 function default_map() {
     var width = 1000,
         height = 700;
@@ -60,7 +60,7 @@ function default_map() {
         .attr("x", 24)
         .attr("y", 9)
         .attr("dy", ".35em")
-        .text(function(d) { console.log(d); return d; });
+        .text(function(d) { return d; });
 
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
@@ -71,16 +71,17 @@ function default_map() {
         .defer(d3.json, "./Data/rcp-governor-abbr.json")
         .defer(d3.json, "./Data/us-senate.json")
         .defer(d3.json, "./Data/rcp-senate-abbr.json")
+        .defer(d3.json, "./Data/state-abbr.json")
         .await(ready);
 
-    function ready(error, us, governor, rcpg, senate, rcps) {
+    function ready(error, us, governor, rcpg, senate, rcps, state_abbr) {
         if (error) throw error;
         usD = us;
         governorD = governor;
         rcpgD = rcpg;
         senateD = senate;
         rcpsD = rcps;
-
+        stateD = state_abbr;
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
@@ -131,7 +132,6 @@ function default_map() {
                 currentMapChecked = false;
 
                 var svg = d3.select('.default').transition();
-                console.log(svg);
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
                 checkIncumbent(svg);
 
@@ -180,7 +180,6 @@ function default_map() {
 }
 function determineStateColor(d) {
     selectedOption = section;
-    console.log(selectedOption);
     if (selectedOption === "Default") {
         document.getElementById('head-title').innerHTML = 'United States of America';
         document.getElementById("incumbent").disabled = true;
@@ -326,7 +325,7 @@ function checkLegend() {
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
-            .text(function(d) { console.log(d); return d; });
+            .text(function(d) { return d; });
     } else {
 
         legend.remove();
@@ -358,7 +357,7 @@ function checkLegend() {
             .attr("x", 24)
             .attr("y", 9)
             .attr("dy", ".35em")
-            .text(function(d) { console.log(d); return d; });
+            .text(function(d) { return d; });
 
     }
 }
@@ -398,9 +397,14 @@ function updateSidePane(d) {
             for (var x = 0; x < senateD.results[0].members.length; x++) {
                 if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
                     for (var y = 0; y < numSenStates; y++) {
-                        if (d.properties.STATE_ABBR === rcpD[y].state) {
-                            drawPollingAverage(d, rcpsD[y], senateD.results[0].members[x]);
-                            drawPastOccupancies(d, rcpsD[y], senateD.results[0].members[x]);
+                        if (d.properties.STATE_ABBR === rcpsD[y].state) {
+                            var candidates = getCandidatesAndLead(rcpsD[y]);
+                            document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
+                            document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
+                            document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                            document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                            drawPollingAverage(candidates);
+                            drawPastOccupancies(d, rcpsD[y]);
                         }
                     }
                 }
@@ -409,8 +413,13 @@ function updateSidePane(d) {
             for (var x = 0; x < governorD.length; x++) {
                 if (d.properties.STATE_ABBR === governorD[x].state_code) {
                     for (var y = 0; y < numGovStates; y++) {
-                        if (d.properties.STATE_ABBR === rcpD[y].state) {
-                            drawPollingAverage(d, rcpgD[y], governorD[x]);
+                        if (d.properties.STATE_ABBR === rcpgD[y].state) {
+                            var candidates = getCandidatesAndLead(rcpgD[y]);
+                            document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
+                            document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Governor Seat";
+                            document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                            document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                            drawPollingAverage(candidates);
                             drawPastOccupancies(d, rcpgD[y], governorD[x]);
                         }
                     }
@@ -420,54 +429,32 @@ function updateSidePane(d) {
             console.log("bug")
         }
     }
-    console.log("currmap is checked")
 }
 
-function drawPollingAverage(d, state, currGov) {
-
-    var width = 500,
-        height = 500,
-        radius = Math.min(width, height) / 2;
-
-    var color = d3.scale.ordinal()
-        .range(["#98abc5", "#8a89a6"]);
-
-    var arc = d3.svg.arc()
-        .outerRadius(radius - 10)
-        .innerRadius(radius - 70);
-
-    var pie = d3.layout.pie()
-        .sort(null)
-        .value(function(d) { return rcpD[0].state; });
-
-    var svg = d3.select("polling-average").append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .append("g")
-        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-    var g = svg.selectAll(".arc")
-        .data(pie(data))
-        .enter().append("g")
-        .attr("class", "arc");
-
-    g.append("path")
-        .attr("d", arc)
-        .style("fill", function(d) { return color(d.data.age); });
-
-    g.append("text")
-        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .text(function(d) { return d.data.age; });
-
-    function type(d) {
-        d.population = +d.population;
-        return d;
+function getCandidatesAndLead(state) {
+    candidates = {};
+    candidates["score"] = [];
+    candidates["names"] = [];
+    candidates['niceTry'] = []
+    candidates['csvCompatible'] = {}
+    for (var key in state.polls) {
+        for (var names in state.polls[key]) {
+            if (!names.includes("Spread")) {
+                candidateName = names;
+                candidateScore = parseInt(state.polls[key][names]);
+                candidates[names.split(" ")[1]] = [names.split(" ")[0], state.polls[key][names]];
+                candidates["score"].push(state.polls[key][names]);
+                candidates["names"].push(names.split(" ")[0]);
+                candidates['csvCompatible'][names.split(" ")[0]] = parseInt(state.polls[key][names]);
+                var name = {}
+                name['name'] = candidateName;
+                name['percent'] = candidateScore;
+                candidates['niceTry'].push(name);
+            }
+        }
+        break;
     }
-}
-
-function drawPastOccupancies(d, rcp, currData) {
-    return;
+    return candidates;
 }
 
 
