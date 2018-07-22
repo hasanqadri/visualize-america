@@ -1,9 +1,10 @@
-var svg = null
+var svg = null;
 function drawPollingAverage(dataset) {
+
     if (svg !== null) {
-        svg = d3.select('.polling-average').transition(2000)
+        console.log('in if')
+        d3.select('#do').remove()
     }
-    console.log(dataset)
     var pie = d3.layout.pie()
         .value(function (d) {
             return d.percent
@@ -23,7 +24,11 @@ function drawPollingAverage(dataset) {
         .outerRadius(outerRadius)
         .innerRadius(innerRadius);
 
-    svg = d3.select(".polling-average")
+    svg = d3.select(".polling-average").append('svg')
+        .attr('id', 'do')
+        .style("display",'block')
+        .style('margin','auto')
+        .style('preserveAspectRatio', 'xMidYMid')
         .attr({
             width: w,
             height: h,
@@ -40,7 +45,7 @@ function drawPollingAverage(dataset) {
         .attr({
             d: arc,
             fill: function (d, i) {
-                return color(d.data.name);
+                return d.data.party == "R" ? '#c5111e' : "#1110a6";
             }
         });
 

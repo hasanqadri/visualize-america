@@ -10,7 +10,7 @@ var senateD = null;
 var checked = false;
 var currentMapChecked = false;
 var legend = null;
-var numSenStates = 17;
+var numSenStates = 16;
 var numGovStates = 11;
 var stateD = null;
 function default_map() {
@@ -34,7 +34,7 @@ function default_map() {
 
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#003296","#084eb3","#1d90ff","#760d0f", "#bf1700", "#ff4941" ]);
+        .range(["#003296","#084eb3","#1d90ff", "#807d85", "#ff4941", "#bf1700", "#760d0f" ]);
     color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -331,7 +331,7 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range(["#003296","#084eb3","#1d90ff","#760d0f", "#bf1700", "#ff4941" ]);
+            .range(["#003296","#084eb3","#1d90ff", "#807d85", "#ff4941", "#bf1700", "#760d0f" ]);
         color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
         var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -390,23 +390,21 @@ function htmlControls() {
 
 
 function updateSidePane(d) {
+
     if (!currentMapChecked) {
         var sect = document.getElementById("raceDropdown");
         selectedOption = sect.options[sect.selectedIndex].value;
         if (selectedOption === "United States Senator") {
-            for (var x = 0; x < senateD.results[0].members.length; x++) {
-                if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
-                    for (var y = 0; y < numSenStates; y++) {
-                        if (d.properties.STATE_ABBR === rcpsD[y].state) {
-                            var candidates = getCandidatesAndLead(rcpsD[y]);
-                            document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
-                            document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
-                            document.getElementById('polling-average-title').innerHTML = 'Polling Average';
-                            document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                            drawPollingAverage(candidates);
-                            drawPastOccupancies(d, rcpsD[y]);
-                        }
-                    }
+            for (var y = 0; y < numSenStates; y++) {
+                if (d.properties.STATE_ABBR === rcpsD[y].state) {
+                    var candidates = getCandidatesAndLead(rcpsD[y]);
+                    console.log(candidates)
+                    document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
+                    document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
+                    document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                    document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                    drawPollingAverage(candidates);
+                    drawPastOccupancies(d, rcpsD[y]);
                 }
             }
         } else if (selectedOption === "United States Governor") {
@@ -416,7 +414,7 @@ function updateSidePane(d) {
                         if (d.properties.STATE_ABBR === rcpgD[y].state) {
                             var candidates = getCandidatesAndLead(rcpgD[y]);
                             document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
-                            document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Governor Seat";
+                            document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                             document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                             document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
                             drawPollingAverage(candidates);
@@ -448,7 +446,9 @@ function getCandidatesAndLead(state) {
                 candidates['csvCompatible'][names.split(" ")[0]] = parseInt(state.polls[key][names]);
                 var name = {}
                 name['name'] = candidateName;
+                name['party'] = candidateName.split(" ")[1].charAt(1);
                 name['percent'] = candidateScore;
+
                 candidates['niceTry'].push(name);
             }
         }

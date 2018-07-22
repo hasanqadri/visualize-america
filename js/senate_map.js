@@ -22,7 +22,7 @@ function senateCircle(d) {
         if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
             if (senateD.results[0].members[x].next_election == '2018') {
                 if (senateD.results[0].members[x].party === "D") {
-                    return '`'
+                    return '#084594'
                 } else {
                     return '#cb0007'
                 }

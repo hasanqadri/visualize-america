@@ -44,7 +44,6 @@ h3 {
 
 .w3-margin-left-custom{margin-left:30px!important}
 .w3-margin-left-custom1{margin-left:50px!important}
-.w3-margin-right-custom1{margin-right:150px!important}
 
 .container{
     display: flex;
@@ -188,7 +187,10 @@ h1 {
 .raisedbox {
     box-shadow: 0 8px 6px -6px black;
     background-color: lightyellow;
+}
 
+.raisedbox-right {
+    box-shadow: -.1em 0 .4em black;
 }
 
 .fontCustom {

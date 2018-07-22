@@ -1,21 +1,6 @@
 [
     {
         "polls": {
-            "LA Times/USCLA Times": {
-                "Feinstein (D)": "36",
-                "Leon (D)": "18",
-                "Spread": "Feinstein +18"
-            },
-            "SurveyUSASUSA": {
-                "Feinstein (D)": "46",
-                "Leon (D)": "24",
-                "Spread": "Feinstein +22"
-            }
-        },
-        "state": "CA"
-    },
-    {
-        "polls": {
             "WBUR/MassINC*WBUR/MassINC*": {
                 "Lindstrom (R)": "19",
                 "Spread": "Warren +34",
