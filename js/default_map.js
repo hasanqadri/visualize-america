@@ -10,6 +10,8 @@ var senateD = null;
 var checked = false;
 var currentMapChecked = false;
 var legend = null;
+var numSenStates = 17;
+var numGovStates = 11;
 
 function default_map() {
     var width = 1000,
@@ -191,12 +193,12 @@ function determineStateColor(d) {
         document.getElementById('head-title').innerHTML = 'United States Senate';
         htmlControls();
         rcpD = rcpsD;
-        return colorMapByLead(d, 17);
+        return colorMapByLead(d, numSenStates);
     } else if (selectedOption === "United States Governor") {
         document.getElementById('head-title').innerHTML = 'United States Governors';
         htmlControls();
         rcpD = rcpgD;
-        return colorMapByLead(d, 11);
+        return colorMapByLead(d, numGovStates);
     }
 }
 
@@ -364,19 +366,19 @@ function checkLegend() {
 function checkIncumbent(svg) {
     if (checked == true) {
         if (section === "United States Senator") {
-            svg.selectAll('circle').duration(2000).attr('fill', senateCircle)
-            svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders)
+            svg.selectAll('circle').duration(2000).attr('fill', senateCircle);
+            svg.selectAll('circle').duration(2000).style('stroke', senateCircleBorders);
         } else if (section === "United States Governor") {
-            svg.selectAll('circle').duration(2000).attr('fill', governorCircle)
-            svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders)
+            svg.selectAll('circle').duration(2000).attr('fill', governorCircle);
+            svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders);
         } else {
             console.log('bug');
-            svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-            svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
+            svg.selectAll('circle').duration(2000).attr('fill', determineStateColor);
+            svg.selectAll('circle').duration(2000).style('stroke', determineStateColor);
         }
     } else {
-        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor)
-        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor)
+        svg.selectAll('circle').duration(2000).attr('fill', determineStateColor);
+        svg.selectAll('circle').duration(2000).style('stroke', determineStateColor);
     }
 }
 
@@ -389,11 +391,39 @@ function htmlControls() {
 
 
 function updateSidePane(d) {
-    drawPollingAverage(d);
-    drawPastOccupancies(d);
+    if (!currentMapChecked) {
+        var sect = document.getElementById("raceDropdown");
+        selectedOption = sect.options[sect.selectedIndex].value;
+        if (selectedOption === "United States Senator") {
+            for (var x = 0; x < senateD.results[0].members.length; x++) {
+                if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+                    for (var y = 0; y < numSenStates; y++) {
+                        if (d.properties.STATE_ABBR === rcpD[y].state) {
+                            drawPollingAverage(d, rcpsD[y], senateD.results[0].members[x]);
+                            drawPastOccupancies(d, rcpsD[y], senateD.results[0].members[x]);
+                        }
+                    }
+                }
+            }
+        } else if (selectedOption === "United States Governor") {
+            for (var x = 0; x < governorD.length; x++) {
+                if (d.properties.STATE_ABBR === governorD[x].state_code) {
+                    for (var y = 0; y < numGovStates; y++) {
+                        if (d.properties.STATE_ABBR === rcpD[y].state) {
+                            drawPollingAverage(d, rcpgD[y], governorD[x]);
+                            drawPastOccupancies(d, rcpgD[y], governorD[x]);
+                        }
+                    }
+                }
+            }
+        } else {
+            console.log("bug")
+        }
+    }
+    console.log("currmap is checked")
 }
 
-function drawPollingAverage(d) {
+function drawPollingAverage(d, state, currGov) {
 
     var width = 500,
         height = 500,
@@ -408,7 +438,7 @@ function drawPollingAverage(d) {
 
     var pie = d3.layout.pie()
         .sort(null)
-        .value(function(d) { return d.population; });
+        .value(function(d) { return rcpD[0].state; });
 
     var svg = d3.select("polling-average").append("svg")
         .attr("width", width)
@@ -436,7 +466,7 @@ function drawPollingAverage(d) {
     }
 }
 
-function drawPastOccupancies(d) {
+function drawPastOccupancies(d, rcp, currData) {
     return;
 }
 

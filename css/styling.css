@@ -194,7 +194,12 @@ h1 {
 .fontTitle {
     font-family: Littler Serifada;
     font-size: 30px;
+}
 
+
+.fontTitleSmall {
+    font-family: Littler Serifada;
+    font-size: 20px;
 }
 
 .logo {
