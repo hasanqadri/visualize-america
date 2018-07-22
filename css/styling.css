@@ -60,7 +60,7 @@ h3 {
 }
 
 .w3-margin-bot-custom {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .w3-margin-top-custom1 {
@@ -74,11 +74,6 @@ h3 {
 text {
     font-size: 11px;
 }
-
-rect {
-    fill: none;
-}
-
 
 path {
     stroke-linejoin: round;
@@ -246,3 +241,4 @@ h1 {
 #head-title {
 
 }
+

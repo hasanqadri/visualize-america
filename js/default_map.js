@@ -13,6 +13,8 @@ var legend = null;
 var numSenStates = 16;
 var numGovStates = 11;
 var stateD = null;
+var past_senD = null;
+var past_govD = null;
 function default_map() {
     var width = 1000,
         height = 700;
@@ -72,9 +74,11 @@ function default_map() {
         .defer(d3.json, "./Data/us-senate.json")
         .defer(d3.json, "./Data/rcp-senate-abbr.json")
         .defer(d3.json, "./Data/state-abbr.json")
+        .defer(d3.json, "./Data/past-senators.json")
+        .defer(d3.json, "./Data/past-governors.json")
         .await(ready);
 
-    function ready(error, us, governor, rcpg, senate, rcps, state_abbr) {
+    function ready(error, us, governor, rcpg, senate, rcps, state_abbr, past_sen, past_gov) {
         if (error) throw error;
         usD = us;
         governorD = governor;
@@ -82,6 +86,8 @@ function default_map() {
         senateD = senate;
         rcpsD = rcps;
         stateD = state_abbr;
+        past_senD = past_sen;
+        past_govD = past_gov;
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
@@ -107,8 +113,7 @@ function default_map() {
             })
             .on('click', function(d) {
                 updateSidePane(d);
-
-            })
+            });
 
         svg.append("g")
             .attr("class", "bubble")
@@ -399,12 +404,12 @@ function updateSidePane(d) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
                     console.log(candidates)
-                    document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
+                    document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                     document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
                     drawPollingAverage(candidates);
-                    drawPastOccupancies(d, rcpsD[y]);
+                    drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
                 }
             }
         } else if (selectedOption === "United States Governor") {
@@ -413,12 +418,12 @@ function updateSidePane(d) {
                     for (var y = 0; y < numGovStates; y++) {
                         if (d.properties.STATE_ABBR === rcpgD[y].state) {
                             var candidates = getCandidatesAndLead(rcpgD[y]);
-                            document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + "(D) v. " + candidates["(R)"][0] + "(R)";
+                            document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                             document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                             document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                             document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
                             drawPollingAverage(candidates);
-                            drawPastOccupancies(d, rcpgD[y], governorD[x]);
+                            drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
                         }
                     }
                 }

@@ -45,7 +45,7 @@ function drawPollingAverage(dataset) {
         .attr({
             d: arc,
             fill: function (d, i) {
-                return d.data.party == "R" ? '#c5111e' : "#1110a6";
+                return d.data.party == "R" ? '#c5111e' : "#1110a6" ;
             }
         });
 
