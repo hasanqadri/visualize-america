@@ -15,9 +15,8 @@ var numGovStates = 11;
 var stateD = null;
 var past_senD = null;
 var past_govD = null;
-var state_fullD = null;
 function default_map() {
-    var width = 1000,
+    var width = 1300,
         height = 700;
 
     var projection = d3.geo.albersUsa()
@@ -77,10 +76,9 @@ function default_map() {
         .defer(d3.json, "./Data/state-abbr.json")
         .defer(d3.json, "./Data/past-senators.json")
         .defer(d3.json, "./Data/past-governors.json")
-        .defer(d3.json, "./Data/state-abbr2.json")
         .await(ready);
 
-    function ready(error, us, governor, rcpg, senate, rcps, state_abbr, past_sen, past_gov, state_full) {
+    function ready(error, us, governor, rcpg, senate, rcps, state_abbr, past_sen, past_gov) {
         if (error) throw error;
         usD = us;
         governorD = governor;
@@ -90,7 +88,6 @@ function default_map() {
         stateD = state_abbr;
         past_senD = past_sen;
         past_govD = past_gov;
-        state_fullD = state_full;
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
@@ -117,7 +114,11 @@ function default_map() {
             .on('click', function(d) {
                 if (getView() != 'Default') {
                     document.getElementById("right-alt").style.visibility = 'hidden';
+                    document.getElementById("right-alt").style.display = 'none';
+
                     document.getElementById("right").style.visibility = 'visible';
+                    document.getElementById("right").style.display = 'block';
+
                     updateSidePane(d);
                 }
             });
@@ -143,8 +144,10 @@ function default_map() {
                 document.getElementById('current-map').checked = false;
                 currentMapChecked = false;
                 document.getElementById("right").style.visibility = 'hidden';
-                document.getElementById("right-alt").style.visibility = 'visible';
+                document.getElementById("right").style.display = 'none';
 
+                document.getElementById("right-alt").style.visibility = 'visible';
+                document.getElementById("right-alt").style.display = 'block';
                 var svg = d3.select('.default').transition();
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
                 checkIncumbent(svg);
@@ -191,13 +194,17 @@ function default_map() {
                 checkLegend();
 
                 document.getElementById("right").style.visibility = 'hidden';
+                document.getElementById("right").style.display = 'none';
+
                 document.getElementById("right-alt").style.visibility = 'visible';
+                document.getElementById("right-alt").style.display = 'block';
             });
 
     }
 }
 function determineStateColor(d) {
-    selectedOption = section;
+    e = document.getElementById("raceDropdown");
+    selectedOption = e.options[e.selectedIndex].value;
     if (selectedOption === "Default") {
         document.getElementById('head-title').innerHTML = 'United States of America';
         document.getElementById("incumbent").disabled = true;

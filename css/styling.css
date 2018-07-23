@@ -59,6 +59,20 @@ h3 {
     flex-direction: column;
 }
 
+.innerContainer2 {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.right {
+    position:absolute;
+}
+
+.right-alt {
+    position:absolute;
+}
+
 .flex-item{
     flex-grow: 1;
 }
@@ -220,7 +234,7 @@ h1 {
 /* Legend Position Style */
 .legend {
     position:absolute;
-    left:850px;
+    left:1150px;
     bottom:100px;
 }
 
@@ -246,3 +260,19 @@ h1 {
 
 }
 
+
+.axisGray line{
+    stroke: #807d85;
+}
+
+.axisGray path{
+    stroke: #807d85;
+}
+
+.axisGray text{
+    fill: #807d85;
+}
+
+path.domain {
+    fill: #807d85;
+}
