@@ -32,6 +32,7 @@ function drawPastOccupancies(data, past_senators) {
         .attr('fill', function(d){ return d == 'R' ? "#c5111e" : "#1110a6"})
         .style("stroke", "#f7fcff")
         .style("stroke-width", 2)
+
     spacer = 60
     current = 15
     chart.selectAll('text').data(dataArrKeys)

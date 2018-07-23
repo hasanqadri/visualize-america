@@ -112,6 +112,9 @@ function default_map() {
                     .style("opacity", 0);
             })
             .on('click', function(d) {
+                document.getElementById("right-alt").style.visibility = 'hidden';
+                document.getElementById("right").style.visibility = 'visible';
+
                 updateSidePane(d);
             });
 
@@ -135,13 +138,15 @@ function default_map() {
                 section = sect.options[sect.selectedIndex].value;
                 document.getElementById('current-map').checked = false;
                 currentMapChecked = false;
+                document.getElementById("right").style.visibility = 'hidden';
+                document.getElementById("right-alt").style.visibility = 'visible';
 
                 var svg = d3.select('.default').transition();
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
                 checkIncumbent(svg);
 
                 checkLegend();
-
+                updateGrid()
             });
 
         d3.select('#incumbent')
@@ -180,7 +185,11 @@ function default_map() {
                 }
 
                 checkLegend();
+
+                document.getElementById("right").style.visibility = 'hidden';
+                document.getElementById("right-alt").style.visibility = 'visible';
             });
+
     }
 }
 function determineStateColor(d) {
@@ -230,6 +239,23 @@ function colorMapByLead(d, numStates) {
                     return '#ff4941'
             } else if (party === 'I') {
                 return '#3cff49'
+            }
+        }
+    }
+    if (getView() == "United States Senator") {
+        for (var x = 0; x < senateD.results[0].members.length; x++) {
+            if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+                if (senateD.results[0].members[x].next_election == '2018') {
+                    return '#444149'
+                }
+            }
+        }
+    } else if (getView() == "United States Governor") {
+        notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE'];
+        for (var x = 0; x < governorD.length; x++) {
+            if (d.properties.STATE_ABBR === governorD[x].state_code) {
+                if (!(notInState.includes(governorD[x].state_code)))
+                    return '#444149'
             }
         }
     }
@@ -462,4 +488,21 @@ function getCandidatesAndLead(state) {
     return candidates;
 }
 
+function getPartyAndLead() {
+    candidates = {};
+    for (var key in state.polls) {
+        for (var names in state.polls[key]) {
+            if (names.includes("Spread")) {
+                candidateName = names;
+                candidateScore = parseInt(state.polls[key][names]);
+                name['name'] = candidateName;
+                name['party'] = candidateName.split(" ")[1].charAt(1);
+                name['lead'] = candidateScore;
 
+                candidates['leader'].push(name);
+            }
+        }
+        break;
+    }
+    return candidates;
+}
