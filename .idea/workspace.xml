@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fffbcf6-a536-43ec-9524-c5266c504602" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/federal_balance.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data/state-abbr2.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data/state-full-abbr.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Data/us-states.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Index.html" afterPath="$PROJECT_DIR$/Index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/default_map.js" afterPath="$PROJECT_DIR$/js/default_map.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/federal_balance.js" afterPath="$PROJECT_DIR$/js/federal_balance.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/polling_average.js" afterPath="$PROJECT_DIR$/js/polling_average.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -23,14 +26,14 @@
     <favorites_list name="visualize-america" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.11651054">
+    <splitter split-orientation="horizontal" split-proportion="0.9">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="default_map.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="default_map.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/default_map.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="531">
-                  <caret line="438" column="27" lean-forward="false" selection-start-line="438" selection-start-column="20" selection-end-line="438" selection-end-column="27" />
+                <state relative-caret-position="-1443">
+                  <caret line="433" column="0" lean-forward="false" selection-start-line="433" selection-start-column="0" selection-end-line="435" selection-end-column="68" />
                   <folding />
                 </state>
               </provider>
@@ -39,18 +42,38 @@
           <file leaf-file-name="us2.json" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Data/us2.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="891">
+                <state relative-caret-position="513">
                   <caret line="0" column="1456" lean-forward="false" selection-start-line="0" selection-start-column="1444" selection-end-line="0" selection-end-column="1456" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="federal_balance.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="federal_balance.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/federal_balance.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="54">
-                  <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+                <state relative-caret-position="490">
+                  <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="state-abbr.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Data/state-abbr.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="27">
+                  <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="18" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="state-abbr2.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Data/state-abbr2.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
@@ -70,11 +93,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="733">
-                  <caret line="81" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+                <state relative-caret-position="216">
+                  <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -86,11 +109,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="polling_average.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="polling_average.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/polling_average.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="81">
-                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+                <state relative-caret-position="1647">
+                  <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="25" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="past_occupancies.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-536">
+                  <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -99,8 +132,8 @@
           <file leaf-file-name="default_seats.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/default_seats.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="594">
-                  <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="68" selection-end-column="9" />
+                <state relative-caret-position="729">
+                  <caret line="69" column="16" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -120,8 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>2000</find>
-      <find>checke</find>
       <find>print</find>
       <find>ul</find>
       <find>head-ti</find>
@@ -148,16 +179,18 @@
       <find>#bbb</find>
       <find>console</find>
       <find>conso</find>
-      <find>drawPas</find>
       <find>svg</find>
+      <find>:</find>
+      <find>&quot;&quot;</find>
+      <find>drawPas</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>1500</replace>
       <replace>d3v4</replace>
       <replace>#bbb</replace>
-      <replace>#c7c7c7</replace>
       <replace>#c7c7c7Z</replace>
+      <replace>#c7c7c7</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -191,11 +224,13 @@
         <option value="$PROJECT_DIR$/css/styling.css" />
         <option value="$PROJECT_DIR$/js/default_seats.js" />
         <option value="$PROJECT_DIR$/js/lib/federal_balance.js" />
+        <option value="$PROJECT_DIR$/js/past_occupancies.js" />
+        <option value="$PROJECT_DIR$/js/polling_average.js" />
+        <option value="$PROJECT_DIR$/Data/state-full-abbr.json" />
+        <option value="$PROJECT_DIR$/Data/state-abbr2" />
+        <option value="$PROJECT_DIR$/js/default_map.js" />
         <option value="$PROJECT_DIR$/Index.html" />
         <option value="$PROJECT_DIR$/js/federal_balance.js" />
-        <option value="$PROJECT_DIR$/js/default_map.js" />
-        <option value="$PROJECT_DIR$/js/polling_average.js" />
-        <option value="$PROJECT_DIR$/js/past_occupancies.js" />
       </list>
     </option>
   </component>
@@ -206,8 +241,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="256" />
-    <option name="y" value="-17" />
+    <option name="x" value="1769" />
+    <option name="y" value="-19" />
     <option name="width" value="1918" />
     <option name="height" value="1038" />
   </component>
@@ -259,8 +294,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="O:\git-work\vike\js" />
       <recent name="O:\git-work\vike\Data" />
+      <recent name="O:\git-work\vike\js" />
       <recent name="O:\git-work\vike\scripts" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -888,15 +923,15 @@
       <workItem from="1531107094710" duration="25129000" />
       <workItem from="1531972911603" duration="57387000" />
       <workItem from="1532207739750" duration="12292000" />
-      <workItem from="1532234738335" duration="47093000" />
+      <workItem from="1532234738335" duration="56427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141901000" />
+    <option name="totallyTimeSpent" value="151235000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -943,28 +978,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/default_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="2" lean-forward="false" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/w3.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1701">
@@ -1193,14 +1206,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/state-abbr.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -1273,14 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/federal_balance.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/us.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1289,9 +1286,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/default_seats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="69" column="16" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-536">
+          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/polling_average.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1647">
+          <caret line="61" column="25" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/state-abbr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/state-full-abbr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/state-abbr2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/default_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1443">
+          <caret line="433" column="0" lean-forward="false" selection-start-line="433" selection-start-column="0" selection-end-line="435" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Data/us2.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
+        <state relative-caret-position="513">
           <caret line="0" column="1456" lean-forward="false" selection-start-line="0" selection-start-column="1444" selection-end-line="0" selection-end-column="1456" />
           <folding />
         </state>
@@ -1299,8 +1352,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1311,34 +1364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/default_seats.js">
+    <entry file="file://$PROJECT_DIR$/js/federal_balance.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="68" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/default_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="438" column="27" lean-forward="false" selection-start-line="438" selection-start-column="20" selection-end-line="438" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/polling_average.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="490">
+          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding />
         </state>
       </provider>

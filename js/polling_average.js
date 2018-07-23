@@ -52,7 +52,7 @@ function drawPollingAverage(dataset) {
         .enter()
         .append("text")
         .transition()
-        .duration(200)
+        .duration(1000)
         .attr("transform", function (d) {
             return "translate(" + arc.centroid(d) + ")";
         })
