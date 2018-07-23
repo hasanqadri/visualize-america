@@ -15,6 +15,7 @@ var numGovStates = 11;
 var stateD = null;
 var past_senD = null;
 var past_govD = null;
+
 function default_map() {
     var width = 1000,
         height = 700;
@@ -36,7 +37,7 @@ function default_map() {
 
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#003296","#084eb3","#1d90ff", "#807d85", "#ff4941", "#bf1700", "#760d0f" ]);
+        .range(["#003296","#084eb3","#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f" ]);
     color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -112,10 +113,11 @@ function default_map() {
                     .style("opacity", 0);
             })
             .on('click', function(d) {
-                document.getElementById("right-alt").style.visibility = 'hidden';
-                document.getElementById("right").style.visibility = 'visible';
-
-                updateSidePane(d);
+                if (getView() != 'Default') {
+                    document.getElementById("right-alt").style.visibility = 'hidden';
+                    document.getElementById("right").style.visibility = 'visible';
+                    updateSidePane(d);
+                }
             });
 
         svg.append("g")
@@ -362,7 +364,7 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range(["#003296","#084eb3","#1d90ff", "#807d85", "#ff4941", "#bf1700", "#760d0f" ]);
+            .range(["#003296","#084eb3","#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f" ]);
         color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
         var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -429,7 +431,6 @@ function updateSidePane(d) {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
-                    console.log(candidates)
                     document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';

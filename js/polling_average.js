@@ -1,8 +1,6 @@
 var svg = null;
 function drawPollingAverage(dataset) {
-    console.log(dataset['niceTry'])
     if (svg !== null) {
-        console.log('in if')
         d3.select('#do').remove()
     }
     var pie = d3.layout.pie()

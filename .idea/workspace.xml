@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fffbcf6-a536-43ec-9524-c5266c504602" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/default_seats.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/lib/federal_balance.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Index.html" afterPath="$PROJECT_DIR$/Index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/styling.css" afterPath="$PROJECT_DIR$/css/styling.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/default_map.js" afterPath="$PROJECT_DIR$/js/default_map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/past_occupancies.js" afterPath="$PROJECT_DIR$/js/past_occupancies.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/polling_average.js" afterPath="$PROJECT_DIR$/js/polling_average.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -26,74 +23,34 @@
     <favorites_list name="visualize-america" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.89635414">
+    <splitter split-orientation="horizontal" split-proportion="0.11651054">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="governor_map.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/governor_map.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="517">
-                  <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="default_map.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="default_map.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/default_map.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="27">
-                  <caret line="244" column="4" lean-forward="false" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
+                <state relative-caret-position="531">
+                  <caret line="438" column="27" lean-forward="false" selection-start-line="438" selection-start-column="20" selection-end-line="438" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="senate_map.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/senate_map.js">
+          <file leaf-file-name="us2.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Data/us2.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="915">
-                  <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="35" />
+                <state relative-caret-position="891">
+                  <caret line="0" column="1456" lean-forward="false" selection-start-line="0" selection-start-column="1444" selection-end-line="0" selection-end-column="1456" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="default_seats.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/default_seats.js">
+          <file leaf-file-name="federal_balance.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/federal_balance.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="us-senate.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Data/us-senate.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-216">
-                  <caret line="386" column="2" lean-forward="false" selection-start-line="386" selection-start-column="2" selection-end-line="386" selection-end-column="2" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="past-senators.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Data/past-senators.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="polling_average.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/polling_average.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-324">
-                  <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+                <state relative-caret-position="54">
+                  <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -103,11 +60,21 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="governor_map.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/governor_map.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="179">
+                  <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="422">
-                  <caret line="74" column="48" lean-forward="false" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
+                <state relative-caret-position="733">
+                  <caret line="81" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -119,41 +86,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="past_occupancies.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
+          <file leaf-file-name="polling_average.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/polling_average.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="729">
-                  <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+                <state relative-caret-position="81">
+                  <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="rcp-senate-abbr.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Data/rcp-senate-abbr.json">
+          <file leaf-file-name="default_seats.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/default_seats.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2189">
-                  <caret line="393" column="10" lean-forward="true" selection-start-line="393" selection-start-column="10" selection-end-line="393" selection-end-column="10" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="w3.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/css/w3.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="63" column="67" lean-forward="false" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="styling.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/css/styling.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+                <state relative-caret-position="594">
+                  <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="68" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -173,9 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select</find>
-      <find>senate</find>
-      <find>rcpD</find>
       <find>2000</find>
       <find>checke</find>
       <find>print</find>
@@ -196,20 +140,24 @@
       <find>#right</find>
       <find>hidden</find>
       <find>NV</find>
-      <find>console</find>
       <find>click</find>
       <find>HTML</find>
       <find>visible</find>
       <find>type</find>
-      <find>#bbb</find>
       <find>#c7c7c7</find>
+      <find>#bbb</find>
+      <find>console</find>
+      <find>conso</find>
+      <find>drawPas</find>
+      <find>svg</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>1500</replace>
       <replace>d3v4</replace>
-      <replace>#c7c7c7</replace>
       <replace>#bbb</replace>
+      <replace>#c7c7c7</replace>
+      <replace>#c7c7c7Z</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -240,12 +188,14 @@
         <option value="$PROJECT_DIR$/js/governor_map.js" />
         <option value="$PROJECT_DIR$/js/senate_map.js" />
         <option value="$PROJECT_DIR$/Data/rcp-senate-abbr.json" />
-        <option value="$PROJECT_DIR$/js/past_occupancies.js" />
-        <option value="$PROJECT_DIR$/js/polling_average.js" />
         <option value="$PROJECT_DIR$/css/styling.css" />
-        <option value="$PROJECT_DIR$/Index.html" />
-        <option value="$PROJECT_DIR$/js/default_map.js" />
         <option value="$PROJECT_DIR$/js/default_seats.js" />
+        <option value="$PROJECT_DIR$/js/lib/federal_balance.js" />
+        <option value="$PROJECT_DIR$/Index.html" />
+        <option value="$PROJECT_DIR$/js/federal_balance.js" />
+        <option value="$PROJECT_DIR$/js/default_map.js" />
+        <option value="$PROJECT_DIR$/js/polling_average.js" />
+        <option value="$PROJECT_DIR$/js/past_occupancies.js" />
       </list>
     </option>
   </component>
@@ -287,12 +237,7 @@
             <path>
               <item name="vike" type="b2602c69:ProjectViewProjectNode" />
               <item name="vike" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vike" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vike" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -313,13 +258,13 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="O:\git-work\vike\Data" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="O:\git-work\vike\js" />
       <recent name="O:\git-work\vike\Data" />
       <recent name="O:\git-work\vike\scripts" />
-      <recent name="O:\git-work\vike\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="O:\git-work\vike\Data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -943,12 +888,12 @@
       <workItem from="1531107094710" duration="25129000" />
       <workItem from="1531972911603" duration="57387000" />
       <workItem from="1532207739750" duration="12292000" />
-      <workItem from="1532234738335" duration="39452000" />
+      <workItem from="1532234738335" duration="47093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134260000" />
+    <option name="totallyTimeSpent" value="141901000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -966,7 +911,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.110416666" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110416666" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -993,19 +938,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/senate_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="78" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/default_map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1184,13 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/us2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-621">
-          <caret line="0" column="202" lean-forward="false" selection-start-line="0" selection-start-column="202" selection-end-line="0" selection-end-column="202" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/senate/rcp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1210,13 +1140,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/us.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="0" column="476" lean-forward="false" selection-start-line="0" selection-start-column="474" selection-end-line="0" selection-end-column="476" />
         </state>
       </provider>
     </entry>
@@ -1310,72 +1233,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="74" column="48" lean-forward="false" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/polling_average.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/governor_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/past-senators.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/us-senate.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="386" column="2" lean-forward="false" selection-start-line="386" selection-start-column="2" selection-end-line="386" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/us-governor.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="1" lean-forward="true" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/default_map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="244" column="4" lean-forward="false" selection-start-line="244" selection-start-column="4" selection-end-line="244" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1388,10 +1249,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Data/us-senate.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="386" column="2" lean-forward="false" selection-start-line="386" selection-start-column="2" selection-end-line="386" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/past-senators.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/governor_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/federal_balance.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/us.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="0" column="476" lean-forward="false" selection-start-line="0" selection-start-column="474" selection-end-line="0" selection-end-column="476" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/us2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="0" column="1456" lean-forward="false" selection-start-line="0" selection-start-column="1444" selection-end-line="0" selection-end-column="1456" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/default_seats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="66" column="9" lean-forward="false" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+        <state relative-caret-position="594">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="68" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/default_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="438" column="27" lean-forward="false" selection-start-line="438" selection-start-column="20" selection-end-line="438" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/past_occupancies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/polling_average.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
