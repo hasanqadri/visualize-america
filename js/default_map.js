@@ -50,7 +50,8 @@ function default_map() {
         .data(color.domain())
         .enter()
         .append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+        .style('visibility', 'hidden');
 
     legend.append("rect")
         .attr("width", 18)
@@ -157,8 +158,7 @@ function default_map() {
                 }
                 checkLegend();
                 updateGrid()
-
-                pollingPlacement(determineStateColor)
+                updateGraph(determineStateColor)
 
             });
 
@@ -179,20 +179,20 @@ function default_map() {
                 section = sect.options[sect.selectedIndex].value;
                 currentMapChecked = !currentMapChecked;
                 var svg = d3.select('.default').transition();
-
                 if (currentMapChecked != true) {
                     svg.selectAll('.states').duration(2000).attr('fill', determineStateColor)
                     checkIncumbent(svg)
-                    pollingPlacement(determineStateColor)
+                    updateGraph(determineStateColor)
                 } else {
                     if (section === "United States Senator") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentSenators);
-                        pollingPlacement(getCurrentSenators)
+                        updateGraph(getCurrentSenators)
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentSenators);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentSenators);
                     } else if (section === "United States Governor") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors);
-                        pollingPlacement(getCurrentGovernors)
+                        updateGraph(getCurrentGovernors)
+                        
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentGovernors);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentGovernors);
                     } else {
@@ -201,12 +201,13 @@ function default_map() {
                 }
 
                 checkLegend();
+                if (currentMapChecked) {
+                    document.getElementById("right").style.visibility = 'hidden';
+                    document.getElementById("right").style.display = 'none';
 
-                document.getElementById("right").style.visibility = 'hidden';
-                document.getElementById("right").style.display = 'none';
-
-                document.getElementById("right-alt").style.visibility = 'visible';
-                document.getElementById("right-alt").style.display = 'block';
+                    document.getElementById("right-alt").style.visibility = 'visible';
+                    document.getElementById("right-alt").style.display = 'block';
+                }
             });
     }
 }
@@ -345,39 +346,7 @@ function getCandidateInfo(state) {
 }
 
 function checkLegend() {
-    if (currentMapChecked) {
-        legend.remove();
-        // Define linear scale for output
-        var color = d3.scale.linear()
-            .range(["#9c1ecb","#22cb30","#cb181d","#084594" ]);
-        color.domain([0,1,2,3]); // setting the range of the input data
-
-        var legendText = ["Mixed", "Independent", "Republican", "Democrat"];
-
-        // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-        legend = d3.select("body").append("svg")
-            .attr("class", "legend")
-            .attr("width", 140)
-            .attr("height", 200)
-            .selectAll("g")
-            .data(color.domain())
-            .enter()
-            .append("g")
-            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-        legend.append("rect")
-            .attr("width", 18)
-            .attr("height", 18)
-            .style("fill", color);
-
-        legend.append("text")
-            .data(legendText)
-            .attr("x", 24)
-            .attr("y", 9)
-            .attr("dy", ".35em")
-            .text(function(d) { return d; });
-    } else {
-
+    if (selectedOption =='Default') {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
@@ -395,8 +364,8 @@ function checkLegend() {
             .data(color.domain())
             .enter()
             .append("g")
-            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
+            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+            .style('visibility', 'hidden');
         legend.append("rect")
             .attr("width", 18)
             .attr("height", 18)
@@ -408,8 +377,76 @@ function checkLegend() {
             .attr("y", 9)
             .attr("dy", ".35em")
             .text(function(d) { return d; });
+    } else {
+        if (currentMapChecked) {
+            legend.remove();
+            // Define linear scale for output
+            var color = d3.scale.linear()
+                .range(["#9c1ecb","#22cb30","#cb181d","#084594" ]);
+            color.domain([0,1,2,3]); // setting the range of the input data
 
-    }
+            var legendText = ["Mixed", "Independent", "Republican", "Democrat"];
+
+            // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
+            legend = d3.select("body").append("svg")
+                .attr("class", "legend")
+                .attr("width", 140)
+                .attr("height", 200)
+                .selectAll("g")
+                .data(color.domain())
+                .enter()
+                .append("g")
+                .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+            legend.append("rect")
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", color);
+
+            legend.append("text")
+                .data(legendText)
+                .attr("x", 24)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .text(function(d) { return d; });
+        } else {
+
+            legend.remove();
+            // Define linear scale for output
+            var color = d3.scale.linear()
+                .range(["#003296", "#084eb3", "#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f"]);
+            color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
+
+            var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
+
+            // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
+            legend = d3.select("body").append("svg")
+                .attr("class", "legend")
+                .attr("width", 140)
+                .attr("height", 200)
+                .selectAll("g")
+                .data(color.domain())
+                .enter()
+                .append("g")
+                .attr("transform", function (d, i) {
+                    return "translate(0," + i * 20 + ")";
+                });
+
+            legend.append("rect")
+                .attr("width", 18)
+                .attr("height", 18)
+                .style("fill", color);
+
+            legend.append("text")
+                .data(legendText)
+                .attr("x", 24)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .text(function (d) {
+                    return d;
+                });
+            }
+        }
 }
 
 function checkIncumbent(svg) {
@@ -516,7 +553,7 @@ function getPartyAndLead(state) {
         for (var names in state.polls[key]) {
             if (names.includes("Spread")) {
                 candidateName = state.polls[key]['Spread'].split(' ')[0]
-                candidateScore = parseInt(state.polls[key]['Spread'].split(' ')[1].charAt(1));
+                candidateScore = parseInt(state.polls[key]['Spread'].split(' ')[1].split('+')[1]);
                 name['name'] = candidateName;
                 name['lead'] = candidateScore;
             } else {

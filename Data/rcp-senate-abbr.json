@@ -312,9 +312,9 @@
     {
         "polls": {
             "GravisGravis": {
-                "Cramer (R)": "40",
-                "Heitkamp (D)": "43",
-                "Spread": "Heitkamp +3"
+                "Cramer (R)": "43",
+                "Heitkamp (D)": "40",
+                "Spread": "Cramer +3"
             },
             "Mason-DixonMason-Dixon": {
                 "Cramer (R)": "48",
