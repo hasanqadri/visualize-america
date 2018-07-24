@@ -150,7 +150,6 @@ function default_map() {
                 document.getElementById("right-alt").style.display = 'block';
                 var svg = d3.select('.default').transition();
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
-                updateFederalBalance();
 
                 checkIncumbent(svg);
                 if (selectedOption == 'Default') {
@@ -158,6 +157,9 @@ function default_map() {
                 }
                 checkLegend();
                 updateGrid()
+
+                pollingPlacement(determineStateColor)
+
             });
 
         d3.select('#incumbent')
@@ -181,16 +183,16 @@ function default_map() {
                 if (currentMapChecked != true) {
                     svg.selectAll('.states').duration(2000).attr('fill', determineStateColor)
                     checkIncumbent(svg)
-                    updateFederalBalance();
+                    pollingPlacement(determineStateColor)
                 } else {
                     if (section === "United States Senator") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentSenators);
-                        updateFederalBalance();
+                        pollingPlacement(getCurrentSenators)
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentSenators);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentSenators);
                     } else if (section === "United States Governor") {
-                        svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors)
-                        updateFederalBalance();
+                        svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors);
+                        pollingPlacement(getCurrentGovernors)
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentGovernors);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentGovernors);
                     } else {
@@ -504,22 +506,27 @@ function getCandidatesAndLead(state) {
     return candidates;
 }
 
-function getPartyAndLead() {
-    candidates = {};
+function getPartyAndLead(state) {
+    var candidates = []
+    var candidateName = null
+    var candidateScore = null;
+    var canNames = {}
+    var name = {}
     for (var key in state.polls) {
         for (var names in state.polls[key]) {
             if (names.includes("Spread")) {
-                candidateName = names;
-                candidateScore = parseInt(state.polls[key][names]);
+                candidateName = state.polls[key]['Spread'].split(' ')[0]
+                candidateScore = parseInt(state.polls[key]['Spread'].split(' ')[1].charAt(1));
                 name['name'] = candidateName;
-                name['party'] = candidateName.split(" ")[1].charAt(1);
                 name['lead'] = candidateScore;
-
-                candidates['leader'].push(name);
+            } else {
+                canNames[names.split(' ')[0]] = names.split(' ')[1].charAt(1)
             }
         }
+        name['party'] = canNames[name['name']];
+
         break;
     }
-    return candidates;
+    return name;
 }
 

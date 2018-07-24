@@ -1,6 +1,7 @@
 var state_fullD =null;
 var x = 0;
 var y = 0;
+var str = ''
 function federal_balance() {
     document.getElementById("federalBalance").innerHTML = 'State Leanings';
 
@@ -75,7 +76,7 @@ function getLeadsX() {
  */
 
 function initialPlacement() {
-    var xOrigin= 1380
+    var xOrigin=  1380
     var yOrigin = 500
     var x = 0;
     var y = 0;
@@ -85,18 +86,15 @@ function initialPlacement() {
 
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
-        var str = '#' + obj.id;
-        d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(3000);
-        xOrigin = xOrigin + 90
-        if (row % 6 == 0) {
+        str = '#' + obj.id;
+        d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(500);
+        xOrigin = xOrigin + 76
+        if (row % 7 == 0) {
             row = 1
-            yOrigin = yOrigin + 20
+            yOrigin = yOrigin + 15
             xOrigin = 1380
         }
         row++;
-        if (obj.id == 'FL') {
-            console.log(obj.getBoundingClientRect())
-        }
     });
 
 }
@@ -104,33 +102,62 @@ function initialPlacement() {
 /**
  * Place states according to lead and occupancy
  */
-function pollingPlacement() {
-    var xOrigin= 1380
-    var yOrigin = 500
+function pollingPlacement(methodCall) {
+
     var x = 0;
     var y = 0;
     var row = 1;
+    var map = null
+    var svg = d3.select('#federal-balance').transition();
+    svg.selectAll('.balance').duration(500).attr('fill', methodCall);
     $('.balance').each(function(i, obj) {
-        console.log(obj)
-        console.log(obj.getBoundingClientRect());
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
-        var str = '#' + obj.id;
-        d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(3000);
-        xOrigin = xOrigin + 90
-        if (row % 6 == 0) {
-            row = 1
-            yOrigin = yOrigin + 20
-            xOrigin = 1380
+        map = assistUpdate(obj.id)
+        if (map == undefined || map == null) {
+            str = '#' + obj.id;
+            if (y > 0) {
+                var curr_tran =d3.selectAll(str).transition().attr('transform', 'translate(0, -500)').duration(500)
+                curr_tran.transition().attr('fill', methodCall).duration(500)
+            } else {
+                var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, 500)').duration(500);
+                curr_tran.transition().attr('fill', methodCall).duration(500)
+            }
+        } else {
+            var moveX = 0;
+            var moveY = 0;
+            str = '#' + obj.id;
+            moveXY = calcXY(x, y, map, obj);
+            var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(' + moveXY[0] + ',' + moveXY[1] + ')').duration(3000);
+            curr_tran.transition().attr('fill', methodCall).duration(500);
         }
-        row++;
+        map = null
     });
 
 }
 
-function updateFederalBalance() {
-    var svg = d3.select('#federal-balance').transition();
-    svg.selectAll('.balance').duration(2000).attr('fill', determineStateColor);
+function calcXY(x, y, map, obj) {
+    var xOrigin= 1764
+    var yOrigin = 715
+
+    if (currentMapChecked) {
+
+        if (map['party'] =='R') {
+            if (obj.id == 'TX') {
+                console.log('here')
+                return [xOrigin - x + 160, yOrigin - y]
+            }
+            return [xOrigin - x + 100, yOrigin - y]
+        } else {
+            return [xOrigin - x - 100, yOrigin - y]
+        }
+    } else {
+        if (map['party'] =='R') {
+            return [xOrigin - x + 160, yOrigin - y]
+        } else {
+            return [xOrigin - x - 160, yOrigin - y]
+        }
+    }
 }
 
 function createScale(width) {
@@ -160,16 +187,14 @@ function assistUpdate(state_abbr) {
                 return getPartyAndLead(rcpsD[y]);
             }
         }
+        return null
     } else if (selectedOption === "United States Governor") {
-        for (var x = 0; x < governorD.length; x++) {
-            if (d.properties.STATE_ABBR === governorD[x].state_code) {
-                for (var y = 0; y < numGovStates; y++) {
-                    if (state_abbr === rcpgD[y].state) {
-                        return getPartyAndLead(rcpgD[y]);
-                    }
-                }
+        for (var y = 0; y < numGovStates; y++) {
+            if (state_abbr === rcpgD[y].state) {
+                return getPartyAndLead(rcpgD[y]);
             }
         }
+        return null
     } else {
         console.log("bug")
     }
