@@ -150,8 +150,12 @@ function default_map() {
                 document.getElementById("right-alt").style.display = 'block';
                 var svg = d3.select('.default').transition();
                 svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
-                checkIncumbent(svg);
+                updateFederalBalance();
 
+                checkIncumbent(svg);
+                if (selectedOption == 'Default') {
+                    checked = false;
+                }
                 checkLegend();
                 updateGrid()
             });
@@ -175,15 +179,18 @@ function default_map() {
                 var svg = d3.select('.default').transition();
 
                 if (currentMapChecked != true) {
-                    svg.selectAll('.states').duration(2000).attr('fill', determineStateColor);
+                    svg.selectAll('.states').duration(2000).attr('fill', determineStateColor)
                     checkIncumbent(svg)
+                    updateFederalBalance();
                 } else {
                     if (section === "United States Senator") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentSenators);
+                        updateFederalBalance();
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentSenators);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentSenators);
                     } else if (section === "United States Governor") {
-                        svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors);
+                        svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors)
+                        updateFederalBalance();
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentGovernors);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentGovernors);
                     } else {
@@ -199,7 +206,6 @@ function default_map() {
                 document.getElementById("right-alt").style.visibility = 'visible';
                 document.getElementById("right-alt").style.display = 'block';
             });
-
     }
 }
 function determineStateColor(d) {
@@ -413,7 +419,6 @@ function checkIncumbent(svg) {
             svg.selectAll('circle').duration(2000).attr('fill', governorCircle);
             svg.selectAll('circle').duration(2000).style('stroke', governorCircleBorders);
         } else {
-            console.log('bug');
             svg.selectAll('circle').duration(2000).attr('fill', determineStateColor);
             svg.selectAll('circle').duration(2000).style('stroke', determineStateColor);
         }
@@ -517,3 +522,4 @@ function getPartyAndLead() {
     }
     return candidates;
 }
+

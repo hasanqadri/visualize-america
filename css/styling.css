@@ -52,6 +52,8 @@ h3 {
 .container{
     display: flex;
     flex-direction: row;
+    background: #fff;
+
 }
 
 .innerContainer {
@@ -275,4 +277,16 @@ h1 {
 
 path.domain {
     fill: #807d85;
+}
+
+
+.axis path,
+.axis tick,
+.axis line {
+    fill: none;
+    stroke: none;
+}
+
+#x-axis text {
+
 }
