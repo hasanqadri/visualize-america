@@ -158,7 +158,8 @@ function default_map() {
                 }
                 checkLegend();
                 updateGrid()
-                updateGraph(determineStateColor)
+                pollingPlacement(determineStateColor)
+
 
             });
 
@@ -182,17 +183,14 @@ function default_map() {
                 if (currentMapChecked != true) {
                     svg.selectAll('.states').duration(2000).attr('fill', determineStateColor)
                     checkIncumbent(svg)
-                    updateGraph(determineStateColor)
                 } else {
                     if (section === "United States Senator") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentSenators);
-                        updateGraph(getCurrentSenators)
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentSenators);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentSenators);
                     } else if (section === "United States Governor") {
                         svg.selectAll('.states').duration(2000).attr('fill', getCurrentGovernors);
-                        updateGraph(getCurrentGovernors)
-                        
+
                         svg.selectAll('circle').duration(2000).attr('fill', getCurrentGovernors);
                         svg.selectAll('circle').duration(2000).style('stroke', getCurrentGovernors);
                     } else {

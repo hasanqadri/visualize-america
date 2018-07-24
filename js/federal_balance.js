@@ -60,6 +60,7 @@ function federal_balance() {
             .style("stroke-width", "1");
 
         // d3.select('#AL').transition().attr('transform', 'translate(0,' + -50 +')').duration(3000);
+
         initialPlacement()
     }
 
@@ -77,21 +78,25 @@ function initialPlacement() {
     var yOrigin = 500
     var x = 0;
     var y = 0;
-    var row = 1;
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
-
+        if (obj.id == 'NY') {
+            console.log(obj.id)
+            console.log(obj.getBoundingClientRect())
+        } else if (obj.id == 'MA') {
+            console.log(obj.id)
+            console.log(obj.getBoundingClientRect())
+        } else if (obj.id == 'ME') {
+            console.log(obj.id)
+            console.log(obj.getBoundingClientRect())
+        } else if (obj.id == 'VA') {
+            console.log(obj.id)
+            console.log(obj.getBoundingClientRect())
+        }
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
         d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(500);
-        xOrigin = xOrigin + 76
-        if (row % 7 == 0) {
-            row = 1
-            yOrigin = yOrigin + 15
-            xOrigin = 1380
-        }
-        row++;
 
     });
 
@@ -119,40 +124,40 @@ function pollingPlacement(methodCall) {
     repArr20 = [];
     svg.selectAll('.balance').duration(500).attr('fill', methodCall);
     $('.balance').each(function (i, obj) {
-        x = obj.getBoundingClientRect().x;
-        y = obj.getBoundingClientRect().y;
         map = null
         map = assistUpdate(obj.id)
         str = '#' + obj.id;
-        console.log(obj.getBoundingClientRect().x)
         if (map == undefined || map == null) {
-            var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, -500)').duration(500)
-            curr_tran.transition().attr('fill', "#fff").duration(500)
+            //var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, -500)').duration(500)
+            d3.selectAll(str).transition().attr('opacity', "0").duration(500)
         } else {
             map['obj'] = obj
-            console.log(map)
+            x = obj.getBoundingClientRect().x;
+            y = obj.getBoundingClientRect().y;
+            console.log(x)
+            console.log(y)
             if (map['party'] === 'R') {
                 if (map['lead'] > 20) {
-                    repArr20.push([x,y, str])
+                    repArr20.push([x,y, str, obj])
                 } else if (map['lead'] > 10) {
-                    repArr10.push([x,y, str]);
+                    repArr10.push([x,y, str, obj]);
                 } else if (map['lead'] > 5) {
-                    repArr5.push(map[x,y, str]);
+                    repArr5.push([x,y, str, obj]);
                 } else {
-                    repArr.push([x,y, str]);
+                    repArr.push([x,y, str, obj]);
                 }
             } else if (map['party'] === 'D') {
                 if (map['lead'] > 20) {
-                    demArr20.push([x,y, str])
+                    demArr20.push([x,y, str, obj])
                 } else if (map['lead'] > 10) {
-                    demArr10.push([x,y, str]);
+                    demArr10.push([x,y, str, obj]);
                 } else if (map['lead'] > 5) {
-                    demArr5.push([x,y, str]);
+                    demArr5.push([x,y, str, obj]);
                 } else {
-                    demArr.push([x,y, str]);
+                    demArr.push([x,y, str, obj]);
                 }
             } else {
-                indArr.push([x,y, str]);
+                indArr.push([x,y, str, obj]);
             }
         }
     });
@@ -160,14 +165,58 @@ function pollingPlacement(methodCall) {
     console.log(demArr10)
     console.log(demArr5)
     console.log(demArr)
+    console.log(repArr)
+    console.log(repArr5)
+    console.log(repArr10)
+    console.log(repArr20)
 
-
-    fillingBuckets(methodCall);
+    var sect = document.getElementById("raceDropdown");
+    selectedOption = sect.options[sect.selectedIndex].value;
+    if (selectedOption == 'United States Governor') {
+        fillingSenBuckets(methodCall);
+    } else if (selectedOption == 'United States Senator') {
+        fillingGovBuckets(methodCall);
+    } else if (selectedOption == 'Default') {
+        fillingDefBuckets(methodCall);
+    }
 
 }
 
-function fillingBuckets(methodCall) {
-    var xOrigin = 1300
+function fillingSenBuckets(methodCall) {
+    var xOrigin = 1380
+    var yOrigin = 700
+    var x = 0;
+    var y = 0;
+    var z = 0
+    var curr_tran0 = null;
+    var curr_tran1 = null;
+    var curr_tran2 = null;
+    var curr_tran3 = null;
+    var curr_tran3 = null;
+    var curr_tran4 = null;
+    var curr_tran5 = null;
+    var curr_tran6 = null;
+    var curr_tran7 = null;
+
+
+    for (z = 0; z < demArr20.length; z++) {
+        $('.balance').each(function (i, obj) {
+
+            if (demArr20[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500);
+                curr_tran0.transition().attr('fill', methodCall).duration(500)
+                curr_tran0.transition().attr('opacity', 1).duration(500)
+            }
+        });
+    }
+}
+
+
+function fillingGovBuckets(methodCall) {
+    var xOrigin = 1380
     var yOrigin = 700
     var x = 0;
     var y = 0;
@@ -181,115 +230,166 @@ function fillingBuckets(methodCall) {
     var curr_tran6 = null;
     var curr_tran7 = null;
 
-    console.log(demArr20)
+
     for (z = 0; z < demArr20.length; z++) {
+        $('.balance').each(function (i, obj) {
 
-        x = demArr20[z][0]
-        y = demArr20[z][1]
-        curr_tran0 = d3.selectAll(demArr20[z][2]).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(500);
-        curr_tran0.transition().attr('fill', methodCall).duration(500)
+            if (demArr20[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-
-    xOrigin = 1480
-    yOrigin = 640
-    x = 0;
-    y = 0;
     for (z = 0; z < demArr10.length; z++) {
-        x = demArr10[z][0]
-        y = demArr10[z][1]
-        curr_tran1 = d3.selectAll(demArr10[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran1.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160    }
+        $('.balance').each(function (i, obj) {
 
-    xOrigin = 1480
-    yOrigin = 640
-    x = 0;
-    y = 0;
+            if (demArr10[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -300 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
+    }
+
     for (z = 0; z < demArr5.length; z++) {
+        $('.balance').each(function (i, obj) {
 
-        x = demArr5[z][0]
-        y = demArr5[z][1]
-        curr_tran2 = d3.selectAll(demArr5[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran2.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+            if (demArr5[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -250 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-     xOrigin = 1480
-     yOrigin = 640
-     x = 0;
-     y = 0;
     for (z = 0; z < demArr.length; z++) {
+        $('.balance').each(function (i, obj) {
 
-        x = demArr[z][0]
-        y = demArr[z][1]
-        curr_tran3 = d3.selectAll(demArr[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran3.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+            if (demArr[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -150 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-
-     xOrigin = 1780
-     yOrigin = 740
-     x = 0;
-     y = 0;
     for (z = 0; z < repArr.length; z++) {
+        $('.balance').each(function (i, obj) {
 
-        x = repArr[z][0]
-        y = repArr[z][1]
-        curr_tran4 = d3.selectAll(repArr[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran4.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+            if (repArr[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 50 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-    xOrigin = 1780
-    yOrigin = 740
-    x = 0;
-    y = 0;
     for (z = 0; z < repArr5.length; z++) {
-        x = repArr[z][0]
-        y = repArr[z][1]
-        curr_tran5 = d3.selectAll(repArr5[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran5.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+        $('.balance').each(function (i, obj) {
+
+            if (repArr5[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 150 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-    xOrigin = 1780
-    yOrigin = 740
-    x = 0;
-    y = 0;
-    for (z = 0; z < repArr.length; z++) {
-        x = repArr[z][0]
-        y = repArr[z][1]
-        curr_tran6 = d3.selectAll(repArr10[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran6.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+    for (z = 0; z < repArr10.length; z++) {
+        $('.balance').each(function (i, obj) {
+
+            if (repArr10[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 250 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 
-    xOrigin = 1780
-    yOrigin = 740
-    x = 0;
-    y = 0;
     for (z = 0; z < repArr20.length; z++) {
-        console.log(repArr20[z][0])
-        console.log(repArr20[z][1])
-        console.log(repArr20[z][2])
+        $('.balance').each(function (i, obj) {
 
-        x = repArr20[z][0]
-        y = repArr20[z][1]
-        curr_tran7 = d3.selectAll(repArr20[z][2]).transition().attr('transform', 'translate(' + (xOrigin - x) + ',' + (yOrigin - y) + ')').duration(500);
-        curr_tran7.transition().attr('fill', methodCall).duration(500)
-        yOrigin = yOrigin - 60
-        xOrigin = xOrigin - 160
+            if (repArr20[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 350 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+            }
+        });
     }
 }
 
+
+function fillingDefBuckets(methodCall) {
+    var xOrigin = 1380
+    var yOrigin = 700
+    var x = 0;
+    var y = 0;
+    var z = 0
+    var curr_tran0 = null;
+    var curr_tran1 = null;
+    var curr_tran2 = null;
+    var curr_tran3 = null;
+    var curr_tran4 = null;
+    var curr_tran5 = null;
+    var curr_tran6 = null;
+    var curr_tran7 = null;
+
+
+    for (z = 0; z < demArr20.length; z++) {
+        $('.balance').each(function (i, obj) {
+
+            if (demArr20[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500);
+                curr_tran0.transition().attr('fill', methodCall).duration(500)
+            }
+        });
+    }
+}
 
 function updateGraph(methodCall) {
     var svg = d3.select('#federal-balance').transition();
