@@ -209,23 +209,23 @@ h1 {
 }
 
 .fontCustom {
-    font-family: Littler Serifada;
+    font-family: Arial Black;
     font-size: 46px;
 }
 
 .fontTitle {
-    font-family: Littler Serifada;
+    font-family: Arial;
     font-size: 30px;
 }
 
 
 .fontTitleSmall {
-    font-family: Littler Serifada;
+    font-family: Arial;
     font-size: 20px;
 }
 
 .fontTitleSmall {
-    font-family: Littler Serifada;
+    font-family: Arial;
     font-size: 25px;
 }
 
@@ -289,4 +289,8 @@ path.domain {
 
 #x-axis text {
 
+}
+
+.updateDataFont {
+    color: #9e9e9e;
 }

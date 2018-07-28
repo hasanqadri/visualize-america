@@ -14,6 +14,7 @@ var repArr20 = [];
 var xOrigin = 0;
 var yOrigin = 0;
 var newDict = {}
+
 function federal_balance() {
     document.getElementById("federalBalance").innerHTML = 'State Leanings';
 
@@ -59,14 +60,11 @@ function federal_balance() {
             .attr('fill', determineStateColor)
             .style("stroke", "#fff")
             .style("stroke-width", "1");
-
         // d3.select('#AL').transition().attr('transform', 'translate(0,' + -50 +')').duration(3000);
-
         initialPlacement()
     }
-
     createScale(width);
-    }
+}
 
 /**
  * Array array of default positions for each state
@@ -82,14 +80,12 @@ function initialPlacement() {
     var transitioning = null
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
-
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
         newDict[str] = [x,y]
         transitioning = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(1000);
     });
-
 }
 
 /**
@@ -187,14 +183,11 @@ function fillingSenBuckets(methodCall) {
     var curr_tran6 = null;
     var curr_tran7 = null;
 
-
     for (z = 0; z < demArr20.length; z++) {
         $('.balance').each(function (i, obj) {
-
             if (demArr20[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
-
                 str = '#' + obj.id;
                 console.log(newDict[str])
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
@@ -202,11 +195,11 @@ function fillingSenBuckets(methodCall) {
             }
         });
     }
+
     xOrigin = 1420
     yOrigin = 720
     for (z = 0; z < demArr10.length; z++) {
         $('.balance').each(function (i, obj) {
-
             if (demArr10[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
@@ -228,7 +221,6 @@ function fillingSenBuckets(methodCall) {
 
     xOrigin = 1480
     yOrigin = 700
-
     for (z = 0; z < demArr5.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -249,7 +241,6 @@ function fillingSenBuckets(methodCall) {
 
      xOrigin = 1570
      yOrigin = 700
-
      for (z = 0; z < demArr.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -307,11 +298,11 @@ function fillingSenBuckets(methodCall) {
             }
         });
     }
+
     xOrigin = 1750
     yOrigin = 750
     for (z = 0; z < repArr10.length; z++) {
         $('.balance').each(function (i, obj) {
-
             if (repArr10[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
@@ -323,26 +314,23 @@ function fillingSenBuckets(methodCall) {
                 if (str == '#TX')
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (600 - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
                 yOrigin = yOrigin - 45;
-
             }
         });
     }
+
     xOrigin = 1810
-    yOrigin = 700
+    yOrigin = 720
     for (z = 0; z < repArr20.length; z++) {
         $('.balance').each(function (i, obj) {
-
             if (repArr20[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 str = '#' + obj.id;
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
                 yOrigin = yOrigin - 40;
-
             }
         });
     }
-
 }
 
 
@@ -357,7 +345,6 @@ function fillingDefBuckets(methodCall) {
 
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
-
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
@@ -367,7 +354,6 @@ function fillingDefBuckets(methodCall) {
 
 function updateGraph(methodCall) {
     var svg = d3.select('#federal-balance').transition();
-
     svg.selectAll('.balance').attr('fill', methodCall).duration(1000);
 }
 
@@ -383,7 +369,6 @@ function createScale(width) {
     var axisScale = d3.scale.linear().domain([-20, 20]).range([0, width-10]);
     //Create the Axis
     var xAxis = d3.svg.axis().scale(axisScale).orient('bottom');
-
     //Create an SVG group Element for the Axis elements and call the xAxis function
     var xAxisGroup = xLine.append("g").attr('class', 'axisGray').attr("transform", "translate(5,0)").call(xAxis);
     xAxisGroup.append('text').attr("transform", "translate(" + (width/2) + " ," + 35 + ")").style("text-anchor", "middle").text("Left to Right Leaning").attr('stroke', '#807d85');
