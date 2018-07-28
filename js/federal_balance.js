@@ -72,7 +72,6 @@ function federal_balance() {
  */
 
 function initialPlacement() {
-    console.log('called')
     var xOrigin=  1500
     var yOrigin = 600
     var x = 0;
@@ -92,7 +91,6 @@ function initialPlacement() {
  * Place states according to lead and occupancy
  */
 function pollingPlacement(methodCall) {
-    console.log('called2')
     if (currentMapChecked) { return;}
     var x = 0;
     var y = 0;
@@ -109,7 +107,6 @@ function pollingPlacement(methodCall) {
     repArr10 = [];
     repArr20 = [];
     svg.selectAll('.balance').duration(1000).attr('fill', methodCall);
-    console.log(newDict)
     $('.balance').each(function (i, obj) {
         map = null
         map = assistUpdate(obj.id)
@@ -147,15 +144,7 @@ function pollingPlacement(methodCall) {
             }
         }
     });
-    console.log("new array")
-    console.log(demArr20)
-    console.log(demArr10)
-    console.log(demArr5)
-    console.log(demArr)
-    console.log(repArr)
-    console.log(repArr5)
-    console.log(repArr10)
-    console.log(repArr20)
+
     var e = document.getElementById("raceDropdown");
     var selectedOption = e.options[e.selectedIndex].value;
     if (selectedOption == 'Default') {
@@ -189,7 +178,6 @@ function fillingSenBuckets(methodCall) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 str = '#' + obj.id;
-                console.log(newDict[str])
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
                 yOrigin = yOrigin - 40;
             }
@@ -208,7 +196,6 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                console.log(newDict[str])
                 if (str == '#CA') {
                     curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (520 - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
                 } else {
@@ -335,7 +322,6 @@ function fillingSenBuckets(methodCall) {
 
 
 function fillingDefBuckets(methodCall) {
-    console.log('called')
     var xOrigin=  1500
     var yOrigin = 600
     var x = 0;
@@ -391,7 +377,5 @@ function assistUpdate(state_abbr) {
             }
         }
         return null
-    } else {
-        console.log("bug")
     }
 }

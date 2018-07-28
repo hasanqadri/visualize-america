@@ -15,6 +15,7 @@ var numGovStates = 11;
 var stateD = null;
 var past_senD = null;
 var past_govD = null;
+var state_abbr2D = null;
 function default_map() {
     var width = 1300,
         height = 700;
@@ -36,8 +37,8 @@ function default_map() {
 
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#003296","#084eb3","#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f" ]);
-    color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
+        .range(["#003296", "#084eb3", "#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f"]);
+    color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
 
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
 
@@ -50,7 +51,9 @@ function default_map() {
         .data(color.domain())
         .enter()
         .append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+        .attr("transform", function (d, i) {
+            return "translate(0," + i * 20 + ")";
+        })
         .style('visibility', 'hidden');
 
     legend.append("rect")
@@ -63,7 +66,9 @@ function default_map() {
         .attr("x", 24)
         .attr("y", 9)
         .attr("dy", ".35em")
-        .text(function(d) { return d; });
+        .text(function (d) {
+            return d;
+        });
 
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
@@ -77,9 +82,10 @@ function default_map() {
         .defer(d3.json, "./Data/state-abbr.json")
         .defer(d3.json, "./Data/past-senators.json")
         .defer(d3.json, "./Data/past-governors.json")
+        .defer(d3.json, "./Data/state-abbr2.json")
         .await(ready);
 
-    function ready(error, us, governor, rcpg, senate, rcps, state_abbr, past_sen, past_gov) {
+    function ready(error, us, governor, rcpg, senate, rcps, state_abbr, past_sen, past_gov, state_abbr2) {
         if (error) throw error;
         usD = us;
         governorD = governor;
@@ -89,6 +95,7 @@ function default_map() {
         stateD = state_abbr;
         past_senD = past_sen;
         past_govD = past_gov;
+        state_abbr2D = state_abbr2;
         svg.selectAll('.states')
             .data(topojson.feature(us, us.objects.usStates).features)
             .enter()
@@ -96,23 +103,23 @@ function default_map() {
             .attr('class', 'states')
             .attr('d', path)
             .attr("fill", '#807d85')
-            .on('mouseover', function(d){
+            .on('mouseover', function (d) {
                 var stateName = d.properties.STATE_ABBR;
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .75);
-                tooltip.html( function() {
+                tooltip.html(function () {
                     return stateName
                 })
                     .style("left", (d3.event.pageX + 5) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })
-            .on("mouseout", function(d) {
+            .on("mouseout", function (d) {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0);
             })
-            .on('click', function(d) {
+            .on('click', function (d) {
                 if (getView() != 'Default') {
                     document.getElementById("right-alt").style.visibility = 'hidden';
                     document.getElementById("right-alt").style.display = 'none';
@@ -139,7 +146,7 @@ function default_map() {
 
 
         d3.select('#raceDropdown')
-            .on('change', function() {
+            .on('change', function () {
                 var sect = document.getElementById("raceDropdown");
                 section = sect.options[sect.selectedIndex].value;
                 document.getElementById('current-map').checked = false;
@@ -155,6 +162,7 @@ function default_map() {
                 checkIncumbent(svg);
                 if (selectedOption == 'Default') {
                     checked = false;
+
                 }
                 checkLegend();
                 updateGrid()
@@ -164,10 +172,13 @@ function default_map() {
             });
 
         d3.select('#incumbent')
-            .on('change', function() {
+            .on('change', function () {
                 var sect = document.getElementById("raceDropdown");
                 section = sect.options[sect.selectedIndex].value;
-                if (section !== 'Default') {checked = !checked};
+                if (section !== 'Default') {
+                    checked = !checked
+                }
+
                 var svg = d3.select('.default').transition();
                 if (!currentMapChecked) {
                     checkIncumbent(svg);
@@ -175,7 +186,7 @@ function default_map() {
             });
 
         d3.select('#current-map')
-            .on('change', function() {
+            .on('change', function () {
                 var sect = document.getElementById("raceDropdown");
                 section = sect.options[sect.selectedIndex].value;
                 currentMapChecked = !currentMapChecked;
@@ -207,8 +218,32 @@ function default_map() {
                     document.getElementById("right-alt").style.display = 'block';
                 }
             });
+
+        d3.select("#inputState").on('keyup', function () {
+
+            if (document.getElementsByName('inputState')[0].value != null) {
+                var stateTyped = document.getElementsByName('inputState')[0].value.toLowerCase();
+                stateTyped = stateTyped.charAt(0).toUpperCase() + stateTyped.slice(1);
+                //If text is a valid state that appears in this list of senators or governors
+                if (isValidState(state_abbr2[stateTyped])) {
+                    document.getElementById("right").style.visibility = 'visible';
+                    document.getElementById("right").style.display = 'block';
+
+                    document.getElementById("right-alt").style.visibility = 'hidden';
+                    document.getElementById("right-alt").style.display = 'none';
+
+                } else {
+                    document.getElementById("right").style.visibility = 'hidden';
+                    document.getElementById("right").style.display = 'none';
+
+                    document.getElementById("right-alt").style.visibility = 'visible';
+                    document.getElementById("right-alt").style.display = 'block';
+                }
+            }
+        });
     }
 }
+
 function determineStateColor(d) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
@@ -217,16 +252,25 @@ function determineStateColor(d) {
         document.getElementById("incumbent").disabled = true;
         document.getElementById("incumbent").checked = false;
         document.getElementById("current-map").disabled = true;
+        document.getElementsByName('inputState')[0].disabled = true;
+        document.getElementsByName('inputState')[0].value = '';
+
         document.getElementsByClassName('text-color')[0].style.color = 'grey';
         document.getElementsByClassName('text-color')[1].style.color = 'grey';
         return '#807d85'
     } else if (selectedOption === "United States Senator") {
         document.getElementById('head-title').innerHTML = 'United States Senate';
+        document.getElementsByName('inputState')[0].disabled = false;
+        document.getElementsByName('inputState')[0].value = '';
+
         htmlControls();
         rcpD = rcpsD;
         return colorMapByLead(d, numSenStates);
     } else if (selectedOption === "United States Governor") {
         document.getElementById('head-title').innerHTML = 'United States Governors';
+        document.getElementsByName('inputState')[0].disabled = false;
+        document.getElementsByName('inputState')[0].value = '';
+
         htmlControls();
         rcpD = rcpgD;
         return colorMapByLead(d, numGovStates);
@@ -563,5 +607,40 @@ function getPartyAndLead(state) {
         break;
     }
     return name;
+}
+
+
+function isValidState(state) {
+    e = document.getElementById("raceDropdown");
+    selectedOption = e.options[e.selectedIndex].value;
+    if (selectedOption === "Default") {
+        return false;
+    } else if (selectedOption === 'United States Senator') {
+        for (var y = 0; y < numSenStates; y++) {
+            if (state === rcpsD[y].state) {
+                var candidates = getCandidatesAndLead(rcpsD[y]);
+                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
+                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawPollingAverage(candidates);
+                drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
+                return true;
+            }
+        }
+    } else if (selectedOption === 'United States Governor') {
+        for (var y = 0; y < numGovStates; y++) {
+            if (state === rcpgD[y].state) {
+                var candidates = getCandidatesAndLead(rcpgD[y]);
+                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
+                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawPollingAverage(candidates);
+                drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
+                return true;
+            }
+        }
+    }
 }
 
