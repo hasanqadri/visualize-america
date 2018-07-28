@@ -13,6 +13,7 @@ var repArr10 = [];
 var repArr20 = [];
 var xOrigin = 0;
 var yOrigin = 0;
+var newDict = {}
 function federal_balance() {
     document.getElementById("federalBalance").innerHTML = 'State Leanings';
 
@@ -74,30 +75,19 @@ function federal_balance() {
 
 function initialPlacement() {
     console.log('called')
-    var xOrigin=  1380
-    var yOrigin = 500
+    var xOrigin=  1500
+    var yOrigin = 600
     var x = 0;
     var y = 0;
+    var transitioning = null
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
-        if (obj.id == 'NY') {
-            console.log(obj.id)
-            console.log(obj.getBoundingClientRect())
-        } else if (obj.id == 'MA') {
-            console.log(obj.id)
-            console.log(obj.getBoundingClientRect())
-        } else if (obj.id == 'ME') {
-            console.log(obj.id)
-            console.log(obj.getBoundingClientRect())
-        } else if (obj.id == 'VA') {
-            console.log(obj.id)
-            console.log(obj.getBoundingClientRect())
-        }
+
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
-        d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(500);
-
+        newDict[str] = [x,y]
+        transitioning = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(1000);
     });
 
 }
@@ -122,45 +112,46 @@ function pollingPlacement(methodCall) {
     repArr5 = [];
     repArr10 = [];
     repArr20 = [];
-    svg.selectAll('.balance').duration(500).attr('fill', methodCall);
+    svg.selectAll('.balance').duration(1000).attr('fill', methodCall);
+    console.log(newDict)
     $('.balance').each(function (i, obj) {
         map = null
         map = assistUpdate(obj.id)
         str = '#' + obj.id;
         if (map == undefined || map == null) {
-            //var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, -500)').duration(500)
-            d3.selectAll(str).transition().attr('opacity', "0").duration(500)
+            //var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, -1000)').duration(1000)
+            d3.selectAll(str).transition().attr('opacity', "0").duration(1000)
         } else {
             map['obj'] = obj
             x = obj.getBoundingClientRect().x;
             y = obj.getBoundingClientRect().y;
-            console.log(x)
-            console.log(y)
+
             if (map['party'] === 'R') {
                 if (map['lead'] > 20) {
-                    repArr20.push([x,y, str, obj])
+                    repArr20.push([x,y, str, obj, map['lead']])
                 } else if (map['lead'] > 10) {
-                    repArr10.push([x,y, str, obj]);
+                    repArr10.push([x,y, str, obj, map['lead']]);
                 } else if (map['lead'] > 5) {
-                    repArr5.push([x,y, str, obj]);
+                    repArr5.push([x,y, str, obj, map['lead']]);
                 } else {
-                    repArr.push([x,y, str, obj]);
+                    repArr.push([x,y, str, obj, map['lead']]);
                 }
             } else if (map['party'] === 'D') {
                 if (map['lead'] > 20) {
-                    demArr20.push([x,y, str, obj])
+                    demArr20.push([x,y, str, obj, map['lead']]);
                 } else if (map['lead'] > 10) {
-                    demArr10.push([x,y, str, obj]);
+                    demArr10.push([x,y, str, obj, map['lead']]);
                 } else if (map['lead'] > 5) {
-                    demArr5.push([x,y, str, obj]);
+                    demArr5.push([x,y, str, obj, map['lead']]);
                 } else {
-                    demArr.push([x,y, str, obj]);
+                    demArr.push([x,y, str, obj, map['lead']]);
                 }
             } else {
                 indArr.push([x,y, str, obj]);
             }
         }
     });
+    console.log("new array")
     console.log(demArr20)
     console.log(demArr10)
     console.log(demArr5)
@@ -169,55 +160,21 @@ function pollingPlacement(methodCall) {
     console.log(repArr5)
     console.log(repArr10)
     console.log(repArr20)
-
-    var sect = document.getElementById("raceDropdown");
-    selectedOption = sect.options[sect.selectedIndex].value;
-    if (selectedOption == 'United States Governor') {
+    var e = document.getElementById("raceDropdown");
+    var selectedOption = e.options[e.selectedIndex].value;
+    if (selectedOption == 'Default') {
+        fillingDefBuckets(methodCall)
+    } else {
         fillingSenBuckets(methodCall);
-    } else if (selectedOption == 'United States Senator') {
-        fillingGovBuckets(methodCall);
-    } else if (selectedOption == 'Default') {
-        fillingDefBuckets(methodCall);
+
     }
+
 
 }
 
 function fillingSenBuckets(methodCall) {
-    var xOrigin = 1380
-    var yOrigin = 700
-    var x = 0;
-    var y = 0;
-    var z = 0
-    var curr_tran0 = null;
-    var curr_tran1 = null;
-    var curr_tran2 = null;
-    var curr_tran3 = null;
-    var curr_tran3 = null;
-    var curr_tran4 = null;
-    var curr_tran5 = null;
-    var curr_tran6 = null;
-    var curr_tran7 = null;
-
-
-    for (z = 0; z < demArr20.length; z++) {
-        $('.balance').each(function (i, obj) {
-
-            if (demArr20[z][2] == '#' +obj.id) {
-                x = obj.getBoundingClientRect().x
-                y = obj.getBoundingClientRect().y
-                str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500);
-                curr_tran0.transition().attr('fill', methodCall).duration(500)
-                curr_tran0.transition().attr('opacity', 1).duration(500)
-            }
-        });
-    }
-}
-
-
-function fillingGovBuckets(methodCall) {
-    var xOrigin = 1380
-    var yOrigin = 700
+    var xOrigin = 1360
+    var yOrigin = 720
     var x = 0;
     var y = 0;
     var z = 0
@@ -237,16 +194,16 @@ function fillingGovBuckets(methodCall) {
             if (demArr20[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
-                if (x < 1400) {
-                    xOrigin = 0;
-                    yOrigin = 0
-                }
+
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                console.log(newDict[str])
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 40;
             }
         });
     }
-
+    xOrigin = 1420
+    yOrigin = 720
     for (z = 0; z < demArr10.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -258,10 +215,19 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -300 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                console.log(newDict[str])
+                if (str == '#CA') {
+                    curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (520 - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                } else {
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                }
+                yOrigin = yOrigin - 40;
             }
         });
     }
+
+    xOrigin = 1480
+    yOrigin = 700
 
     for (z = 0; z < demArr5.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -274,12 +240,17 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -250 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 40;
+
             }
         });
     }
 
-    for (z = 0; z < demArr.length; z++) {
+     xOrigin = 1570
+     yOrigin = 700
+
+     for (z = 0; z < demArr.length; z++) {
         $('.balance').each(function (i, obj) {
 
             if (demArr[z][2] == '#' +obj.id) {
@@ -290,11 +261,15 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -150 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 40;
+
             }
         });
     }
 
+    xOrigin = 1630
+    yOrigin = 700
     for (z = 0; z < repArr.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -306,12 +281,16 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 50 + ',' + (600 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 46;
+
             }
         });
     }
 
-    for (z = 0; z < repArr5.length; z++) {
+     xOrigin = 1690
+     yOrigin = 650
+     for (z = 0; z < repArr5.length; z++) {
         $('.balance').each(function (i, obj) {
 
             if (repArr5[z][2] == '#' +obj.id) {
@@ -322,11 +301,14 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 150 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 45;
+
             }
         });
     }
-
+    xOrigin = 1750
+    yOrigin = 750
     for (z = 0; z < repArr10.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -338,63 +320,55 @@ function fillingGovBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 250 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                if (str == '#TX')
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (600 - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 45;
+
             }
         });
     }
-
+    xOrigin = 1810
+    yOrigin = 700
     for (z = 0; z < repArr20.length; z++) {
         $('.balance').each(function (i, obj) {
 
             if (repArr20[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
-                if (x < 1400) {
-                    xOrigin = 0;
-                    yOrigin = 0
-                }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ 350 + ',' + (500 - y) +')').duration(500).transition().attr('fill', methodCall).duration(500).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                yOrigin = yOrigin - 40;
+
             }
         });
     }
+
 }
 
 
 function fillingDefBuckets(methodCall) {
-    var xOrigin = 1380
-    var yOrigin = 700
+    console.log('called')
+    var xOrigin=  1500
+    var yOrigin = 600
     var x = 0;
     var y = 0;
-    var z = 0
+    var transitioning = null
     var curr_tran0 = null;
-    var curr_tran1 = null;
-    var curr_tran2 = null;
-    var curr_tran3 = null;
-    var curr_tran4 = null;
-    var curr_tran5 = null;
-    var curr_tran6 = null;
-    var curr_tran7 = null;
 
+    //0,0 is top left. 0,height is bot left. width,0 is top right.
+    $('.balance').each(function(i, obj) {
 
-    for (z = 0; z < demArr20.length; z++) {
-        $('.balance').each(function (i, obj) {
-
-            if (demArr20[z][2] == '#' +obj.id) {
-                x = obj.getBoundingClientRect().x
-                y = obj.getBoundingClientRect().y
-                str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ -350 + ',' + (600 - y) +')').duration(500);
-                curr_tran0.transition().attr('fill', methodCall).duration(500)
-            }
-        });
-    }
+        x = obj.getBoundingClientRect().x;
+        y = obj.getBoundingClientRect().y;
+        str = '#' + obj.id;
+        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#807d85').duration(1000).transition().attr('opacity', 1).duration(1000);
+    });
 }
 
 function updateGraph(methodCall) {
     var svg = d3.select('#federal-balance').transition();
 
-    svg.selectAll('.balance').attr('fill', methodCall).duration(500);
+    svg.selectAll('.balance').attr('fill', methodCall).duration(1000);
 }
 
 function createScale(width) {

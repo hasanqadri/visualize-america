@@ -16,6 +16,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Laxalt (R)": "40.0",
+                "Sisolak (D)": "42.0",
+                "Spread": "Sisolak +2.0"
+            },
             "GravisGravis": {
                 "Laxalt (R)": "43",
                 "Sisolak (D)": "41",
@@ -25,11 +30,6 @@
                 "Laxalt (R)": "37",
                 "Sisolak (D)": "43",
                 "Spread": "Sisolak +6"
-            },
-            "RCP Average": {
-                "Laxalt (R)": "40.0",
-                "Sisolak (D)": "42.0",
-                "Spread": "Sisolak +2.0"
             }
         },
         "state": "NV"
@@ -46,6 +46,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Abbott (R)": "49.0",
+                "Spread": "Abbott +13.2",
+                "Valdez (D)": "35.8"
+            },
             "GravisGravis": {
                 "Abbott (R)": "51",
                 "Spread": "Abbott +10",
@@ -60,11 +65,6 @@
                 "Abbott (R)": "49",
                 "Spread": "Abbott +9",
                 "Valdez (D)": "40"
-            },
-            "RCP Average": {
-                "Abbott (R)": "49.0",
-                "Spread": "Abbott +13.2",
-                "Valdez (D)": "35.8"
             },
             "UT/Texas Tribune*UT/Texas Tribune*": {
                 "Abbott (R)": "44",
@@ -106,6 +106,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Cordray (D)": "42.3",
+                "DeWine (R)": "40.7",
+                "Spread": "Cordray +1.6"
+            },
             "NBC News/MaristNBC/Marist": {
                 "Cordray (D)": "42",
                 "DeWine (R)": "46",
@@ -115,11 +120,6 @@
                 "Cordray (D)": "42",
                 "DeWine (R)": "40",
                 "Spread": "Cordray +2"
-            },
-            "RCP Average": {
-                "Cordray (D)": "42.3",
-                "DeWine (R)": "40.7",
-                "Spread": "Cordray +1.6"
             },
             "SuffolkSuffolk": {
                 "Cordray (D)": "43",
@@ -136,6 +136,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Spread": "Wolf +16.0",
+                "Wagner (R)": "32.0",
+                "Wolf (D)": "48.0"
+            },
             "Franklin & MarshallF&M;": {
                 "Spread": "Wolf +17",
                 "Wagner (R)": "21",
@@ -145,11 +150,6 @@
                 "Spread": "Wolf +16",
                 "Wagner (R)": "31",
                 "Wolf (D)": "47"
-            },
-            "RCP Average": {
-                "Spread": "Wolf +16.0",
-                "Wagner (R)": "32.0",
-                "Wolf (D)": "48.0"
             },
             "SuffolkSuffolk": {
                 "Spread": "Wolf +13",

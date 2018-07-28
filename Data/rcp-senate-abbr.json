@@ -16,10 +16,10 @@
     },
     {
         "polls": {
-            "Fairleigh DickinsonFDU": {
-                "Hugin (R)": "24",
-                "Menendez (D)": "28",
-                "Spread": "Menendez +4"
+            "RCP Average": {
+                "Hugin (R)": "32.3",
+                "Menendez (D)": "41.3",
+                "Spread": "Menendez +9.0"
             },
             "GravisGravis": {
                 "Hugin (R)": "41",
@@ -36,25 +36,25 @@
                 "Menendez (D)": "49",
                 "Spread": "Menendez +17"
             },
-            "RCP Average": {
-                "Hugin (R)": "32.3",
-                "Menendez (D)": "41.3",
-                "Spread": "Menendez +9.0"
+            "Fairleigh DickinsonFDU": {
+                "Hugin (R)": "24",
+                "Menendez (D)": "28",
+                "Spread": "Menendez +4"
             }
         },
         "state": "NJ"
     },
     {
         "polls": {
-            "QuinnipiacQuinnipiac": {
-                "Farley (R)": "23",
-                "Gillibrand (D)": "58",
-                "Spread": "Gillibrand +35"
-            },
             "RCP Average": {
                 "Farley (R)": "29.0",
                 "Gillibrand (D)": "59.0",
                 "Spread": "Gillibrand +30.0"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Farley (R)": "23",
+                "Gillibrand (D)": "58",
+                "Spread": "Gillibrand +35"
             },
             "SienaSiena": {
                 "Farley (R)": "24",
@@ -66,6 +66,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Barletta (R)": "30.3",
+                "Casey (D)": "46.3",
+                "Spread": "Casey +16.0"
+            },
             "Franklin & MarshallF&M;": {
                 "Barletta (R)": "25",
                 "Casey (D)": "43",
@@ -75,11 +80,6 @@
                 "Barletta (R)": "32",
                 "Casey (D)": "48",
                 "Spread": "Casey +16"
-            },
-            "RCP Average": {
-                "Barletta (R)": "30.3",
-                "Casey (D)": "46.3",
-                "Spread": "Casey +16.0"
             },
             "SuffolkSuffolk": {
                 "Barletta (R)": "32",
@@ -91,6 +91,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Brown (D)": "51.8",
+                "Renacci (R)": "36.8",
+                "Spread": "Brown +15.0"
+            },
             "NBC News/MaristNBC/Marist": {
                 "Brown (D)": "51",
                 "Renacci (R)": "38",
@@ -100,11 +105,6 @@
                 "Brown (D)": "51",
                 "Renacci (R)": "34",
                 "Spread": "Brown +17"
-            },
-            "RCP Average": {
-                "Brown (D)": "51.8",
-                "Renacci (R)": "36.8",
-                "Spread": "Brown +15.0"
             },
             "SuffolkSuffolk": {
                 "Brown (D)": "53",
@@ -121,6 +121,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Kaine (D)": "49.0",
+                "Spread": "Kaine +14.5",
+                "Stewart (R)": "34.5"
+            },
             "Christopher Newport Univ.CNU": {
                 "Kaine (D)": "56",
                 "Spread": "Kaine +24",
@@ -130,11 +135,6 @@
                 "Kaine (D)": "54",
                 "Spread": "Kaine +18",
                 "Stewart (R)": "36"
-            },
-            "RCP Average": {
-                "Kaine (D)": "49.0",
-                "Spread": "Kaine +14.5",
-                "Stewart (R)": "34.5"
             },
             "Roanoke CollegeRoanoke": {
                 "Kaine (D)": "44",
@@ -151,6 +151,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Manchin (D)": "49.3",
+                "Morrisey (R)": "42.3",
+                "Spread": "Manchin +7.0"
+            },
             "GravisGravis": {
                 "Manchin (D)": "53",
                 "Morrisey (R)": "40",
@@ -165,11 +170,6 @@
                 "Manchin (D)": "50",
                 "Morrisey (R)": "43",
                 "Spread": "Manchin +7"
-            },
-            "RCP Average": {
-                "Manchin (D)": "49.3",
-                "Morrisey (R)": "42.3",
-                "Spread": "Manchin +7.0"
             },
             "Trafalgar Group (R)*Trafalgar (R)*": {
                 "Manchin (D)": "50",
@@ -186,6 +186,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Nelson (D)": "44.4",
+                "Scott (R)": "45.2",
+                "Spread": "Scott +0.8"
+            },
             "CBS News/YouGovCBS/YouGov": {
                 "Nelson (D)": "41",
                 "Scott (R)": "46",
@@ -221,11 +226,6 @@
                 "Scott (R)": "42",
                 "Spread": "Nelson +4"
             },
-            "RCP Average": {
-                "Nelson (D)": "44.4",
-                "Scott (R)": "45.2",
-                "Spread": "Scott +0.8"
-            },
             "UNFUNF": {
                 "Nelson (D)": "37",
                 "Scott (R)": "36",
@@ -246,6 +246,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Blackburn (R)": "40.0",
+                "Bredesen (D)": "44.5",
+                "Spread": "Bredesen +4.5"
+            },
             "EmersonEmerson": {
                 "Blackburn (R)": "37",
                 "Bredesen (D)": "43",
@@ -265,17 +270,17 @@
                 "Blackburn (R)": "35",
                 "Bredesen (D)": "45",
                 "Spread": "Bredesen +10"
-            },
-            "RCP Average": {
-                "Blackburn (R)": "40.0",
-                "Bredesen (D)": "44.5",
-                "Spread": "Bredesen +4.5"
             }
         },
         "state": "TN"
     },
     {
         "polls": {
+            "RCP Average": {
+                "Hawley (R)": "44.2",
+                "McCaskill (D)": "45.2",
+                "Spread": "McCaskill +1.0"
+            },
             "EmersonEmerson": {
                 "Hawley (R)": "45",
                 "McCaskill (D)": "45",
@@ -296,11 +301,6 @@
                 "McCaskill (D)": "48",
                 "Spread": "McCaskill +4"
             },
-            "RCP Average": {
-                "Hawley (R)": "44.2",
-                "McCaskill (D)": "45.2",
-                "Spread": "McCaskill +1.0"
-            },
             "Remington Research (R)Remington (R)": {
                 "Hawley (R)": "50",
                 "McCaskill (D)": "44",
@@ -311,6 +311,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Cramer (R)": "44.0",
+                "Heitkamp (D)": "43.5",
+                "Spread": "Cramer +0.5"
+            },
             "GravisGravis": {
                 "Cramer (R)": "43",
                 "Heitkamp (D)": "40",
@@ -320,17 +325,17 @@
                 "Cramer (R)": "48",
                 "Heitkamp (D)": "44",
                 "Spread": "Cramer +4"
-            },
-            "RCP Average": {
-                "Cramer (R)": "44.0",
-                "Heitkamp (D)": "43.5",
-                "Spread": "Cramer +0.5"
             }
         },
         "state": "ND"
     },
     {
         "polls": {
+            "RCP Average": {
+                "Cruz (R)": "47.8",
+                "O'Rourke (D)": "39.4",
+                "Spread": "Cruz +8.4"
+            },
             "CBS News/YouGovCBS/YouGov": {
                 "Cruz (R)": "50",
                 "O'Rourke (D)": "40",
@@ -350,11 +355,6 @@
                 "Cruz (R)": "47",
                 "O'Rourke (D)": "44",
                 "Spread": "Cruz +3"
-            },
-            "RCP Average": {
-                "Cruz (R)": "47.8",
-                "O'Rourke (D)": "39.4",
-                "Spread": "Cruz +8.4"
             },
             "UT/Texas Tribune*UT/Texas Tribune*": {
                 "Cruz (R)": "41",
