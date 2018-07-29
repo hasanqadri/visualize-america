@@ -14,7 +14,7 @@
         d3v4 = d3
         window.d3 = null
     </script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <script>
         d3v3 = d3
         // test it worked
