@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<head>
+    <!-- add stylesheets here-->
+    <link href="css/styling.css" rel="stylesheet">
+</head>
+
+<body onload="default_map(); default_seats(); setTimeout(function(){federal_balance()}, 100)">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
+    <script>
+        d3v4 = d3
+        window.d3 = null
+    </script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script>
+        d3v3 = d3
+        // test it worked
+        console.log('v3', d3v3.version)
+        console.log('v4', d3v4.version)
+        console.log('v3', d3.version)
+    </script>
+    <!-- add js libraries here-->
+    <script src="js/lib/jquery-3.1.1.min.js"></script>
+    <script src="js/lib/jquery-ui.min.js"></script>
+    <script src="js/lib/topojson.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/queue.v1.min.js"></script>
+
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top" >
+        <ul class="w3-navbar w3-deep-orange w3-wide w3-padding-0 w3-card-2 ">
+            <font color="white" font-family = "Impact, Charcoal, sans-serif">
+                <h3><img src = "./Data/logo.png" width="70px" height="40px" class="w3-margin-bot-logo">Visualize America</h3></font>
+        </ul>
+    </div>
+
+    <!-- Selector for years -->
+    <div  style="float: left; width:100%; display:inline;" class = "w3-margin-top-custom raisedbox">
+        <select style="width:200px;" class = "w3-select w3-margin-left-custom w3-margin-top-custom1" id="raceDropdown">
+            <option value="Default">Select View</option>
+            <option value="United States Senator">Senate</option>
+            <option value="United States Governor">Governor</option>
+
+        </select>
+        <input type="checkbox" id="incumbent" name="feature"
+               value="incumbent" class="w3-margin-left-custom" />
+        <label for="incumbent" class="checkmarkContainer text-color"><h4>Incumbents</h4></label>
+
+        <input type="checkbox" id="current-map" name="feature"
+               value="current-map" class="w3-margin-left-custom"  />
+        <label for="current-map" class="checkmarkContainer text-color"><h4>Current Map</h4></label>
+
+        <input placeholder="Type in a state" type="text" id="inputState" name="inputState" class="w3-margin-left-custom"/>
+    </div>
+    </div>
+
+    <!-- Holds the left and right divs -->
+    <div class = "container " style = "width: 100%; clear:both; ">
+        <div class="w3-left-align innerContainer w3-card-4 w3-padding-right-custom" id="left">
+            <h1 class="w3-margin-top  fontCustom w3-margin-bottom w3-center" id="head-title">United States of America</h1>
+            <svg class="senate governor house default" viewBox="-30 -300 1350 1350" preserveAspectRatio="xMidYMid slice" id="legend"></svg>
+            <div class="updateDataFont w3-margin-left w3-padding-left">Data last updated: July 9th 12:00PM EST</div>
+
+        </div>
+        <div id="innerContainer2" class="w3-card-4" style="width:100%">
+            <div id="right-alt" style="width:100%;visibility:visible;display:block;">
+                <h5 class="w3-center w3-margin-top fontTitleSmall" id="federalSeat"></h5>
+                <div id="grid" class="w3-padding-left w3-padding-top w3-center"></div>
+
+                <h5 class="w3-center w3-margin-top fontTitleSmall" id="federalBalance"></h5>
+                <svg id="federal-balance" ></svg>
+                <svg id="x-axis"></svg>
+
+            </div>
+            <div id="right" style="width:100%;display:none; visibile:hidden">
+                <h2 class="w3-margin-top-custom5 w3-margin-bottom w3-center fontTitle" id="head-to-head"></h2>
+                <h3 class="w3-center w3-margin-bot-custom fontTitleMedium" id="seat"></h3>
+
+                <h5 class="w3-center w3-margin-top fontTitleSmall" id="polling-average-title"></h5>
+                <div class="polling-average w3-margin-bot-custom w3-margin-right-custom1" ></div>
+
+                <h5 class="w3-center w3-margin-top fontTitleSmall" id="past-occupancies-title"></h5>
+                <svg class="past-occupancies" id="chartz"></svg>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/past_occupancies.js"></script>
+<script src="js/polling_average.js"></script>
+<script src="js/governor_map.js"></script>
+<script src="js/senate_map.js"></script>
+<script src="js/house_map.js"></script>
+<script src="js/html_controls.js"></script>
+<script src="js/default_map.js"></script>
+<script src="js/default_seats.js"></script>
+<script src="js/federal_balance.js"></script>
+
+
+</html>

@@ -37,12 +37,42 @@ h3 {
     opacity: .5;
 }
 
-.w3-margin-top-custom{margin-top:100px!important}
+.w3-margin-top-custom{margin-top:55px!important}
+
+.w3-margin-top-custom5{margin-top:90px!important}
+
+
 .w3-margin-left-custom{margin-left:30px!important}
 .w3-margin-left-custom1{margin-left:50px!important}
 
+
+.w3-padding-right-custom{margin-right:25px!important}
+
+
 .container{
     display: flex;
+    flex-direction: row;
+    background: #fff;
+
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.innerContainer2 {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.right {
+    position:absolute;
+}
+
+.right-alt {
+    position:absolute;
 }
 
 .flex-item{
@@ -50,28 +80,20 @@ h3 {
 }
 
 .w3-margin-bot-custom {
-    margin-bottom: 80px;
+    margin-bottom: 70px;
 }
 
 .w3-margin-top-custom1 {
-    margin-top: 40px;
+    margin-top: 10px;
 }
+.w3-margin-bot-logo {
+    margin-bot: 20px;
+}
+
 
 text {
     font-size: 11px;
 }
-
-rect {
-    fill: none;
-}
-
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 960px;
-    height: 500px;
-    position: relative;
-}
-
 
 path {
     stroke-linejoin: round;
@@ -124,4 +146,151 @@ h1 {
 .states {
     stroke: #fff;
     stroke-width:2px;
+}
+
+/* Hide the browser's default checkbox */
+.checkmarkContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkmarkContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkmarkContainer input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkmarkContainer input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkmarkContainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.raisedbox {
+    box-shadow: 0 8px 6px -6px black;
+    background-color: lightyellow;
+}
+
+.raisedbox-right {
+    box-shadow: -.1em 0 .4em black;
+}
+
+.fontCustom {
+    font-family: Arial Black;
+    font-size: 46px;
+}
+
+.fontTitle {
+    font-family: Arial;
+    font-size: 30px;
+}
+
+
+.fontTitleSmall {
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.fontTitleSmall {
+    font-family: Arial;
+    font-size: 25px;
+}
+
+.logo {
+    display: inline-block;
+}
+
+/* Legend Position Style */
+.legend {
+    position:absolute;
+    left:1150px;
+    bottom:100px;
+}
+
+
+.tooltip > p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.tooltip {
+    background: #101010;
+    color: #EAEAEA;
+    border-radius: 5px;
+    position: absolute;
+    padding: 8px;
+    pointer-events: none;
+    text-align: left;
+    opacity: .5;
+}
+
+
+#head-title {
+
+}
+
+
+.axisGray line{
+    stroke: #807d85;
+}
+
+.axisGray path{
+    stroke: #807d85;
+}
+
+.axisGray text{
+    fill: #807d85;
+}
+
+path.domain {
+    fill: #807d85;
+}
+
+
+.axis path,
+.axis tick,
+.axis line {
+    fill: none;
+    stroke: none;
+}
+
+#x-axis text {
+
+}
+
+.updateDataFont {
+    color: #9e9e9e;
 }

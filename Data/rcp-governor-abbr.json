@@ -1,0 +1,192 @@
+[
+    {
+        "polls": {
+            "LA Times/USCLA Times/USC": {
+                "Cox (R)": "28",
+                "Newsom (D)": "45",
+                "Spread": "Newsom +17"
+            },
+            "SurveyUSASUSA": {
+                "Cox (R)": "29",
+                "Newsom (D)": "58",
+                "Spread": "Newsom +29"
+            }
+        },
+        "state": "CA"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Laxalt (R)": "40.0",
+                "Sisolak (D)": "42.0",
+                "Spread": "Sisolak +2.0"
+            },
+            "GravisGravis": {
+                "Laxalt (R)": "43",
+                "Sisolak (D)": "41",
+                "Spread": "Laxalt +2"
+            },
+            "Nevada Independent/MellmanNevada Independent": {
+                "Laxalt (R)": "37",
+                "Sisolak (D)": "43",
+                "Spread": "Sisolak +6"
+            }
+        },
+        "state": "NV"
+    },
+    {
+        "polls": {
+            "KOB-TV/SurveyUSASurveyUSA": {
+                "Grisham (D)": "51",
+                "Pearce (R)": "38",
+                "Spread": "Grisham +13"
+            }
+        },
+        "state": "NM"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Abbott (R)": "49.0",
+                "Spread": "Abbott +13.2",
+                "Valdez (D)": "35.8"
+            },
+            "GravisGravis": {
+                "Abbott (R)": "51",
+                "Spread": "Abbott +10",
+                "Valdez (D)": "41"
+            },
+            "JMC AnalyticsJMC Analytics": {
+                "Abbott (R)": "48",
+                "Spread": "Abbott +12",
+                "Valdez (D)": "36"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Abbott (R)": "49",
+                "Spread": "Abbott +9",
+                "Valdez (D)": "40"
+            },
+            "UT/Texas Tribune*UT/Texas Tribune*": {
+                "Abbott (R)": "44",
+                "Spread": "Abbott +12",
+                "Valdez (D)": "32"
+            }
+        },
+        "state": "TX"
+    },
+    {
+        "polls": {
+            "Des Moines RegisterDM Register": {
+                "Hubbell (D)": "37",
+                "Reynolds (R)": "42",
+                "Spread": "Reynolds +5"
+            }
+        },
+        "state": "IA"
+    },
+    {
+        "polls": {
+            "WeAskAmericaWeAskAmerica": {
+                "Pritzker (D)": "36",
+                "Rauner (R)": "27",
+                "Spread": "Pritzker +9"
+            }
+        },
+        "state": "IL"
+    },
+    {
+        "polls": {
+            "WXIA-TV/SurveyUSAWXIA/SUSA": {
+                "Abrams (D)": "41",
+                "Cagle (R)": "46",
+                "Spread": "Cagle +5"
+            }
+        },
+        "state": "GA"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Cordray (D)": "42.3",
+                "DeWine (R)": "40.7",
+                "Spread": "Cordray +1.6"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Cordray (D)": "42",
+                "DeWine (R)": "46",
+                "Spread": "DeWine +4"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Cordray (D)": "42",
+                "DeWine (R)": "40",
+                "Spread": "Cordray +2"
+            },
+            "SuffolkSuffolk": {
+                "Cordray (D)": "43",
+                "DeWine (R)": "36",
+                "Spread": "Cordray +7"
+            },
+            "WOIO-TV/SurveyUSASurveyUSA": {
+                "Cordray (D)": "39",
+                "DeWine (R)": "47",
+                "Spread": "DeWine +8"
+            }
+        },
+        "state": "OH"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Spread": "Wolf +16.0",
+                "Wagner (R)": "32.0",
+                "Wolf (D)": "48.0"
+            },
+            "Franklin & MarshallF&M;": {
+                "Spread": "Wolf +17",
+                "Wagner (R)": "21",
+                "Wolf (D)": "38"
+            },
+            "Morning CallMorning Call": {
+                "Spread": "Wolf +16",
+                "Wagner (R)": "31",
+                "Wolf (D)": "47"
+            },
+            "SuffolkSuffolk": {
+                "Spread": "Wolf +13",
+                "Wagner (R)": "36",
+                "Wolf (D)": "49"
+            }
+        },
+        "state": "PA"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Baker (R)": "56.0",
+                "Gonzalez (D)": "21.0",
+                "Spread": "Baker +35.0"
+            },
+            "SuffolkSuffolk": {
+                "Baker (R)": "52",
+                "Gonzalez (D)": "22",
+                "Spread": "Baker +30"
+            },
+            "WBUR/MassINCWBUR/MassINC": {
+                "Baker (R)": "55",
+                "Gonzalez (D)": "22",
+                "Spread": "Baker +33"
+            }
+        },
+        "state": "MA"
+    },
+    {
+        "polls": {
+            "WPRI/Roger Williams*WPRI-TV*": {
+                "Fung (R)": "36",
+                "Raimondo (D)": "38",
+                "Spread": "Raimondo +2"
+            }
+        },
+        "state": "RI"
+    }
+]

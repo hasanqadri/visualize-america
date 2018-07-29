@@ -1,26 +1,44 @@
-var width = 960,
-    height = 500;
 
-var projection = d3.geo.albersUsa()
-    .scale(2000)
-    .translate([width / 2, height / 2]);
+function getCurrentSenators(d) {
+    var dualStates = ['NV', 'CO', 'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
+    for (var z = 0; z < dualStates.length; z++) {
+        if (d.properties.STATE_ABBR === dualStates[z]) {
+            return '#9c1ecb'
+        }
+    }
+    for (var x = 0; x < senateD.results[0].members.length; x++) {
+        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+            if (senateD.results[0].members[x].party === "D") {
+                return '#084594'
+            } else {
+                return '#cb181d'
+            }
+        }
+    }
+}
 
-var path = d3.geo.path()
-    .projection(projection);
+function senateCircle(d) {
+    for (var x = 0; x < senateD.results[0].members.length; x++) {
+        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+            if (senateD.results[0].members[x].next_election == '2018') {
+                if (senateD.results[0].members[x].party === "D") {
+                    return '#084594'
+                } else {
+                    return '#cb0007'
+                }
+            }
+        }
+    }
+    return '#807d85'
+}
 
-var svg = d3.select('.senate')
-    .attr('width', width)
-    .attr('height', height);
-
-d3.json('./Data/us2.json', function(error, us) {
-    svg.selectAll('.states')
-        .data(topojson.feature(us, us.objects.usStates).features)
-        .enter()
-        .append('path')
-        .attr('class', 'states')
-        .attr('d', path)
-        .on('mouseover', function(d){
-            var name = d.properties.STATE_ABBR;
-            return document.getElementById('name').innerHTML=name;
-        });
-});
+function senateCircleBorders(d) {
+    for (var x = 0; x < senateD.results[0].members.length; x++) {
+        if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
+            if (senateD.results[0].members[x].next_election == '2018') {
+                return 'black'
+            }
+        }
+    }
+    return '#807d85'
+}
