@@ -537,10 +537,11 @@ function updateSidePane(d) {
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                     document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                    drawHeadToHead(data);
-                    drawLeans(candidates);
                     drawPollingAverageBars(candidates);
                     drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
+                    d3.select('.lean').transition().attr('fill', function(d) {
+                        return higherParty(candidates);
+                    }).duration(500)
                 }
             }
         } else if (selectedOption === "United States Governor") {
@@ -553,10 +554,11 @@ function updateSidePane(d) {
                             document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                             document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                             document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                            drawHeadToHead(data);
-                            drawLeans(candidates);
                             drawPollingAverageBars(candidates);
                             drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
+                            d3.select('.lean').transition().attr('fill', function(d) {
+                                return higherParty(candidates);
+                            }).duration(500)
                         }
                     }
                 }
@@ -581,10 +583,11 @@ function isValidState(state) {
                 document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                 document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                 document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                drawHeadToHead(data);
-                drawLeans(candidates);
                 drawPollingAverageBars(candidates);
                 drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
+                d3.select('.lean').transition().attr('fill', function(d) {
+                    return higherParty(candidates);
+                }).duration(500)
                 return true;
             }
         }
@@ -596,10 +599,11 @@ function isValidState(state) {
                 document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                 document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                 document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                drawHeadToHead(data);
-                drawLeans(candidates);
                 drawPollingAverageBars(candidates);
                 drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
+                d3.select('.lean').transition().attr('fill', function(d) {
+                    return higherParty(candidates);
+                }).duration(500)
                 return true;
             }
         }
@@ -680,6 +684,34 @@ function checkSenAndGov(state) {
 
 
 
+function higherParty(candidates) {
+    var data = candidates['niceTry'];
+    var currHigh = 0;
+    var currParty = null
+    for (var key in data) {
+        console.log(data[key].percent)
+        if (data[key].percent > currHigh) {
+            currHigh = data[key].percent;
+            currParty = data[key].party;
 
-
-
+        }
+    }
+    var lead = Math.abs(data[0].percent - data[1].percent)
+    if (currParty === 'D') {
+        if (lead > 10)
+            return '#003296';
+        else if (lead > 5)
+            return '#084eb3';
+        else
+            return '#1d90ff'
+    } else if (currParty === 'R') {
+        if (lead > 10)
+            return '#760d0f';
+        else if (lead > 5)
+            return '#bf1700';
+        else
+            return '#ff4941'
+    } else if (currParty === 'I') {
+        return '#3cff49'
+    }
+}

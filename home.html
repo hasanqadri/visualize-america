@@ -80,12 +80,13 @@
             </div>
             <div id="right" style="width:100%;display:none; visibile:hidden">
                 <h2 class="w3-margin-top-custom5 w3-margin-bottom w3-center fontTitle" id="head-to-head"></h2>
-                <div class="head-to-head-box w3-margin-bot-custom w3-margin-right-custom1" ></div>
-
-                <h3 class="w3-center w3-margin-bot-custom fontTitleMedium" id="seat"></h3>
-
-                <h5 class="w3-center w3-margin-top fontTitleSmaller" id="leans-title">Leans:</h5>
-                <div class="leans w3-margin-bot-custom w3-margin-right-custom1" ></div>
+                <h3 class="w3-center fontTitleMedium" id="seat"></h3>
+                <div class="w3-center fontTitleSmaller" id="leans-title">
+                    <svg width="100" height="50">
+                        <text x="0" y="15" fill="gray" class="mediumText">Leans:</text>
+                        <rect class="lean" x="70" y="0" width="20" height="20" fill="white" />
+                    </svg>
+                </div>
 
 
                 <h5 class="w3-center w3-margin-top fontTitleSmall" id="polling-average-title"></h5>
@@ -101,7 +102,6 @@
 <script src="js/past_occupancies.js"></script>
 <script src="js/polling_average.js"></script>
 <script src="js/polling_average_bars.js"></script>
-<script src="js/head_to_head_box.js"></script>
 <script src="js/leans.js"></script>
 <script src="js/governor_map.js"></script>
 <script src="js/senate_map.js"></script>
