@@ -1,0 +1,11 @@
+{
+  "name": "visualize-america",
+  "version": "1.0.0",
+  "description": "Visualization of American midterms",
+  "scripts": {
+    "start": "harp server --port $PORT"
+  },
+  "dependencies": {
+    "harp": "*"
+  }
+}
