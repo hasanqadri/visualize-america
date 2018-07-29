@@ -121,7 +121,7 @@ function default_map() {
             })
             .on('click', function (d) {
                 if (getView() != 'Default') {
-                    if (checkSenAndGov(d.properties.STATE_ABBR)) {
+                    if (checkSenAndGov(d.properties.STATE_ABBR) && !currentMapChecked) {
                         document.getElementById("right-alt").style.visibility = 'hidden';
                         document.getElementById("right-alt").style.display = 'none';
 

@@ -72,11 +72,13 @@ function federal_balance() {
  */
 
 function initialPlacement() {
-    var xOrigin=  1500
-    var yOrigin = 600
+    console.log('fadas')
+    var xOrigin=  1340
+    var yOrigin = 500
     var x = 0;
     var y = 0;
     var transitioning = null
+    var row = 0;
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
         x = obj.getBoundingClientRect().x;
@@ -84,6 +86,14 @@ function initialPlacement() {
         str = '#' + obj.id;
         newDict[str] = [x,y]
         transitioning = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(1000);
+        row++;
+        if (row % 7 == 0) {
+            yOrigin += 20;
+            row = 0;
+            xOrigin = 1340
+        }
+        xOrigin += 70;
+
     });
 }
 
@@ -178,7 +188,7 @@ function fillingSenBuckets(methodCall) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
             }
         });
@@ -197,9 +207,9 @@ function fillingSenBuckets(methodCall) {
                 }
                 str = '#' + obj.id;
                 if (str == '#CA') {
-                    curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (520 - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                    curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (520 - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 } else {
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 }
                 yOrigin = yOrigin - 40;
             }
@@ -219,7 +229,7 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
 
             }
@@ -239,7 +249,7 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
 
             }
@@ -259,7 +269,7 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 46;
 
             }
@@ -279,7 +289,7 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 45;
 
             }
@@ -299,7 +309,7 @@ function fillingSenBuckets(methodCall) {
                 }
                 str = '#' + obj.id;
                 if (str == '#TX')
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (600 - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (600 - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 45;
             }
         });
@@ -313,28 +323,34 @@ function fillingSenBuckets(methodCall) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(1000)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
             }
         });
     }
 }
 
-
 function fillingDefBuckets(methodCall) {
-    var xOrigin=  1500
-    var yOrigin = 600
+    var xOrigin=  1340
+    var yOrigin = 500
     var x = 0;
     var y = 0;
     var transitioning = null
     var curr_tran0 = null;
-
+    var row = 0;
     //0,0 is top left. 0,height is bot left. width,0 is top right.
     $('.balance').each(function(i, obj) {
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
-        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#807d85').duration(1000).transition().attr('opacity', 1).duration(1000);
+        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#807d85').duration(1000).transition().attr('opacity', 1).duration(500);
+        row++;
+        if (row % 7 == 0) {
+            yOrigin += 10;
+            row = 0;
+            xOrigin = 1340
+        }
+        xOrigin += 60;
     });
 }
 
