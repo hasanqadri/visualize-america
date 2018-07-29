@@ -35,7 +35,7 @@ function drawPastOccupancies(data, past_senators) {
             .attr("width", 60)
             .attr("height", 50)
             .attr('fill', function (d) {
-                return d == 'R' ? "#c5111e" : "#1110a6"
+                return d == 'R' ? "#99000d" : "#084594"
             })
             .style("stroke", "#f7fcff")
             .style("stroke-width", 2)
@@ -63,7 +63,7 @@ function updateOccupancies(dataArr) {
     count = 0;
     chart.selectAll("rect").data(dataArr).transition().style("fill", function(d) {
         console.log(d)
-        return d == 'R' ? "#c5111e" : "#1110a6"
+        return d == 'R' ? "#99000d" : "#084594"
     }).duration(1000)
 
 }

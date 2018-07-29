@@ -17,7 +17,7 @@ function drawPollingAverage(dataset) {
     var innerRadius = 80;
 
     var color = d3.scale.ordinal()
-        .range(["#c5111e", "#1110a6"]);
+        .range(["#99000d", "#084594"]);
 
     var arc = d3.svg.arc()
         .outerRadius(outerRadius)
@@ -44,7 +44,7 @@ function drawPollingAverage(dataset) {
         .attr({
             d: arc,
             fill: function (d, i) {
-                return d.data.party == "R" ? '#c5111e' : "#1110a6" ;
+                return d.data.party == "R" ? '#99000d' : "#084594" ;
             }
         });
 

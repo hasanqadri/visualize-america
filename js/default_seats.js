@@ -62,7 +62,7 @@ function updateGrid() {
     var count = 0;
     grid = d3v4.selectAll(".square").transition().style("fill", function(d)
     {
-        if (party[count] === "#084594" || party[count] === "#cb181d" || party[count] === "#0dcb1d" || party[count] === '#bbb') {
+        if (party[count] == "#084594" || party[count] == "#99000d" || party[count] == "#238b45" || party[count] == '#bbb') {
             return party[count++]
         } else {
             return "fff"
@@ -135,9 +135,9 @@ function getCurrNumGovernors() {
         if (governorD[x].party == "democrat") {
             governorsD.push("#084594");
         } else if (governorD[x].party == "republican") {
-            governorsR.push("#cb181d");
+            governorsR.push("#99000d");
         } else if (governorD[x].party == "independent") {
-            governorsI.push("#0dcb1d");
+            governorsI.push("#238b45");
         } else {
             console.log("bug")
         }
@@ -161,7 +161,7 @@ function getCurrNumSenators() {
         if (senateD.results[0].members[x].party == "D") {
             senatorsD.push("#084594");
         } else {
-            senatorsR.push("#cb181d");
+            senatorsR.push("#99000d");
         }
     }
     senatorsD.push.apply(senatorsD, senatorsR)

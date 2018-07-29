@@ -5,9 +5,9 @@ function getCurrentGovernors(d) {
             if (governorD[x].party === "democrat") {
                 return '#084594'
             } else if (governorD[x].party === "republican") {
-                return '#cb181d'
+                return '#99000d'
             } else {
-                return '#22cb30'
+                return '#005a32'
             }
         }
     }
@@ -24,9 +24,9 @@ function governorCircle(d) {
                 if (governorD[x].party === "democrat") {
                     return '#084594'
                 } else if (governorD[x].party === "republican") {
-                    return '#cb181d'
+                    return '#99000d'
                 } else {
-                    return '#22cb30'
+                    return '#005a32'
                 }
             }
         }
