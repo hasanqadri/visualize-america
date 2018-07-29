@@ -121,13 +121,15 @@ function default_map() {
             })
             .on('click', function (d) {
                 if (getView() != 'Default') {
-                    document.getElementById("right-alt").style.visibility = 'hidden';
-                    document.getElementById("right-alt").style.display = 'none';
+                    if (checkSenAndGov(d.properties.STATE_ABBR)) {
+                        document.getElementById("right-alt").style.visibility = 'hidden';
+                        document.getElementById("right-alt").style.display = 'none';
 
-                    document.getElementById("right").style.visibility = 'visible';
-                    document.getElementById("right").style.display = 'block';
+                        document.getElementById("right").style.visibility = 'visible';
+                        document.getElementById("right").style.display = 'block';
 
-                    updateSidePane(d);
+                        updateSidePane(d);
+                    }
                 }
             });
 
@@ -208,7 +210,7 @@ function default_map() {
                         console.log('error');
                     }
                 }
-
+                document.getElementsByName('inputState')[0].disabled = false;
                 checkLegend();
                 if (currentMapChecked) {
                     document.getElementById("right").style.visibility = 'hidden';
@@ -216,6 +218,9 @@ function default_map() {
 
                     document.getElementById("right-alt").style.visibility = 'visible';
                     document.getElementById("right-alt").style.display = 'block';
+
+                    document.getElementsByName('inputState')[0].disabled = true;
+                    document.getElementsByName('inputState')[0].value = '';
                 }
             });
 
@@ -527,11 +532,14 @@ function updateSidePane(d) {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
+                    console.log(candidates)
                     document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                     document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                    drawPollingAverage(candidates);
+                    drawHeadToHead(data);
+                    drawLeans(candidates);
+                    drawPollingAverageBars(candidates);
                     drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
                 }
             }
@@ -545,7 +553,9 @@ function updateSidePane(d) {
                             document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                             document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                             document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                            drawPollingAverage(candidates);
+                            drawHeadToHead(data);
+                            drawLeans(candidates);
+                            drawPollingAverageBars(candidates);
                             drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
                         }
                     }
@@ -553,6 +563,45 @@ function updateSidePane(d) {
             }
         } else {
             console.log("bug")
+        }
+    }
+}
+
+
+function isValidState(state) {
+    e = document.getElementById("raceDropdown");
+    selectedOption = e.options[e.selectedIndex].value;
+    if (selectedOption === "Default") {
+        return false;
+    } else if (selectedOption === 'United States Senator') {
+        for (var y = 0; y < numSenStates; y++) {
+            if (state === rcpsD[y].state) {
+                var candidates = getCandidatesAndLead(rcpsD[y]);
+                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
+                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawHeadToHead(data);
+                drawLeans(candidates);
+                drawPollingAverageBars(candidates);
+                drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
+                return true;
+            }
+        }
+    } else if (selectedOption === 'United States Governor') {
+        for (var y = 0; y < numGovStates; y++) {
+            if (state === rcpgD[y].state) {
+                var candidates = getCandidatesAndLead(rcpgD[y]);
+                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
+                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawHeadToHead(data);
+                drawLeans(candidates);
+                drawPollingAverageBars(candidates);
+                drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
+                return true;
+            }
         }
     }
 }
@@ -609,8 +658,7 @@ function getPartyAndLead(state) {
     return name;
 }
 
-
-function isValidState(state) {
+function checkSenAndGov(state) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
     if (selectedOption === "Default") {
@@ -618,29 +666,20 @@ function isValidState(state) {
     } else if (selectedOption === 'United States Senator') {
         for (var y = 0; y < numSenStates; y++) {
             if (state === rcpsD[y].state) {
-                var candidates = getCandidatesAndLead(rcpsD[y]);
-                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
-                document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
-                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
-                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                drawPollingAverage(candidates);
-                drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
                 return true;
             }
         }
     } else if (selectedOption === 'United States Governor') {
         for (var y = 0; y < numGovStates; y++) {
             if (state === rcpgD[y].state) {
-                var candidates = getCandidatesAndLead(rcpgD[y]);
-                document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
-                document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
-                document.getElementById('polling-average-title').innerHTML = 'Polling Average';
-                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                drawPollingAverage(candidates);
-                drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
                 return true;
             }
         }
     }
 }
+
+
+
+
+
 

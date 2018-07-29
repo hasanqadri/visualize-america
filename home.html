@@ -80,10 +80,16 @@
             </div>
             <div id="right" style="width:100%;display:none; visibile:hidden">
                 <h2 class="w3-margin-top-custom5 w3-margin-bottom w3-center fontTitle" id="head-to-head"></h2>
+                <div class="head-to-head-box w3-margin-bot-custom w3-margin-right-custom1" ></div>
+
                 <h3 class="w3-center w3-margin-bot-custom fontTitleMedium" id="seat"></h3>
 
+                <h5 class="w3-center w3-margin-top fontTitleSmaller" id="leans-title">Leans:</h5>
+                <div class="leans w3-margin-bot-custom w3-margin-right-custom1" ></div>
+
+
                 <h5 class="w3-center w3-margin-top fontTitleSmall" id="polling-average-title"></h5>
-                <div class="polling-average w3-margin-bot-custom w3-margin-right-custom1" ></div>
+                <div class="polling-average-bars w3-margin-bot-custom w3-margin-right-custom1" ></div>
 
                 <h5 class="w3-center w3-margin-top fontTitleSmall" id="past-occupancies-title"></h5>
                 <svg class="past-occupancies" id="chartz"></svg>
@@ -94,6 +100,9 @@
 </body>
 <script src="js/past_occupancies.js"></script>
 <script src="js/polling_average.js"></script>
+<script src="js/polling_average_bars.js"></script>
+<script src="js/head_to_head_box.js"></script>
+<script src="js/leans.js"></script>
 <script src="js/governor_map.js"></script>
 <script src="js/senate_map.js"></script>
 <script src="js/house_map.js"></script>
@@ -101,6 +110,5 @@
 <script src="js/default_map.js"></script>
 <script src="js/default_seats.js"></script>
 <script src="js/federal_balance.js"></script>
-
 
 </html>

@@ -15,19 +15,15 @@ h3 {
     color:#333;
 }
 
+
+
 .state {
     fill:none;
     stroke: black;
     stroke-width: 3px;
     stroke-opacity: 1;
 }
-/**
-.counties {
-    fill: #e5e5e5;
-    stroke: #fff;
-    stroke-width:2px;
-}
-**/
+
 .treemap-margin {
     margin-right: 60px;
 }
@@ -218,15 +214,15 @@ h1 {
     font-size: 30px;
 }
 
-
-.fontTitleSmall {
-    font-family: Arial;
-    font-size: 20px;
-}
-
 .fontTitleSmall {
     font-family: Arial;
     font-size: 25px;
+}
+
+
+.fontTitleSmaller {
+    font-family: Arial;
+    font-size: 20px;
 }
 
 .logo {

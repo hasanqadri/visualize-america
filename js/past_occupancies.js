@@ -60,7 +60,6 @@ function drawPastOccupancies(data, past_senators) {
 }
 
 function updateOccupancies(dataArr) {
-    console.log(dataArr)
     count = 0;
     chart.selectAll("rect").data(dataArr).transition().style("fill", function(d) {
         console.log(d)

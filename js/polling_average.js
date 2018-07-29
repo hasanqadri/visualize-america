@@ -1,5 +1,6 @@
 var svg = null;
 function drawPollingAverage(dataset) {
+    console.log(dataset)
     if (svg !== null) {
         d3.select('#do').remove()
     }
