@@ -64,7 +64,7 @@ function house_map()
         if(Math.random() > .5) {
             return '#084594'
         } else {
-            return '#cb181d'
+            return '#99000d'
         }
     }
 }

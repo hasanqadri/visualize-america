@@ -5,16 +5,14 @@ function getCurrentGovernors(d) {
             if (governorD[x].party === "democrat") {
                 return '#084594'
             } else if (governorD[x].party === "republican") {
-                return '#cb181d'
+                return '#99000d'
             } else {
-                return '#22cb30'
+                return '#005a32'
             }
         }
     }
     return '#bbb';
 }
-
-
 
 function governorCircle(d) {
     notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE'];
@@ -24,9 +22,9 @@ function governorCircle(d) {
                 if (governorD[x].party === "democrat") {
                     return '#084594'
                 } else if (governorD[x].party === "republican") {
-                    return '#cb181d'
+                    return '#99000d'
                 } else {
-                    return '#22cb30'
+                    return '#005a32'
                 }
             }
         }

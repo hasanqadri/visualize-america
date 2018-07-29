@@ -37,7 +37,7 @@ function default_map() {
 
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#003296", "#084eb3", "#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f"]);
+        .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
     color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
 
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -292,20 +292,20 @@ function colorMapByLead(d, numStates) {
             party = output[2];
             if (party === 'D') {
                 if (lead > 10)
-                    return '#003296';
+                    return '#084594';
                 else if (lead > 5)
-                    return '#084eb3';
+                    return '#2171b5';
                 else
-                    return '#1d90ff'
+                    return '#4292c6'
             } else if (party === 'R') {
                 if (lead > 10)
-                    return '#760d0f';
+                    return '#99000d';
                 else if (lead > 5)
-                    return '#bf1700';
+                    return '#cb181d';
                 else
-                    return '#ff4941'
+                    return '#ef3b2c'
             } else if (party === 'I') {
-                return '#3cff49'
+                return '#238b45'
             }
         }
     }
@@ -397,7 +397,7 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range(["#003296","#084eb3","#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f" ]);
+            .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
         color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
         var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -429,7 +429,7 @@ function checkLegend() {
             legend.remove();
             // Define linear scale for output
             var color = d3.scale.linear()
-                .range(["#9c1ecb","#22cb30","#cb181d","#084594" ]);
+                .range(["#4a1486","#238b45","#99000d","#084594" ]);
             color.domain([0,1,2,3]); // setting the range of the input data
 
             var legendText = ["Mixed", "Independent", "Republican", "Democrat"];
@@ -461,7 +461,7 @@ function checkLegend() {
             legend.remove();
             // Define linear scale for output
             var color = d3.scale.linear()
-                .range(["#003296", "#084eb3", "#1d90ff", "#444149", "#ff4941", "#bf1700", "#760d0f"]);
+                .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
             color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
 
             var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -532,7 +532,6 @@ function updateSidePane(d) {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
-                    console.log(candidates)
                     document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
@@ -687,31 +686,30 @@ function checkSenAndGov(state) {
 function higherParty(candidates) {
     var data = candidates['niceTry'];
     var currHigh = 0;
-    var currParty = null
+    var party = null
     for (var key in data) {
-        console.log(data[key].percent)
         if (data[key].percent > currHigh) {
             currHigh = data[key].percent;
-            currParty = data[key].party;
+            party = data[key].party;
 
         }
     }
     var lead = Math.abs(data[0].percent - data[1].percent)
-    if (currParty === 'D') {
+    if (party === 'D') {
         if (lead > 10)
-            return '#003296';
+            return '#084594';
         else if (lead > 5)
-            return '#084eb3';
+            return '#2171b5';
         else
-            return '#1d90ff'
-    } else if (currParty === 'R') {
+            return '#4292c6'
+    } else if (party === 'R') {
         if (lead > 10)
-            return '#760d0f';
+            return '#99000d';
         else if (lead > 5)
-            return '#bf1700';
+            return '#cb181d';
         else
-            return '#ff4941'
-    } else if (currParty === 'I') {
-        return '#3cff49'
+            return '#ef3b2c'
+    } else if (party === 'I') {
+        return '#238b45'
     }
 }
