@@ -4,8 +4,6 @@ var grid = null;
 //#d3v4v4
 function default_seats() {
 
-    console.log("print here")
-    console.log(getView())
     if (getView() === 'United States Senator') {        //10 x 10
         document.getElementById("federalSeat").innerHTML = 'Current Senate Balance';
         gridData = createArrayOfElements(0);
@@ -17,7 +15,6 @@ function default_seats() {
         gridData = createArrayOfElements(2);
     }
 
-    console.log(gridData)
     grid = d3v4.select("#grid")
         .append("svg")
         .attr('id', 'gridSVG')

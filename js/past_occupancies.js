@@ -15,7 +15,6 @@ function drawPastOccupancies(data, past_senators) {
 
         var spacer = 60
         var current = 0
-        //console.log(d3.sum(data));
 
         chart = d3.select("#chartz")
             .attr("width", width)
@@ -62,7 +61,6 @@ function drawPastOccupancies(data, past_senators) {
 function updateOccupancies(dataArr) {
     count = 0;
     chart.selectAll("rect").data(dataArr).transition().style("fill", function(d) {
-        console.log(d)
         return d == 'R' ? "#99000d" : "#084594"
     }).duration(1000)
 

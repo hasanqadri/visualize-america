@@ -14,8 +14,6 @@ function getCurrentGovernors(d) {
     return '#bbb';
 }
 
-
-
 function governorCircle(d) {
     notInState = ['WA', 'ND', 'MT', 'UT', 'MO', 'IN', 'KY', 'MS', 'LA', 'NC', 'VA', 'WV', 'NJ', 'DE'];
     for (var x = 0; x < governorD.length; x++) {

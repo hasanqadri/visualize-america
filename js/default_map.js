@@ -532,7 +532,6 @@ function updateSidePane(d) {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
-                    console.log(candidates)
                     document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
@@ -689,7 +688,6 @@ function higherParty(candidates) {
     var currHigh = 0;
     var party = null
     for (var key in data) {
-        console.log(data[key].percent)
         if (data[key].percent > currHigh) {
             currHigh = data[key].percent;
             party = data[key].party;
