@@ -72,7 +72,6 @@ function federal_balance() {
  */
 
 function initialPlacement() {
-    console.log('fadas')
     var xOrigin=  1340
     var yOrigin = 500
     var x = 0;
@@ -343,7 +342,7 @@ function fillingDefBuckets(methodCall) {
         x = obj.getBoundingClientRect().x;
         y = obj.getBoundingClientRect().y;
         str = '#' + obj.id;
-        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#807d85').duration(1000).transition().attr('opacity', 1).duration(500);
+        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#bdbdbd').duration(1000).transition().attr('opacity', 1).duration(500);
         row++;
         if (row % 7 == 0) {
             yOrigin += 10;
@@ -373,7 +372,7 @@ function createScale(width) {
     var xAxis = d3.svg.axis().scale(axisScale).orient('bottom');
     //Create an SVG group Element for the Axis elements and call the xAxis function
     var xAxisGroup = xLine.append("g").attr('class', 'axisGray').attr("transform", "translate(5,0)").call(xAxis);
-    xAxisGroup.append('text').attr("transform", "translate(" + (width/2) + " ," + 35 + ")").style("text-anchor", "middle").text("Left to Right Leaning").attr('stroke', '#807d85');
+    xAxisGroup.append('text').attr("transform", "translate(" + (width/2) + " ," + 35 + ")").style("text-anchor", "middle").text("Left to Right Leaning").attr('stroke', '#bdbdbd');
 }
 
 function assistUpdate(state_abbr) {

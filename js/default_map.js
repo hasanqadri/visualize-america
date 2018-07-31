@@ -37,7 +37,7 @@ function default_map() {
 
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
+        .range(["#084594", "#2171b5", "#4292c6", "#636363", "#ef6548", "#d7301f", "#990000"]);
     color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
 
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -102,14 +102,14 @@ function default_map() {
             .append('path')
             .attr('class', 'states')
             .attr('d', path)
-            .attr("fill", '#807d85')
+            .attr("fill", '#bdbdbd')
             .on('mouseover', function (d) {
                 var stateName = d.properties.STATE_ABBR;
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .75);
                 tooltip.html(function () {
-                    return stateName
+                    return state_abbr[stateName];
                 })
                     .style("left", (d3.event.pageX + 5) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
@@ -142,8 +142,8 @@ function default_map() {
                 return "translate(" + path.centroid(d) + ")";
             })
             .attr("r", 5)
-            .attr("fill", '#807d85')
-            .style('stroke', '#807d85')
+            .attr("fill", '#bdbdbd')
+            .style('stroke', '#bdbdbd')
             .style('stroke-width', 2);
 
 
@@ -228,7 +228,16 @@ function default_map() {
 
             if (document.getElementsByName('inputState')[0].value != null) {
                 var stateTyped = document.getElementsByName('inputState')[0].value.toLowerCase();
-                stateTyped = stateTyped.charAt(0).toUpperCase() + stateTyped.slice(1);
+                var inputArr = stateTyped.split(' ');
+                if (stateTyped.includes(" ")) {
+                    inputArr = stateTyped.split(' ');
+                    var stateTyped1 = inputArr[0].charAt(0).toUpperCase() + inputArr[0].slice(1)
+                    var stateTyped2 = inputArr[1].charAt(0).toUpperCase() + inputArr[1].slice(1)
+                    stateTyped = stateTyped1 + " " + stateTyped2
+                } else {
+                    stateTyped = stateTyped.charAt(0).toUpperCase() + stateTyped.slice(1);
+                }
+                console.log(stateTyped)
                 //If text is a valid state that appears in this list of senators or governors
                 if (isValidState(state_abbr2[stateTyped])) {
                     document.getElementById("right").style.visibility = 'visible';
@@ -262,7 +271,7 @@ function determineStateColor(d) {
 
         document.getElementsByClassName('text-color')[0].style.color = 'grey';
         document.getElementsByClassName('text-color')[1].style.color = 'grey';
-        return '#807d85'
+        return '#bdbdbd'
     } else if (selectedOption === "United States Senator") {
         document.getElementById('head-title').innerHTML = 'United States Senate';
         document.getElementsByName('inputState')[0].disabled = false;
@@ -313,7 +322,7 @@ function colorMapByLead(d, numStates) {
         for (var x = 0; x < senateD.results[0].members.length; x++) {
             if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
                 if (senateD.results[0].members[x].next_election == '2018') {
-                    return '#444149'
+                    return '#636363'
                 }
             }
         }
@@ -322,11 +331,11 @@ function colorMapByLead(d, numStates) {
         for (var x = 0; x < governorD.length; x++) {
             if (d.properties.STATE_ABBR === governorD[x].state_code) {
                 if (!(notInState.includes(governorD[x].state_code)))
-                    return '#444149'
+                    return '#636363'
             }
         }
     }
-    return '#807d85'
+    return '#bdbdbd'
 }
 
 function getCandidateInfo(state) {
@@ -397,7 +406,7 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
+            .range(["#084594", "#2171b5", "#4292c6", "#636363", "#ef6548", "#d7301f", "#990000"]);
         color.domain([0,1,2,3,4,5,6]); // setting the range of the input data
 
         var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
@@ -461,7 +470,7 @@ function checkLegend() {
             legend.remove();
             // Define linear scale for output
             var color = d3.scale.linear()
-                .range(["#084594", "#2171b5", "#4292c6", "#444149", "#ef6548", "#d7301f", "#990000"]);
+                .range(["#084594", "#2171b5", "#4292c6", "#636363", "#ef6548", "#d7301f", "#990000"]);
             color.domain([0, 1, 2, 3, 4, 5, 6]); // setting the range of the input data
 
             var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];

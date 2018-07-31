@@ -29,7 +29,7 @@ function senateCircle(d) {
             }
         }
     }
-    return '#807d85'
+    return '#bdbdbd'
 }
 
 function senateCircleBorders(d) {
@@ -40,5 +40,5 @@ function senateCircleBorders(d) {
             }
         }
     }
-    return '#807d85'
+    return '#bdbdbd'
 }
