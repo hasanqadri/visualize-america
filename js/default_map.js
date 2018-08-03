@@ -141,10 +141,10 @@ function default_map() {
             .attr("transform", function (d) {
                 return "translate(" + path.centroid(d) + ")";
             })
-            .attr("r", 5)
+            .attr("r", 7)
             .attr("fill", '#bdbdbd')
             .style('stroke', '#bdbdbd')
-            .style('stroke-width', 2);
+            .style('stroke-width', 1);
 
 
         d3.select('#raceDropdown')
@@ -237,7 +237,6 @@ function default_map() {
                 } else {
                     stateTyped = stateTyped.charAt(0).toUpperCase() + stateTyped.slice(1);
                 }
-                console.log(stateTyped)
                 //If text is a valid state that appears in this list of senators or governors
                 if (isValidState(state_abbr2[stateTyped])) {
                     document.getElementById("right").style.visibility = 'visible';
@@ -537,6 +536,8 @@ function updateSidePane(d) {
     if (!currentMapChecked) {
         var sect = document.getElementById("raceDropdown");
         selectedOption = sect.options[sect.selectedIndex].value;
+        var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
+        var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
         if (selectedOption === "United States Senator") {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
@@ -545,11 +546,24 @@ function updateSidePane(d) {
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                     document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                    drawPollingAverageBars(candidates);
+                    drawPollingAverageBars(candidates, 0);
                     drawPastOccupancies(candidates, past_senD[rcpsD[y].state]);
                     d3.select('.lean').transition().attr('fill', function(d) {
                         return higherParty(candidates);
                     }).duration(500)
+                }
+            }
+            //For loop over gray states, if matched, then update side panel with everything but bars
+            for (var v = 0; v < pastOccupantsSen.length; v++) {
+                if (d.properties.STATE_ABBR === pastOccupantsSen[v]) {
+                    document.getElementById('head-to-head').innerHTML = 'Data currently not available';
+                    document.getElementById('polling-average-title').innerHTML = '';
+
+                    document.getElementById('seat').innerHTML = stateD[pastOccupantsSen[v]] + " " + "Senate Seat";
+                    document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                    drawPollingAverageBars(candidates, 1);
+                    drawPastOccupancies(null, past_senD[pastOccupantsSen[v]]);
+                    d3.select('.lean').transition().attr('fill', '#636363').duration(500)
                 }
             }
         } else if (selectedOption === "United States Governor") {
@@ -562,7 +576,7 @@ function updateSidePane(d) {
                             document.getElementById('seat').innerHTML = stateD[rcpgD[y].state] + " " + "Governor Seat";
                             document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                             document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
-                            drawPollingAverageBars(candidates);
+                            drawPollingAverageBars(candidates, 0);
                             drawPastOccupancies(candidates, past_govD[rcpgD[y].state]);
                             d3.select('.lean').transition().attr('fill', function(d) {
                                 return higherParty(candidates);
@@ -571,16 +585,30 @@ function updateSidePane(d) {
                     }
                 }
             }
+            //For loop over gray states, if matched, then update side panel with everything but bars
+            for (var n = 0; n < pastOccupantsGov.length; n++) {
+                if (d.properties.STATE_ABBR === pastOccupantsGov[n]) {
+                    document.getElementById('head-to-head').innerHTML = 'Data currently not available';
+                    document.getElementById('polling-average-title').innerHTML = '';
+                    document.getElementById('seat').innerHTML = stateD[pastOccupantsGov[n]] + " " + "Governor Seat";
+                    document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                    drawPollingAverageBars(candidates, 1);
+                    drawPastOccupancies(null, past_govD[pastOccupantsGov[n]]);
+                    d3.select('.lean').transition().attr('fill', '#636363').duration(500)
+                }
+            }
         } else {
             console.log("bug")
         }
     }
 }
 
-
 function isValidState(state) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
+    var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
+    var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
+    console.log(state)
     if (selectedOption === "Default") {
         return false;
     } else if (selectedOption === 'United States Senator') {
@@ -599,6 +627,20 @@ function isValidState(state) {
                 return true;
             }
         }
+        //For loop over gray states, if matched, then update side panel with everything but bars
+        for (var v = 0; v < pastOccupantsSen.length; v++) {
+            if (state === pastOccupantsSen[v]) {
+                document.getElementById('head-to-head').innerHTML = 'Data currently not available';
+                document.getElementById('polling-average-title').innerHTML = '';
+
+                document.getElementById('seat').innerHTML = stateD[pastOccupantsSen[v]] + " " + "Senate Seat";
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawPollingAverageBars(candidates, 1);
+                drawPastOccupancies(null, past_senD[pastOccupantsSen[v]]);
+                d3.select('.lean').transition().attr('fill', '#636363').duration(500)
+                return true
+            }
+        }
     } else if (selectedOption === 'United States Governor') {
         for (var y = 0; y < numGovStates; y++) {
             if (state === rcpgD[y].state) {
@@ -612,6 +654,19 @@ function isValidState(state) {
                 d3.select('.lean').transition().attr('fill', function(d) {
                     return higherParty(candidates);
                 }).duration(500)
+                return true;
+            }
+        }
+        //For loop over gray states, if matched, then update side panel with everything but bars
+        for (var n = 0; n < pastOccupantsGov.length; n++) {
+            if (state === pastOccupantsGov[n]) {
+                document.getElementById('head-to-head').innerHTML = 'Data currently not available';
+                document.getElementById('polling-average-title').innerHTML = '';
+                document.getElementById('seat').innerHTML = stateD[pastOccupantsGov[n]] + " " + "Governor Seat";
+                document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
+                drawPollingAverageBars(candidates, 1);
+                drawPastOccupancies(null, past_govD[pastOccupantsGov[n]]);
+                d3.select('.lean').transition().attr('fill', '#636363').duration(500)
                 return true;
             }
         }
@@ -673,11 +728,19 @@ function getPartyAndLead(state) {
 function checkSenAndGov(state) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
+    var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
+    var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
+
     if (selectedOption === "Default") {
         return false;
     } else if (selectedOption === 'United States Senator') {
         for (var y = 0; y < numSenStates; y++) {
             if (state === rcpsD[y].state) {
+                return true;
+            }
+        }
+        for (var v = 0; v < pastOccupantsSen.length; v++) {
+            if (state === pastOccupantsSen[v]) {
                 return true;
             }
         }
@@ -687,10 +750,13 @@ function checkSenAndGov(state) {
                 return true;
             }
         }
+        for (var n = 0; n < pastOccupantsGov.length; n++) {
+            if (state === pastOccupantsGov[n]) {
+                return true;
+            }
+        }
     }
 }
-
-
 
 function higherParty(candidates) {
     var data = candidates['niceTry'];

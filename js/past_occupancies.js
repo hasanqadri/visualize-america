@@ -34,7 +34,13 @@ function drawPastOccupancies(data, past_senators) {
             .attr("width", 60)
             .attr("height", 50)
             .attr('fill', function (d) {
-                return d == 'R' ? "#99000d" : "#084594"
+                if (d == 'R') {
+                    return "#99000d"
+                } else if (d == 'D') {
+                    return "#084594"
+                } else {
+                    return "#238b45"
+                }
             })
             .style("stroke", "#f7fcff")
             .style("stroke-width", 2)
@@ -46,6 +52,7 @@ function drawPastOccupancies(data, past_senators) {
             .enter()
             .append("text")
             .attr("x", function (d) {
+                console.log(dataArrKeys);
                 return current += spacer
             })
             .attr("y", 52)
@@ -60,8 +67,14 @@ function drawPastOccupancies(data, past_senators) {
 
 function updateOccupancies(dataArr) {
     count = 0;
-    chart.selectAll("rect").data(dataArr).transition().style("fill", function(d) {
-        return d == 'R' ? "#99000d" : "#084594"
+    chart.selectAll("rect").data(dataArr).transition().style('fill', function (d) {
+        if (d == 'R') {
+            return "#99000d"
+        } else if (d == 'D') {
+            return "#084594"
+        } else {
+            return "#238b45"
+        }
     }).duration(1000)
 
 }

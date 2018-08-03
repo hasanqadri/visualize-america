@@ -1,6 +1,12 @@
 var svg = null;
 var data = null;
-function drawPollingAverageBars(dataset) {
+function drawPollingAverageBars(dataset, fake) {
+    if (fake) {
+        if (svg !== null) {
+            d3.select('#do').remove()
+        }
+        return;
+    }
     if (svg !== null) {
         d3.select('#do').remove()
     }

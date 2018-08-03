@@ -23,8 +23,11 @@ function senateCircle(d) {
             if (senateD.results[0].members[x].next_election == '2018') {
                 if (senateD.results[0].members[x].party === "D") {
                     return '#084594'
-                } else {
+                } else if (senateD.results[0].members[x].party == 'R') {
                     return '#99000d'
+                } else {
+                    return "#238b45"
+
                 }
             }
         }
