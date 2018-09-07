@@ -59,7 +59,7 @@ function updateGrid() {
     var count = 0;
     grid = d3v4.selectAll(".square").transition().style("fill", function(d)
     {
-        if (party[count] == "#084594" || party[count] == "#99000d" || party[count] == "#238b45" || party[count] == '#bbb') {
+        if (party[count] == "#084594" || party[count] == "#99000d" || party[count] == "#238b45" || party[count] == '#737373') {
             return party[count++]
         } else {
             return "fff"
@@ -168,7 +168,7 @@ function getCurrNumSenators() {
 function getDefaultArray() {
     var arr = []
     for (var x = 0; x < 100; x++) {
-        arr.push('#bbb');
+        arr.push('#737373');
     }
     return arr;
 }

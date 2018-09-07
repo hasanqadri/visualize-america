@@ -101,7 +101,7 @@ path {
 }
 
 .districts :hover {
-    fill: orange;
+    stroke: #000 !important;
 }
 
 .district-boundaries {
@@ -136,9 +136,8 @@ h1 {
 }
 */
 .states:hover {
-    fill: orange;
+    opacity: .6;
 }
-
 .states {
     stroke: #fff;
     stroke-width:2px;

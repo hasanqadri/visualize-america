@@ -11,7 +11,7 @@ function getCurrentGovernors(d) {
             }
         }
     }
-    return '#bdbdbd';
+    return '#737373';
 }
 
 function governorCircle(d) {
@@ -29,7 +29,7 @@ function governorCircle(d) {
             }
         }
     }
-    return '#bdbdbd'
+    return '#737373'
 }
 
 function governorCircleBorders(d) {
@@ -41,5 +41,5 @@ function governorCircleBorders(d) {
             }
         }
     }
-    return '#bdbdbd'
+    return '#737373'
 }
