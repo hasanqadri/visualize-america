@@ -52,20 +52,20 @@ function colorMapByLead(d, numStates) {
             party = output[2];
             if (party === 'D') {
                 if (lead > 10)
-                    return '#084594';
+                    return strongDem;
                 else if (lead > 5)
-                    return '#2171b5';
+                    return weakDem;
                 else
-                    return '#4292c6'
+                    return leanDem
             } else if (party === 'R') {
                 if (lead > 10)
-                    return '#99000d';
+                    return strongRep;
                 else if (lead > 5)
-                    return '#cb181d';
+                    return weakRep;
                 else
-                    return '#ef3b2c'
+                    return leanRep
             } else if (party === 'I') {
-                return '#238b45'
+                return indep
             }
         }
     }
@@ -178,17 +178,18 @@ function htmlControls() {
 
 
 function updateSidePane(d) {
-
     if (!currentMapChecked) {
         var sect = document.getElementById("raceDropdown");
         selectedOption = sect.options[sect.selectedIndex].value;
-        var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
-        var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
         if (selectedOption === "United States Senator") {
             for (var y = 0; y < numSenStates; y++) {
                 if (d.properties.STATE_ABBR === rcpsD[y].state) {
                     var candidates = getCandidatesAndLead(rcpsD[y]);
-                    document.getElementById('head-to-head').innerHTML =  candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                    if (d.properties.STATE_ABBR === "ME") {
+                        document.getElementById('head-to-head').innerHTML = candidates["(I)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                    } else {
+                        document.getElementById('head-to-head').innerHTML = candidates["(D)"][0] + " (D) v. " + candidates["(R)"][0] + " (R)";
+                    }
                     document.getElementById('seat').innerHTML = stateD[rcpsD[y].state] + " " + "Senate Seat";
                     document.getElementById('polling-average-title').innerHTML = 'Polling Average';
                     document.getElementById('past-occupancies-title').innerHTML = "Past Occupancies";
@@ -253,9 +254,6 @@ function updateSidePane(d) {
 function isValidState(state) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
-    var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
-    var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
-    console.log(state)
     if (selectedOption === "Default") {
         return false;
     } else if (selectedOption === 'United States Senator') {
@@ -375,8 +373,6 @@ function getPartyAndLead(state) {
 function checkSenAndGov(state) {
     e = document.getElementById("raceDropdown");
     selectedOption = e.options[e.selectedIndex].value;
-    var pastOccupantsSen = ['CA', 'WA', 'AZ', 'NM', 'WY', 'NE', 'MN', 'WI', 'MI', 'MS', 'MD', 'CT', 'VT', 'ME']
-    var pastOccupantsGov = ['OR', 'ID', 'WY', 'AZ', 'CO', 'SD', 'NE', 'KS', 'OK', 'AR', 'MN', 'WI', 'TN', 'MI', 'AL', 'FL', 'SC', 'MD', 'NY', 'VT', 'NH', 'CT', 'ME'];
 
     if (selectedOption === "Default") {
         return false;
@@ -418,19 +414,19 @@ function higherParty(candidates) {
     var lead = Math.abs(data[0].percent - data[1].percent)
     if (party === 'D') {
         if (lead > 10)
-            return '#084594';
+            return strongDem;
         else if (lead > 5)
-            return '#2171b5';
+            return weakDem;
         else
-            return '#4292c6'
+            return leanDem
     } else if (party === 'R') {
         if (lead > 10)
-            return '#99000d';
+            return strongRep;
         else if (lead > 5)
-            return '#cb181d';
+            return weakRep;
         else
-            return '#ef3b2c'
+            return leanRep
     } else if (party === 'I') {
-        return '#238b45'
+        return indep
     }
 }

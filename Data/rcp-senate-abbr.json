@@ -1,6 +1,66 @@
 [
     {
         "polls": {
+            "RCP Average": {
+                "McSally (R)": "43.0",
+                "Sinema (D)": "46.4",
+                "Spread": "Sinema +3.4"
+            },
+            "ABC 15/OH Predictive InsightsABC 15": {
+                "McSally (R)": "42",
+                "Sinema (D)": "48",
+                "Spread": "Sinema +6"
+            },
+            "CBS News/YouGovCBS/YouGov": {
+                "McSally (R)": "37",
+                "Sinema (D)": "45",
+                "Spread": "Sinema +8"
+            },
+            "CNNCNN": {
+                "McSally (R)": "43",
+                "Sinema (D)": "50",
+                "Spread": "Sinema +7"
+            },
+            "Emerson*Emerson*": {
+                "McSally (R)": "39",
+                "Sinema (D)": "45",
+                "Spread": "Sinema +6"
+            },
+            "EmersonEmerson": {
+                "McSally (R)": "32",
+                "Sinema (D)": "40",
+                "Spread": "Sinema +8"
+            },
+            "FOX NewsFOX News": {
+                "McSally (R)": "44",
+                "Sinema (D)": "47",
+                "Spread": "Sinema +3"
+            },
+            "GravisGravis": {
+                "McSally (R)": "39",
+                "Sinema (D)": "43",
+                "Spread": "Sinema +4"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "McSally (R)": "38",
+                "Sinema (D)": "49",
+                "Spread": "Sinema +11"
+            },
+            "OH Predictive InsightsPredictive Insights": {
+                "McSally (R)": "45",
+                "Sinema (D)": "46",
+                "Spread": "Sinema +1"
+            },
+            "Suffolk*Suffolk*": {
+                "McSally (R)": "42",
+                "Sinema (D)": "45",
+                "Spread": "Sinema +3"
+            }
+        },
+        "state": "AZ"
+    },
+    {
+        "polls": {
             "WBUR/MassINC*WBUR/MassINC*": {
                 "Lindstrom (R)": "19",
                 "Spread": "Warren +34",
@@ -17,9 +77,19 @@
     {
         "polls": {
             "RCP Average": {
-                "Hugin (R)": "32.3",
-                "Menendez (D)": "41.3",
-                "Spread": "Menendez +9.0"
+                "Hugin (R)": "40.3",
+                "Menendez (D)": "47.5",
+                "Spread": "Menendez +7.2"
+            },
+            "CBS News/YouGovCBS/YouGov": {
+                "Hugin (R)": "39",
+                "Menendez (D)": "49",
+                "Spread": "Menendez +10"
+            },
+            "Fairleigh DickinsonFDU": {
+                "Hugin (R)": "24",
+                "Menendez (D)": "28",
+                "Spread": "Menendez +4"
             },
             "GravisGravis": {
                 "Hugin (R)": "41",
@@ -36,10 +106,10 @@
                 "Menendez (D)": "49",
                 "Spread": "Menendez +17"
             },
-            "Fairleigh DickinsonFDU": {
-                "Hugin (R)": "24",
-                "Menendez (D)": "28",
-                "Spread": "Menendez +4"
+            "Stockton University*Stockton*": {
+                "Hugin (R)": "43",
+                "Menendez (D)": "45",
+                "Spread": "Menendez +2"
             }
         },
         "state": "NJ"
@@ -47,9 +117,9 @@
     {
         "polls": {
             "RCP Average": {
-                "Farley (R)": "29.0",
+                "Farley (R)": "29.5",
                 "Gillibrand (D)": "59.0",
-                "Spread": "Gillibrand +30.0"
+                "Spread": "Gillibrand +29.5"
             },
             "QuinnipiacQuinnipiac": {
                 "Farley (R)": "23",
@@ -67,19 +137,39 @@
     {
         "polls": {
             "RCP Average": {
-                "Barletta (R)": "30.3",
-                "Casey (D)": "46.3",
+                "Barletta (R)": "36.0",
+                "Casey (D)": "52.0",
                 "Spread": "Casey +16.0"
+            },
+            "Franklin & Marshall*F&M;*": {
+                "Barletta (R)": "34",
+                "Casey (D)": "47",
+                "Spread": "Casey +13"
             },
             "Franklin & MarshallF&M;": {
                 "Barletta (R)": "25",
                 "Casey (D)": "43",
                 "Spread": "Casey +18"
             },
+            "Morning Call*Morning Call*": {
+                "Barletta (R)": "35",
+                "Casey (D)": "53",
+                "Spread": "Casey +18"
+            },
             "Morning CallMorning Call": {
                 "Barletta (R)": "32",
                 "Casey (D)": "48",
                 "Spread": "Casey +16"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Barletta (R)": "38",
+                "Casey (D)": "53",
+                "Spread": "Casey +15"
+            },
+            "Rasmussen ReportsRasmussen": {
+                "Barletta (R)": "38",
+                "Casey (D)": "52",
+                "Spread": "Casey +14"
             },
             "SuffolkSuffolk": {
                 "Barletta (R)": "32",
@@ -92,9 +182,9 @@
     {
         "polls": {
             "RCP Average": {
-                "Brown (D)": "51.8",
-                "Renacci (R)": "36.8",
-                "Spread": "Brown +15.0"
+                "Brown (D)": "52.0",
+                "Renacci (R)": "36.7",
+                "Spread": "Brown +15.3"
             },
             "NBC News/MaristNBC/Marist": {
                 "Brown (D)": "51",
@@ -122,9 +212,9 @@
     {
         "polls": {
             "RCP Average": {
-                "Kaine (D)": "49.0",
-                "Spread": "Kaine +14.5",
-                "Stewart (R)": "34.5"
+                "Kaine (D)": "51.5",
+                "Spread": "Kaine +18.5",
+                "Stewart (R)": "33.0"
             },
             "Christopher Newport Univ.CNU": {
                 "Kaine (D)": "56",
@@ -136,6 +226,11 @@
                 "Spread": "Kaine +18",
                 "Stewart (R)": "36"
             },
+            "Roanoke College*Roanoke College*": {
+                "Kaine (D)": "51",
+                "Spread": "Kaine +17",
+                "Stewart (R)": "34"
+            },
             "Roanoke CollegeRoanoke": {
                 "Kaine (D)": "44",
                 "Spread": "Kaine +11",
@@ -145,6 +240,11 @@
                 "Kaine (D)": "53",
                 "Spread": "Kaine +17",
                 "Stewart (R)": "36"
+            },
+            "VCU*VCU*": {
+                "Kaine (D)": "49",
+                "Spread": "Kaine +23",
+                "Stewart (R)": "26"
             }
         },
         "state": "VA"
@@ -152,9 +252,14 @@
     {
         "polls": {
             "RCP Average": {
-                "Manchin (D)": "49.3",
-                "Morrisey (R)": "42.3",
-                "Spread": "Manchin +7.0"
+                "Manchin (D)": "45.7",
+                "Morrisey (R)": "36.3",
+                "Spread": "Manchin +9.4"
+            },
+            "EmersonEmerson": {
+                "Manchin (D)": "45",
+                "Morrisey (R)": "33",
+                "Spread": "Manchin +12"
             },
             "GravisGravis": {
                 "Manchin (D)": "53",
@@ -171,6 +276,11 @@
                 "Morrisey (R)": "43",
                 "Spread": "Manchin +7"
             },
+            "PPP (D)*PPP (D)*": {
+                "Manchin (D)": "46",
+                "Morrisey (R)": "35",
+                "Spread": "Manchin +11"
+            },
             "Trafalgar Group (R)*Trafalgar (R)*": {
                 "Manchin (D)": "50",
                 "Morrisey (R)": "40",
@@ -180,6 +290,11 @@
                 "Manchin (D)": "44",
                 "Morrisey (R)": "46",
                 "Spread": "Morrisey +2"
+            },
+            "WSAZ-TV*WSAZ-TV*": {
+                "Manchin (D)": "46",
+                "Morrisey (R)": "38",
+                "Spread": "Manchin +8"
             }
         },
         "state": "WV"
@@ -187,9 +302,9 @@
     {
         "polls": {
             "RCP Average": {
-                "Nelson (D)": "44.4",
+                "Nelson (D)": "47.6",
                 "Scott (R)": "45.2",
-                "Spread": "Scott +0.8"
+                "Spread": "Nelson +2.4"
             },
             "CBS News/YouGovCBS/YouGov": {
                 "Nelson (D)": "41",
@@ -226,9 +341,24 @@
                 "Scott (R)": "42",
                 "Spread": "Nelson +4"
             },
+            "Rasmussen ReportsRasmussen": {
+                "Nelson (D)": "45",
+                "Scott (R)": "44",
+                "Spread": "Nelson +1"
+            },
+            "SurveyUSASUSA": {
+                "Nelson (D)": "44",
+                "Scott (R)": "46",
+                "Spread": "Scott +2"
+            },
             "UNFUNF": {
                 "Nelson (D)": "37",
                 "Scott (R)": "36",
+                "Spread": "Nelson +1"
+            },
+            "WCTV-TVWCTV-TV": {
+                "Nelson (D)": "45",
+                "Scott (R)": "44",
                 "Spread": "Nelson +1"
             }
         },
@@ -236,10 +366,30 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Braun (R)": "42.0",
+                "Donnelly (D)": "46.0",
+                "Spread": "Donnelly +4.0"
+            },
+            "FOX News*FOX News*": {
+                "Braun (R)": "45",
+                "Donnelly (D)": "43",
+                "Spread": "Braun +2"
+            },
             "GravisGravis": {
                 "Braun (R)": "47",
                 "Donnelly (D)": "46",
                 "Spread": "Braun +1"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Braun (R)": "43",
+                "Donnelly (D)": "49",
+                "Spread": "Donnelly +6"
+            },
+            "Trafalgar Group (R)Trafalgar": {
+                "Braun (R)": "39",
+                "Donnelly (D)": "51",
+                "Spread": "Donnelly +12"
             }
         },
         "state": "IN"
@@ -247,14 +397,29 @@
     {
         "polls": {
             "RCP Average": {
-                "Blackburn (R)": "40.0",
-                "Bredesen (D)": "44.5",
-                "Spread": "Bredesen +4.5"
+                "Blackburn (R)": "47.7",
+                "Bredesen (D)": "45.0",
+                "Spread": "Blackburn +2.7"
+            },
+            "CBS News/YouGovCBS/YouGov": {
+                "Blackburn (R)": "50",
+                "Bredesen (D)": "42",
+                "Spread": "Blackburn +8"
+            },
+            "CNNCNN": {
+                "Blackburn (R)": "45",
+                "Bredesen (D)": "50",
+                "Spread": "Bredesen +5"
             },
             "EmersonEmerson": {
                 "Blackburn (R)": "37",
                 "Bredesen (D)": "43",
                 "Spread": "Bredesen +6"
+            },
+            "FOX NewsFOX News": {
+                "Blackburn (R)": "47",
+                "Bredesen (D)": "44",
+                "Spread": "Blackburn +3"
             },
             "GravisGravis": {
                 "Blackburn (R)": "40",
@@ -270,6 +435,11 @@
                 "Blackburn (R)": "35",
                 "Bredesen (D)": "45",
                 "Spread": "Bredesen +10"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Blackburn (R)": "46",
+                "Bredesen (D)": "48",
+                "Spread": "Bredesen +2"
             }
         },
         "state": "TN"
@@ -277,14 +447,104 @@
     {
         "polls": {
             "RCP Average": {
-                "Hawley (R)": "44.2",
-                "McCaskill (D)": "45.2",
-                "Spread": "McCaskill +1.0"
+                "James (R)": "37.3",
+                "Spread": "Stabenow +17.2",
+                "Stabenow (D)": "54.5"
+            },
+            "Detroit News/WDIV-TVDetroit News": {
+                "James (R)": "30",
+                "Spread": "Stabenow +21",
+                "Stabenow (D)": "51"
+            },
+            "EPIC-MRAEPIC-MRA": {
+                "James (R)": "33",
+                "Spread": "Stabenow +23",
+                "Stabenow (D)": "56"
+            },
+            "EmersonEmerson": {
+                "James (R)": "29",
+                "Spread": "Stabenow +18",
+                "Stabenow (D)": "47"
+            },
+            "GravisGravis": {
+                "James (R)": "35",
+                "Spread": "Stabenow +16",
+                "Stabenow (D)": "51"
+            },
+            "Mitchell ResearchMitchell Research": {
+                "James (R)": "41",
+                "Spread": "Stabenow +13",
+                "Stabenow (D)": "54"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "James (R)": "37",
+                "Spread": "Stabenow +18",
+                "Stabenow (D)": "55"
+            },
+            "Target-Insyght/MIRSTarget-Insyght/MIRS": {
+                "James (R)": "40",
+                "Spread": "Stabenow +15",
+                "Stabenow (D)": "55"
+            }
+        },
+        "state": "MI"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Baldwin (D)": "51.0",
+                "Spread": "Baldwin +11.0",
+                "Vukmir (R)": "40.0"
+            },
+            "EmersonEmerson": {
+                "Baldwin (D)": "50",
+                "Spread": "Baldwin +14",
+                "Vukmir (R)": "36"
+            },
+            "MarquetteMarquette": {
+                "Baldwin (D)": "49",
+                "Spread": "Baldwin +9",
+                "Vukmir (R)": "40"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Baldwin (D)": "55",
+                "Spread": "Baldwin +17",
+                "Vukmir (R)": "38"
+            },
+            "SuffolkSuffolk": {
+                "Baldwin (D)": "50",
+                "Spread": "Baldwin +8",
+                "Vukmir (R)": "42"
+            }
+        },
+        "state": "WI"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Hawley (R)": "46.0",
+                "McCaskill (D)": "45.6",
+                "Spread": "Hawley +0.4"
+            },
+            "CBS News/YouGovCBS/YouGov": {
+                "Hawley (R)": "45",
+                "McCaskill (D)": "45",
+                "Spread": "Tie"
+            },
+            "CNN*CNN*": {
+                "Hawley (R)": "44",
+                "McCaskill (D)": "47",
+                "Spread": "McCaskill +3"
             },
             "EmersonEmerson": {
                 "Hawley (R)": "45",
                 "McCaskill (D)": "45",
-                "Spread": "McCaskill +2"
+                "Spread": "Tie"
+            },
+            "FOX NewsFOX News": {
+                "Hawley (R)": "45",
+                "McCaskill (D)": "45",
+                "Spread": "Tie"
             },
             "GravisGravis": {
                 "Hawley (R)": "40",
@@ -301,10 +561,20 @@
                 "McCaskill (D)": "48",
                 "Spread": "McCaskill +4"
             },
+            "NBC News/MaristNBC/Marist": {
+                "Hawley (R)": "47",
+                "McCaskill (D)": "47",
+                "Spread": "Tie"
+            },
             "Remington Research (R)Remington (R)": {
                 "Hawley (R)": "50",
                 "McCaskill (D)": "44",
                 "Spread": "Hawley +6"
+            },
+            "Trafalgar Group (R)Trafalgar": {
+                "Hawley (R)": "47",
+                "McCaskill (D)": "44",
+                "Spread": "Hawley +3"
             }
         },
         "state": "MO"
@@ -312,19 +582,29 @@
     {
         "polls": {
             "RCP Average": {
-                "Cramer (R)": "44.0",
-                "Heitkamp (D)": "43.5",
-                "Spread": "Cramer +0.5"
+                "Cramer (R)": "50.7",
+                "Heitkamp (D)": "42.0",
+                "Spread": "Cramer +8.7"
+            },
+            "FOX NewsFOX News": {
+                "Cramer (R)": "48",
+                "Heitkamp (D)": "44",
+                "Spread": "Cramer +4"
             },
             "GravisGravis": {
-                "Cramer (R)": "43",
-                "Heitkamp (D)": "40",
-                "Spread": "Cramer +3"
+                "Cramer (R)": "40",
+                "Heitkamp (D)": "43",
+                "Spread": "Heitkamp +3"
             },
             "Mason-DixonMason-Dixon": {
                 "Cramer (R)": "48",
                 "Heitkamp (D)": "44",
                 "Spread": "Cramer +4"
+            },
+            "NBC Valley NewsNBC Valley News": {
+                "Cramer (R)": "51",
+                "Heitkamp (D)": "41",
+                "Spread": "Cramer +10"
             }
         },
         "state": "ND"
@@ -332,14 +612,29 @@
     {
         "polls": {
             "RCP Average": {
-                "Cruz (R)": "47.8",
-                "O'Rourke (D)": "39.4",
-                "Spread": "Cruz +8.4"
+                "Cruz (R)": "49.3",
+                "O'Rourke (D)": "43.3",
+                "Spread": "Cruz +6.0"
+            },
+            "CBS 11/Dixie StrategiesDixie Strategies": {
+                "Cruz (R)": "46",
+                "O'Rourke (D)": "42",
+                "Spread": "Cruz +4"
             },
             "CBS News/YouGovCBS/YouGov": {
                 "Cruz (R)": "50",
                 "O'Rourke (D)": "40",
                 "Spread": "Cruz +10"
+            },
+            "Emerson*Emerson*": {
+                "Cruz (R)": "47",
+                "O'Rourke (D)": "42",
+                "Spread": "Cruz +5"
+            },
+            "EmersonEmerson": {
+                "Cruz (R)": "39",
+                "O'Rourke (D)": "38",
+                "Spread": "Cruz +1"
             },
             "GravisGravis": {
                 "Cruz (R)": "51",
@@ -351,10 +646,20 @@
                 "O'Rourke (D)": "40",
                 "Spread": "Cruz +7"
             },
+            "NBC News/MaristNBC/Marist": {
+                "Cruz (R)": "49",
+                "O'Rourke (D)": "45",
+                "Spread": "Cruz +4"
+            },
             "QuinnipiacQuinnipiac": {
                 "Cruz (R)": "47",
                 "O'Rourke (D)": "44",
                 "Spread": "Cruz +3"
+            },
+            "Texas Lyceum*Texas Lyceum*": {
+                "Cruz (R)": "41",
+                "O'Rourke (D)": "39",
+                "Spread": "Cruz +2"
             },
             "UT/Texas Tribune*UT/Texas Tribune*": {
                 "Cruz (R)": "41",
@@ -366,6 +671,16 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Rosendale (R)": "45.3",
+                "Spread": "Tester +3.0",
+                "Tester (D)": "48.3"
+            },
+            "CBS News/YouGovCBS/YouGov": {
+                "Rosendale (R)": "45",
+                "Spread": "Tester +2",
+                "Tester (D)": "47"
+            },
             "GravisGravis": {
                 "Rosendale (R)": "44",
                 "Spread": "Tester +8",
@@ -381,6 +696,11 @@
     },
     {
         "polls": {
+            "Salt Lake Tribune/Dan JonesSalt Lake Tribune": {
+                "Romney (R)": "64",
+                "Spread": "Romney +45",
+                "Wilson (D)": "19"
+            },
             "UtahPolicy/Dan Jones*UtahPolicy*": {
                 "Romney (R)": "60",
                 "Spread": "Romney +46",
@@ -396,6 +716,16 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Heller (R)": "43.0",
+                "Rosen (D)": "45.3",
+                "Spread": "Rosen +2.3"
+            },
+            "CNN*CNN*": {
+                "Heller (R)": "43",
+                "Rosen (D)": "47",
+                "Spread": "Rosen +4"
+            },
             "GravisGravis": {
                 "Heller (R)": "41",
                 "Rosen (D)": "45",
@@ -406,12 +736,88 @@
                 "Rosen (D)": "39",
                 "Spread": "Heller +1"
             },
-            "RCP Average": {
-                "Heller (R)": "40.5",
-                "Rosen (D)": "42.0",
-                "Spread": "Rosen +1.5"
+            "Suffolk*Suffolk*": {
+                "Heller (R)": "41",
+                "Rosen (D)": "40",
+                "Spread": "Heller +1"
             }
         },
         "state": "NV"
+    },
+    {
+        "polls": {
+            "Albuquerque Journal*Albuquerque Journal*": {
+                "Heinrich (D)": "47",
+                "Rich (R)": "26",
+                "Spread": "Heinrich +21"
+            }
+        },
+        "state": "NM"
+    },
+    {
+        "polls": {
+            "Goucher CollegeGoucher": {
+                "Campbell (R)": "17",
+                "Cardin (D)": "56",
+                "Simon (I)": "8",
+                "Spread": "Cardin +39"
+            }
+        },
+        "state": "MD"
+    },
+    {
+        "polls": {
+            "GravisGravis": {
+                "Arlett (R)": "39",
+                "Carper (D)": "47",
+                "Spread": "Carper +8"
+            },
+            "University of Delaware*University of Delaware*": {
+                "Arlett (R)": "24",
+                "Carper (D)": "61",
+                "Spread": "Carper +37"
+            }
+        },
+        "state": "DE"
+    },
+    {
+        "polls": {
+            "RCP Average": {
+                "Corey (R)": "34.0",
+                "Murphy (D)": "56.5",
+                "Spread": "Murphy +22.5"
+            },
+            "GravisGravis": {
+                "Corey (R)": "37",
+                "Murphy (D)": "54",
+                "Spread": "Murphy +17"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Corey (R)": "31",
+                "Murphy (D)": "59",
+                "Spread": "Murphy +28"
+            }
+        },
+        "state": "CT"
+    },
+    {
+        "polls": {
+            "Suffolk*Suffolk*": {
+                "Brakey (R)": "25",
+                "King (I)": "52",
+                "Spread": "King +27"
+            }
+        },
+        "state": "ME"
+    },
+    {
+        "polls": {
+            "WPRI/Roger WilliamsWPRI-TV": {
+                "Flanders (R)": "35",
+                "Spread": "Whitehouse +19",
+                "Whitehouse (D)": "54"
+            }
+        },
+        "state": "RI"
     }
 ]

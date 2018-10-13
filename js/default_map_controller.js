@@ -5,10 +5,10 @@ function createLegend() {
     //Create a legend
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range(["#084594", "#2171b5", "#4292c6", "#737373", "#bdbdbd", "#ef6548", "#d7301f", "#990000"]);
-    color.domain([0, 1, 2, 3, 4, 5, 6, 7]); // setting the range of the input data
+        .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+    color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-    var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Election", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
+    var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
     legend = d3.select(".innerContainer").append("svg")
@@ -45,10 +45,10 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range(["#084594", "#2171b5", "#4292c6", "#737373", "#bdbdbd", "#ef6548", "#d7301f", "#990000"]);
-        color.domain([0,1,2,3,4,5,6, 7]); // setting the range of the input data
+            .range([strongDem, weakDem, leanDem,  indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+        color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-        var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "No Election", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
+        var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
         // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
         legend = d3.select("body").append("svg")
@@ -76,10 +76,16 @@ function checkLegend() {
         if (currentMapChecked) {
             legend.remove();
             // Define linear scale for output
-            var color = d3.scale.linear()
-                .range(["#4a1486","#238b45","#99000d","#084594" ]);
-            color.domain([0,1,2,3]); // setting the range of the input data
+            if (getView() == 'United States Governor') {
+                var color = d3.scale.linear()
+                    .range([indep,strongRep,strongDem ]);
+                color.domain([1,2,3]); // setting the range of the input data
 
+            } else {
+                var color = d3.scale.linear()
+                    .range([mixed, indep, strongRep, strongDem]);
+                color.domain([0, 1, 2, 3]); // setting the range of the input data
+            }
             var legendText = ["Mixed", "Independent", "Republican", "Democrat"];
 
             // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
@@ -109,10 +115,10 @@ function checkLegend() {
             legend.remove();
             // Define linear scale for output
             var color = d3.scale.linear()
-                .range(["#084594", "#2171b5", "#4292c6", "#737373", "#bdbdbd", "#ef6548", "#d7301f", "#990000"]);
-            color.domain([0, 1, 2, 3, 4, 5, 6, 7]); // setting the range of the input data
+                .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+            color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-            var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat","No Election", "No Data", "Lean Republican", "Likely Republican", "Strong Republican"];
+            var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
             // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
             legend = d3.select("body").append("svg")

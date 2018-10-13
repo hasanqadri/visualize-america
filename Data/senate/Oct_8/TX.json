@@ -1,0 +1,36 @@
+[
+    {
+        "TX": {
+            "CBS News/YouGovCBS/YouGov": {
+                "Cruz (R)": "50",
+                "O'Rourke (D)": "40",
+                "Spread": "Cruz +10"
+            },
+            "GravisGravis": {
+                "Cruz (R)": "51",
+                "O'Rourke (D)": "42",
+                "Spread": "Cruz +9"
+            },
+            "JMC AnalyticsJMC Analytics": {
+                "Cruz (R)": "47",
+                "O'Rourke (D)": "40",
+                "Spread": "Cruz +7"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Cruz (R)": "47",
+                "O'Rourke (D)": "44",
+                "Spread": "Cruz +3"
+            },
+            "RCP Average": {
+                "Cruz (R)": "47.8",
+                "O'Rourke (D)": "39.4",
+                "Spread": "Cruz +8.4"
+            },
+            "UT/Texas Tribune*UT/Texas Tribune*": {
+                "Cruz (R)": "41",
+                "O'Rourke (D)": "36",
+                "Spread": "Cruz +5"
+            }
+        }
+    }
+]

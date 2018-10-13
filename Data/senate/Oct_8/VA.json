@@ -1,0 +1,31 @@
+[
+    {
+        "VA": {
+            "Christopher Newport Univ.CNU": {
+                "Kaine (D)": "56",
+                "Spread": "Kaine +24",
+                "Stewart (R)": "32"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Kaine (D)": "54",
+                "Spread": "Kaine +18",
+                "Stewart (R)": "36"
+            },
+            "RCP Average": {
+                "Kaine (D)": "49.0",
+                "Spread": "Kaine +14.5",
+                "Stewart (R)": "34.5"
+            },
+            "Roanoke CollegeRoanoke": {
+                "Kaine (D)": "44",
+                "Spread": "Kaine +11",
+                "Stewart (R)": "33"
+            },
+            "Univ. of Mary WashingtonUMW": {
+                "Kaine (D)": "53",
+                "Spread": "Kaine +17",
+                "Stewart (R)": "36"
+            }
+        }
+    }
+]

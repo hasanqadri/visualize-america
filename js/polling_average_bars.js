@@ -78,7 +78,10 @@ function drawPollingAverageBars(dataset, fake) {
             return x(d.percent);
         })
         .attr('fill', function (d) {
-            return d.party == 'R' ? "#99000d" : "#084594"
+            if (d.party == "I") {
+                return indep;
+            }
+            return d.party == 'R' ? strongRep : strongDem
         });
 
     //add a value label to the right of each bar

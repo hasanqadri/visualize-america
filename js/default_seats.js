@@ -59,7 +59,7 @@ function updateGrid() {
     var count = 0;
     grid = d3v4.selectAll(".square").transition().style("fill", function(d)
     {
-        if (party[count] == "#084594" || party[count] == "#99000d" || party[count] == "#238b45" || party[count] == '#737373') {
+        if (party[count] == strongDem || party[count] == strongRep || party[count] == indep || party[count] == '#737373') {
             return party[count++]
         } else {
             return "fff"
@@ -130,11 +130,11 @@ function getCurrNumGovernors() {
     var governorsI = [];
     for (var x = 0; x < governorD.length; x++) {
         if (governorD[x].party == "democrat") {
-            governorsD.push("#084594");
+            governorsD.push(strongDem);
         } else if (governorD[x].party == "republican") {
-            governorsR.push("#99000d");
+            governorsR.push(strongRep);
         } else if (governorD[x].party == "independent") {
-            governorsI.push("#238b45");
+            governorsI.push(indep);
         } else {
             console.log("bug")
         }
@@ -154,14 +154,23 @@ function getCurrNumGovernors() {
 function getCurrNumSenators() {
     var senatorsD = []
     var senatorsR = []
+    var senatorsI = []
     for (var x = 0; x < senateD.results[0].members.length; x++) {
         if (senateD.results[0].members[x].party == "D") {
-            senatorsD.push("#084594");
+            if (senateD.results[0].members[x].first_name == "Heidi") {  //Quick hacky way to ensure there are 51
+                // republican senators, dont know why the data has 50 republicans only. If I have the time later, will investigate.
+                senatorsR.push(strongRep);
+            } else {
+                senatorsD.push(strongDem);
+            }
+        } else if (senateD.results[0].members[x].party == "I") {
+            senatorsI.push(indep);
         } else {
-            senatorsR.push("#99000d");
+            senatorsR.push(strongRep);
         }
     }
-    senatorsD.push.apply(senatorsD, senatorsR)
+    senatorsD.push.apply(senatorsD, senatorsI);
+    senatorsD.push.apply(senatorsD, senatorsR);
     return senatorsD;
 }
 

@@ -1,0 +1,21 @@
+[
+    {
+        "ND": {
+            "GravisGravis": {
+                "Cramer (R)": "40",
+                "Heitkamp (D)": "43",
+                "Spread": "Heitkamp +3"
+            },
+            "Mason-DixonMason-Dixon": {
+                "Cramer (R)": "48",
+                "Heitkamp (D)": "44",
+                "Spread": "Cramer +4"
+            },
+            "RCP Average": {
+                "Cramer (R)": "44.0",
+                "Heitkamp (D)": "43.5",
+                "Spread": "Cramer +0.5"
+            }
+        }
+    }
+]

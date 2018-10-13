@@ -3,11 +3,11 @@ function getCurrentGovernors(d) {
     for (var x = 0; x < governorD.length; x++) {
         if (d.properties.STATE_ABBR === governorD[x].state_code) {
             if (governorD[x].party === "democrat") {
-                return '#084594'
+                return strongDem
             } else if (governorD[x].party === "republican") {
-                return '#99000d'
+                return strongRep
             } else {
-                return '#005a32'
+                return indep
             }
         }
     }
@@ -20,11 +20,11 @@ function governorCircle(d) {
         if (d.properties.STATE_ABBR === governorD[x].state_code) {
             if (!(notInState.includes(governorD[x].state_code))) {
                 if (governorD[x].party === "democrat") {
-                    return '#084594'
+                    return strongDem
                 } else if (governorD[x].party === "republican") {
-                    return '#99000d'
+                    return strongRep
                 } else {
-                    return '#005a32'
+                    return indep
                 }
             }
         }

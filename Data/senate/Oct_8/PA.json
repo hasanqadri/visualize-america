@@ -1,0 +1,26 @@
+[
+    {
+        "PA": {
+            "Franklin & MarshallF&M;": {
+                "Barletta (R)": "25",
+                "Casey (D)": "43",
+                "Spread": "Casey +18"
+            },
+            "Morning CallMorning Call": {
+                "Barletta (R)": "32",
+                "Casey (D)": "48",
+                "Spread": "Casey +16"
+            },
+            "RCP Average": {
+                "Barletta (R)": "30.3",
+                "Casey (D)": "46.3",
+                "Spread": "Casey +16.0"
+            },
+            "SuffolkSuffolk": {
+                "Barletta (R)": "32",
+                "Casey (D)": "47",
+                "Spread": "Casey +15"
+            }
+        }
+    }
+]

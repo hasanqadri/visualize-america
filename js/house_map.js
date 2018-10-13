@@ -62,9 +62,9 @@ function house_map()
 
     function initialState(data){
         if(Math.random() > .5) {
-            return '#084594'
+            return strongDem
         } else {
-            return '#99000d'
+            return strongRep
         }
     }
 }

@@ -3,15 +3,15 @@ function getCurrentSenators(d) {
     var dualStates = ['NV', 'CO', 'MT', 'ND', 'WI', 'MO', 'IN', 'OH', 'WV', 'PA', 'ME', 'AL', 'FL'];
     for (var z = 0; z < dualStates.length; z++) {
         if (d.properties.STATE_ABBR === dualStates[z]) {
-            return '#4a1486'
+            return mixed
         }
     }
     for (var x = 0; x < senateD.results[0].members.length; x++) {
         if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
             if (senateD.results[0].members[x].party === "D") {
-                return '#084594'
+                return strongDem
             } else {
-                return '#99000d'
+                return strongRep
             }
         }
     }
@@ -22,11 +22,11 @@ function senateCircle(d) {
         if (d.properties.STATE_ABBR === senateD.results[0].members[x].state) {
             if (senateD.results[0].members[x].next_election == '2018') {
                 if (senateD.results[0].members[x].party === "D") {
-                    return '#084594'
+                    return strongDem
                 } else if (senateD.results[0].members[x].party == 'R') {
-                    return '#99000d'
+                    return strongRep
                 } else {
-                    return "#238b45"
+                    return indep
 
                 }
             }

@@ -1,0 +1,31 @@
+[
+    {
+        "NJ": {
+            "Fairleigh DickinsonFDU": {
+                "Hugin (R)": "24",
+                "Menendez (D)": "28",
+                "Spread": "Menendez +4"
+            },
+            "GravisGravis": {
+                "Hugin (R)": "41",
+                "Menendez (D)": "43",
+                "Spread": "Menendez +2"
+            },
+            "MonmouthMonmouth": {
+                "Hugin (R)": "32",
+                "Menendez (D)": "53",
+                "Spread": "Menendez +21"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Hugin (R)": "32",
+                "Menendez (D)": "49",
+                "Spread": "Menendez +17"
+            },
+            "RCP Average": {
+                "Hugin (R)": "32.3",
+                "Menendez (D)": "41.3",
+                "Spread": "Menendez +9.0"
+            }
+        }
+    }
+]

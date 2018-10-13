@@ -1,0 +1,51 @@
+[
+    {
+        "FL": {
+            "CBS News/YouGovCBS/YouGov": {
+                "Nelson (D)": "41",
+                "Scott (R)": "46",
+                "Spread": "Scott +5"
+            },
+            "FL ChamberFL CoC": {
+                "Nelson (D)": "45",
+                "Scott (R)": "47",
+                "Spread": "Scott +2"
+            },
+            "Florida Atlantic UniversityFAU": {
+                "Nelson (D)": "42",
+                "Scott (R)": "40",
+                "Spread": "Nelson +2"
+            },
+            "GravisGravis": {
+                "Nelson (D)": "56",
+                "Scott (R)": "28",
+                "Spread": "Nelson +28"
+            },
+            "Mason-DixonMason-Dixon": {
+                "Nelson (D)": "44",
+                "Scott (R)": "44",
+                "Spread": "Tie"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Nelson (D)": "49",
+                "Scott (R)": "45",
+                "Spread": "Nelson +4"
+            },
+            "QuinnipiacQuinnipiac": {
+                "Nelson (D)": "46",
+                "Scott (R)": "42",
+                "Spread": "Nelson +4"
+            },
+            "RCP Average": {
+                "Nelson (D)": "44.4",
+                "Scott (R)": "45.2",
+                "Spread": "Scott +0.8"
+            },
+            "UNFUNF": {
+                "Nelson (D)": "37",
+                "Scott (R)": "36",
+                "Spread": "Nelson +1"
+            }
+        }
+    }
+]

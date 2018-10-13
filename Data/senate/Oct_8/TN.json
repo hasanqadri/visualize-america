@@ -1,0 +1,31 @@
+[
+    {
+        "TN": {
+            "EmersonEmerson": {
+                "Blackburn (R)": "37",
+                "Bredesen (D)": "43",
+                "Spread": "Bredesen +6"
+            },
+            "GravisGravis": {
+                "Blackburn (R)": "40",
+                "Bredesen (D)": "42",
+                "Spread": "Bredesen +2"
+            },
+            "Mason-DixonMason-Dixon": {
+                "Blackburn (R)": "43",
+                "Bredesen (D)": "46",
+                "Spread": "Bredesen +3"
+            },
+            "Middle Tn. State Univ.Middle Tn. State Univ.": {
+                "Blackburn (R)": "35",
+                "Bredesen (D)": "45",
+                "Spread": "Bredesen +10"
+            },
+            "RCP Average": {
+                "Blackburn (R)": "40.0",
+                "Bredesen (D)": "44.5",
+                "Spread": "Bredesen +4.5"
+            }
+        }
+    }
+]

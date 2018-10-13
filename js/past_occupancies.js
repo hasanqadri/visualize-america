@@ -35,11 +35,11 @@ function drawPastOccupancies(data, past_senators) {
             .attr("height", 50)
             .attr('fill', function (d) {
                 if (d == 'R') {
-                    return "#99000d"
+                    return strongRep
                 } else if (d == 'D') {
-                    return "#084594"
+                    return strongDem
                 } else {
-                    return "#238b45"
+                    return indep
                 }
             })
             .style("stroke", "#f7fcff")
@@ -52,7 +52,6 @@ function drawPastOccupancies(data, past_senators) {
             .enter()
             .append("text")
             .attr("x", function (d) {
-                console.log(dataArrKeys);
                 return current += spacer
             })
             .attr("y", 52)
@@ -69,11 +68,11 @@ function updateOccupancies(dataArr) {
     count = 0;
     chart.selectAll("rect").data(dataArr).transition().style('fill', function (d) {
         if (d == 'R') {
-            return "#99000d"
+            return strongRep
         } else if (d == 'D') {
-            return "#084594"
+            return strongDem
         } else {
-            return "#238b45"
+            return indep
         }
     }).duration(1000)
 

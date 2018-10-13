@@ -70,7 +70,6 @@ function federal_balance() {
  * Array array of default positions for each state
  * {'AZ':{x:0, y:0}},
  */
-
 function initialPlacement() {
     var xOrigin=  1340
     var yOrigin = 500
@@ -173,13 +172,7 @@ function fillingSenBuckets(methodCall) {
     var y = 0;
     var z = 0
     var curr_tran0 = null;
-    var curr_tran1 = null;
-    var curr_tran2 = null;
-    var curr_tran3 = null;
-    var curr_tran4 = null;
-    var curr_tran5 = null;
-    var curr_tran6 = null;
-    var curr_tran7 = null;
+
 
     for (z = 0; z < demArr20.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -187,14 +180,24 @@ function fillingSenBuckets(methodCall) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                if (getView() == 'United States Senator') {
+                    if (str == '#NM') {
+                        yOrigin -= 30
+                    } else if (str == '#CT') {
+                        yOrigin += 20
+                    }
+                } else if (getView() == 'United States Governor') {
+                    xOrigin -= 20
+                    yOrigin -= 30
+                }
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
             }
         });
     }
 
     xOrigin = 1420
-    yOrigin = 720
+    yOrigin = 730
     for (z = 0; z < demArr10.length; z++) {
         $('.balance').each(function (i, obj) {
             if (demArr10[z][2] == '#' +obj.id) {
@@ -205,18 +208,33 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                if (str == '#CA') {
-                    curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (520 - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
-                } else {
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+
+                if (getView() == 'United States Senator') {
+                    if (str == '#RI') {
+                        yOrigin += 20
+                    } else if (str == '#MI') {
+                        yOrigin -= 20
+                    }
+                } else if (getView() == 'United States Governor') {
+                    xOrigin -= 20
+                    yOrigin -= 20
+                    if (str == '#IL') {
+                        xOrigin += 20
+                        yOrigin -= 20
+                    } else if (str == '#CA') {
+                        yOrigin -= 50
+                    } else if (str == '#PA') {
+                        yOrigin += 40
+                    }
                 }
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 40;
             }
         });
     }
 
     xOrigin = 1480
-    yOrigin = 700
+    yOrigin = 740
     for (z = 0; z < demArr5.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -235,12 +253,31 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-     xOrigin = 1570
-     yOrigin = 700
+     xOrigin = 1520
+     yOrigin = 720
      for (z = 0; z < demArr.length; z++) {
         $('.balance').each(function (i, obj) {
 
             if (demArr[z][2] == '#' +obj.id) {
+                x = obj.getBoundingClientRect().x
+                y = obj.getBoundingClientRect().y
+                if (x < 1400) {
+                    xOrigin = 0;
+                    yOrigin = 0
+                }
+                str = '#' + obj.id;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                yOrigin = yOrigin - 50;
+
+            }
+        });
+    }
+
+    xOrigin = 1600
+    yOrigin = 700
+    for (z = 0; z < indArr.length; z++) {
+        $('.balance').each(function (i, obj) {
+            if (indArr[z][2] == '#' +obj.id) {
                 x = obj.getBoundingClientRect().x
                 y = obj.getBoundingClientRect().y
                 if (x < 1400) {
@@ -275,8 +312,8 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-     xOrigin = 1690
-     yOrigin = 650
+     xOrigin = 1700
+     yOrigin = 740
      for (z = 0; z < repArr5.length; z++) {
         $('.balance').each(function (i, obj) {
 
@@ -289,7 +326,7 @@ function fillingSenBuckets(methodCall) {
                 }
                 str = '#' + obj.id;
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
-                yOrigin = yOrigin - 45;
+                yOrigin = yOrigin - 89;
 
             }
         });
@@ -307,7 +344,7 @@ function fillingSenBuckets(methodCall) {
                     yOrigin = 0
                 }
                 str = '#' + obj.id;
-                if (str == '#TX')
+                if (str == '#TX' && getView() == 'United States Governor')
                 curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (600 - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
                 yOrigin = yOrigin - 45;
             }

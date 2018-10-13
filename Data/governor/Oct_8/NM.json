@@ -1,0 +1,82 @@
+[
+    {
+        "polls": {
+            "LA Times/USCLA Times/USC": {
+                "Cox (R)": "28",
+                "Newsom (D)": "45",
+                "Spread": "Newsom +17"
+            },
+            "PPICPPIC": {
+                "Cox (R)": "31",
+                "Newsom (D)": "55",
+                "Spread": "Newsom +24"
+            },
+            "RCP Average": {
+                "Cox (R)": "32.0",
+                "Newsom (D)": "51.3",
+                "Spread": "Newsom +19.3"
+            },
+            "SurveyUSASUSA": {
+                "Cox (R)": "29",
+                "Newsom (D)": "58",
+                "Spread": "Newsom +29"
+            }
+        },
+        "state": "CA"
+    },
+    {
+        "polls": {
+            "CNN*CNN*": {
+                "Laxalt (R)": "41",
+                "Sisolak (D)": "45",
+                "Spread": "Sisolak +4"
+            },
+            "GravisGravis": {
+                "Laxalt (R)": "43",
+                "Sisolak (D)": "41",
+                "Spread": "Laxalt +2"
+            },
+            "Nevada Independent/MellmanNevada Independent": {
+                "Laxalt (R)": "37",
+                "Sisolak (D)": "43",
+                "Spread": "Sisolak +6"
+            },
+            "RCP Average": {
+                "Laxalt (R)": "38.0",
+                "Sisolak (D)": "44.0",
+                "Spread": "Sisolak +6.0"
+            },
+            "Suffolk*Suffolk*": {
+                "Laxalt (R)": "42",
+                "Sisolak (D)": "41",
+                "Spread": "Laxalt +1"
+            }
+        },
+        "state": "NV"
+    },
+    {
+        "polls": {
+            "Albuquerque JournalAlbuquerque Journal": {
+                "Grisham (D)": "50",
+                "Pearce (R)": "43",
+                "Spread": "Grisham +7"
+            },
+            "EmersonEmerson": {
+                "Grisham (D)": "42",
+                "Pearce (R)": "40",
+                "Spread": "Grisham +2"
+            },
+            "KOB-TV/SurveyUSASurveyUSA": {
+                "Grisham (D)": "51",
+                "Pearce (R)": "38",
+                "Spread": "Grisham +13"
+            },
+            "RCP Average": {
+                "Grisham (D)": "47.7",
+                "Pearce (R)": "40.3",
+                "Spread": "Grisham +7.4"
+            }
+        },
+        "state": "NM"
+    }
+]

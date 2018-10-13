@@ -1,0 +1,36 @@
+[
+    {
+        "WV": {
+            "GravisGravis": {
+                "Manchin (D)": "53",
+                "Morrisey (R)": "40",
+                "Spread": "Manchin +13"
+            },
+            "MetroNewsMetroNews": {
+                "Manchin (D)": "51",
+                "Morrisey (R)": "37",
+                "Spread": "Manchin +14"
+            },
+            "MonmouthMonmouth": {
+                "Manchin (D)": "50",
+                "Morrisey (R)": "43",
+                "Spread": "Manchin +7"
+            },
+            "RCP Average": {
+                "Manchin (D)": "49.3",
+                "Morrisey (R)": "42.3",
+                "Spread": "Manchin +7.0"
+            },
+            "Trafalgar Group (R)*Trafalgar (R)*": {
+                "Manchin (D)": "50",
+                "Morrisey (R)": "40",
+                "Spread": "Manchin +10"
+            },
+            "WPAi (R)WPAi (R)": {
+                "Manchin (D)": "44",
+                "Morrisey (R)": "46",
+                "Spread": "Morrisey +2"
+            }
+        }
+    }
+]

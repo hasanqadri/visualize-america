@@ -9,6 +9,29 @@ var e = document.getElementById("raceDropdown");
 var selectedOption = e.options[e.selectedIndex].value;
 var section = null;
 
+//Colors
+var strongDem = '#2166ac'     //strongDem
+var weakDem = '#4393c3'       // weakDem
+var leanDem = '#92c5de'      //leanDem
+var indep = '#1a9850'        // indep
+var leanRep = '#f4a582'      // leanRep
+var weakRep = '#d6604d'      // weakRep
+var strongRep = '#b2182b'     // strongRep
+var mixed = '#762a83'
+
+/**
+ var strongDem = '#2166ac'     //strongDem
+ var weakDem = '#67a9cf'       // weakDem
+ var leanDem = '#d1e5f0'      //leanDem
+ var indep = '#1a9850'        // indep
+ var leanRep = '#fddbc7'      // leanRep
+ var weakRep = '#ef8a62'      // weakRep
+ var strongRep = '#b2182b'     // strongRep
+ */
+
+var pastOccupantsSen = ['WA', 'WY', 'NE', 'MS', 'VT', 'MN', 'HI', 'CA'];   //Update list when new states get added (remove them from here)
+var pastOccupantsGov = ['ID', 'WY', 'SD', 'NE', 'AR', 'MS', 'NY', 'VT', 'ME'];
+
 //Data
 var usD = null;
 var governorD = null;
@@ -26,8 +49,8 @@ var checked = false;
 var currentMapChecked = false;
 
 //Number of states with polling data
-var numSenStates = 16;
-var numGovStates = 11;
+var numSenStates = 25;
+var numGovStates = 25;
 
 var legend = null;
 var selectedOption = null;

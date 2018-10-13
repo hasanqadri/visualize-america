@@ -1,0 +1,48 @@
+[
+    {
+        "AZ": {
+            "ABC 15/OH Predictive InsightsABC 15": {
+                "Arpaio": "29",
+                "McSally": "31",
+                "Spread": "McSally +2",
+                "Ward": "25"
+            },
+            "EmersonEmerson": {
+                "Arpaio": "18",
+                "McSally": "32",
+                "Spread": "McSally +13",
+                "Ward": "19"
+            },
+            "GravisGravis": {
+                "Arpaio": "24",
+                "McSally": "36",
+                "Spread": "McSally +9",
+                "Ward": "27"
+            },
+            "Magellan (R)Magellan (R)": {
+                "Arpaio": "26",
+                "McSally": "36",
+                "Spread": "McSally +10",
+                "Ward": "25"
+            },
+            "NBC News/MaristNBC/Marist": {
+                "Arpaio": "21",
+                "McSally": "30",
+                "Spread": "McSally +2",
+                "Ward": "28"
+            },
+            "OH Predictive InsightsPredictive Insights": {
+                "Arpaio": "14",
+                "McSally": "39",
+                "Spread": "McSally +14",
+                "Ward": "25"
+            },
+            "RCP Average": {
+                "Arpaio": "20.6",
+                "McSally": "34.6",
+                "Spread": "McSally +9.8",
+                "Ward": "24.8"
+            }
+        }
+    }
+]

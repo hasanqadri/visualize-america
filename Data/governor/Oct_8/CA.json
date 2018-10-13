@@ -1,0 +1,27 @@
+[
+    {
+        "polls": {
+            "LA Times/USCLA Times/USC": {
+                "Cox (R)": "28",
+                "Newsom (D)": "45",
+                "Spread": "Newsom +17"
+            },
+            "PPICPPIC": {
+                "Cox (R)": "31",
+                "Newsom (D)": "55",
+                "Spread": "Newsom +24"
+            },
+            "RCP Average": {
+                "Cox (R)": "32.0",
+                "Newsom (D)": "51.3",
+                "Spread": "Newsom +19.3"
+            },
+            "SurveyUSASUSA": {
+                "Cox (R)": "29",
+                "Newsom (D)": "58",
+                "Spread": "Newsom +29"
+            }
+        },
+        "state": "CA"
+    }
+]

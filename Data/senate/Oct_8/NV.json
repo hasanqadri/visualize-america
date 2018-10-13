@@ -1,0 +1,21 @@
+[
+    {
+        "NV": {
+            "GravisGravis": {
+                "Heller (R)": "41",
+                "Rosen (D)": "45",
+                "Spread": "Rosen +4"
+            },
+            "Nevada Independent/MellmanNevada Independent": {
+                "Heller (R)": "40",
+                "Rosen (D)": "39",
+                "Spread": "Heller +1"
+            },
+            "RCP Average": {
+                "Heller (R)": "40.5",
+                "Rosen (D)": "42.0",
+                "Spread": "Rosen +1.5"
+            }
+        }
+    }
+]

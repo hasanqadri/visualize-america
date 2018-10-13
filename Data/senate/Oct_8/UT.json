@@ -1,0 +1,16 @@
+[
+    {
+        "UT": {
+            "UtahPolicy/Dan Jones*UtahPolicy*": {
+                "Romney (R)": "60",
+                "Spread": "Romney +46",
+                "Wilson (D)": "14"
+            },
+            "UtahPolicy/Dan JonesUtahPolicy": {
+                "Romney (R)": "64",
+                "Spread": "Romney +38",
+                "Wilson (D)": "26"
+            }
+        }
+    }
+]

@@ -1,0 +1,36 @@
+[
+    {
+        "MO": {
+            "EmersonEmerson": {
+                "Hawley (R)": "45",
+                "McCaskill (D)": "45",
+                "Spread": "Tie"
+            },
+            "GravisGravis": {
+                "Hawley (R)": "40",
+                "McCaskill (D)": "42",
+                "Spread": "McCaskill +2"
+            },
+            "Mason-DixonMason-Dixon": {
+                "Hawley (R)": "44",
+                "McCaskill (D)": "45",
+                "Spread": "McCaskill +1"
+            },
+            "Missouri Scout*Missouri Scout*": {
+                "Hawley (R)": "44",
+                "McCaskill (D)": "48",
+                "Spread": "McCaskill +4"
+            },
+            "RCP Average": {
+                "Hawley (R)": "44.2",
+                "McCaskill (D)": "45.2",
+                "Spread": "McCaskill +1.0"
+            },
+            "Remington Research (R)Remington (R)": {
+                "Hawley (R)": "50",
+                "McCaskill (D)": "44",
+                "Spread": "Hawley +6"
+            }
+        }
+    }
+]
