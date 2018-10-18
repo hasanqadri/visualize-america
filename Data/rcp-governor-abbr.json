@@ -707,5 +707,26 @@
             }
         },
         "state": "CT"
+    },
+    {
+        "polls": {
+            "Alaska Survey ResearchAK Survey Research": {
+                "Begich (D)": "23",
+                "Dunleavy (R)": "47",
+                "Spread": "Dunleavy +15",
+                "Walker (I)": "27"
+            }
+        },
+        "state": "AK"
+    },
+    {
+        "polls": {
+            "Mason-DixonMason-Dixon": {
+                "Ige (D)": "57",
+                "Spread": "Ige +23",
+                "Tupola (R)": "34"
+            }
+        },
+        "state": "HI"
     }
 ]

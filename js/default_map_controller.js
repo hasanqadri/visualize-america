@@ -11,8 +11,7 @@ function createLegend() {
     var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-    legend = d3.select(".innerContainer").append("svg")
-        .attr("class", "legend")
+    legend = d3.select(".lastLegend")
         .attr("width", 140)
         .attr("height", 200)
         .selectAll("g")
@@ -51,7 +50,7 @@ function checkLegend() {
         var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
         // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-        legend = d3.select("body").append("svg")
+        legend = d3.select(".lastLegend").append("svg")
             .attr("class", "legend")
             .attr("width", 140)
             .attr("height", 200)
@@ -89,7 +88,7 @@ function checkLegend() {
             var legendText = ["Mixed", "Independent", "Republican", "Democrat"];
 
             // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-            legend = d3.select("body").append("svg")
+            legend = d3.select(".lastLegend").append("svg")
                 .attr("class", "legend")
                 .attr("width", 140)
                 .attr("height", 200)
@@ -121,7 +120,7 @@ function checkLegend() {
             var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
 
             // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-            legend = d3.select("body").append("svg")
+            legend = d3.select(".lastLegend").append("svg")
                 .attr("class", "legend")
                 .attr("width", 140)
                 .attr("height", 200)

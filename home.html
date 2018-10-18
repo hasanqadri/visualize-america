@@ -62,13 +62,17 @@
 
     <!-- Holds the left and right divs -->
     <div class = "container " style = "width: 100%; clear:both; ">
-        <div class="w3-left-align innerContainer w3-card-4 w3-padding-right-custom" id="left">
+        <!-- Left div -->
+        <div class="innerContainer w3-card-4">
             <h1 class="w3-margin-top  fontCustom w3-margin-bottom w3-center" id="head-title">United States of America</h1>
-            <svg class="senate governor house default" viewBox="-30 -300 1350 1350" preserveAspectRatio="xMidYMid slice" id="legend"></svg>
+            <div class="lastLegend">
+                <svg class="senate governor house default" id="usMap" preserveAspectRatio="xMidYMid" viewBox="0 50 1150 650"></svg>
+            </div>
             <div class="updateDataFont w3-margin-left w3-padding-left">Data last updated: October 8th 12:00AM EST</div>
-
         </div>
-        <div id="innerContainer2" class="w3-card-4" style="width:100%">
+        <!-- Right div -->
+        <div class="innerContainer2 w3-card-4">
+
             <div id="right-alt" style="width:100%;visibility:visible;display:block;">
                 <h5 class="w3-center w3-margin-top fontTitleSmall" id="federalSeat"></h5>
                 <div id="grid" class="w3-padding-left w3-padding-top w3-center"></div>

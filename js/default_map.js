@@ -30,7 +30,7 @@ var mixed = '#762a83'
  */
 
 var pastOccupantsSen = ['WA', 'WY', 'NE', 'MS', 'VT', 'MN', 'HI', 'CA'];   //Update list when new states get added (remove them from here)
-var pastOccupantsGov = ['ID', 'WY', 'SD', 'NE', 'AR', 'MS', 'NY', 'VT', 'ME'];
+var pastOccupantsGov = ['ID', 'WY', 'SD', 'NE', 'AR', 'MS', 'NY', 'VT', 'ME', 'AL'];
 
 //Data
 var usD = null;
@@ -50,7 +50,7 @@ var currentMapChecked = false;
 
 //Number of states with polling data
 var numSenStates = 25;
-var numGovStates = 25;
+var numGovStates = 26;
 
 var legend = null;
 var selectedOption = null;
@@ -61,7 +61,7 @@ var tooltip = null;
  */
 function default_map() {
     //Size of map
-    var width = 1300,
+    var width = 1100,
         height = 700;
 
     var projection = d3.geo.albersUsa()
@@ -156,10 +156,23 @@ function default_map() {
                 return "translate(" + path.centroid(d) + ")";
             })
             .attr("r", 7)
-            .attr("fill", '#737373')
+            .attr("fill", function(d) {
+                console.log(path.centroid(d))
+                if (isNaN(path.centroid(d)[0])) {
+                    return '#f7fcff';
+                } else {
+                    return '#737373';
+                }
+            })
             .style('stroke', '#737373')
-            .style('stroke-width', 1);
-
+            .style('stroke-width', function(d) {
+                console.log(path.centroid(d))
+                if (isNaN(path.centroid(d)[0])) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            });
         d3.select('#raceDropdown')
             .on('change', function () {
                 var sect = document.getElementById("raceDropdown");

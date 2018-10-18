@@ -19,13 +19,13 @@ function federal_balance() {
     document.getElementById("federalBalance").innerHTML = 'State Leanings';
 
     //Width and height of map
-    var width = d3.select('#right-alt').node().getBoundingClientRect().width-20;
+    var width = d3.select('#right-alt').node().getBoundingClientRect().width-40;
     var height = 300;
 
     // D3 Projection
     var projection = d3.geo.albersUsa()
         .translate([width/2, height/2])    // translate to center of screen
-        .scale([550]);          // scale things down so see entire US
+        .scale([450]);          // scale things down so see entire US
 
     // Define path generator
     var path = d3.geo.path()               // path generator that will convert GeoJSON to SVG paths
@@ -71,7 +71,7 @@ function federal_balance() {
  * {'AZ':{x:0, y:0}},
  */
 function initialPlacement() {
-    var xOrigin=  1340
+    var xOrigin=  1240
     var yOrigin = 500
     var x = 0;
     var y = 0;
@@ -86,9 +86,9 @@ function initialPlacement() {
         transitioning = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin - x) + ',' + (yOrigin - y) +')').duration(1000);
         row++;
         if (row % 7 == 0) {
-            yOrigin += 20;
+            yOrigin += 35;
             row = 0;
-            xOrigin = 1340
+            xOrigin = 1240
         }
         xOrigin += 70;
 
@@ -159,14 +159,11 @@ function pollingPlacement(methodCall) {
         fillingDefBuckets(methodCall)
     } else {
         fillingSenBuckets(methodCall);
-
     }
-
-
 }
 
 function fillingSenBuckets(methodCall) {
-    var xOrigin = 1360
+    var xOrigin = 1280
     var yOrigin = 720
     var x = 0;
     var y = 0;
@@ -196,7 +193,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1420
+    xOrigin = 1340
     yOrigin = 730
     for (z = 0; z < demArr10.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -233,7 +230,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1480
+    xOrigin = 1400
     yOrigin = 740
     for (z = 0; z < demArr5.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -253,7 +250,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-     xOrigin = 1520
+     xOrigin = 1440
      yOrigin = 720
      for (z = 0; z < demArr.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -273,7 +270,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1600
+    xOrigin = 1520
     yOrigin = 700
     for (z = 0; z < indArr.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -292,7 +289,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1630
+    xOrigin = 1550
     yOrigin = 700
     for (z = 0; z < repArr.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -312,7 +309,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-     xOrigin = 1700
+     xOrigin = 1620
      yOrigin = 740
      for (z = 0; z < repArr5.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -332,7 +329,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1750
+    xOrigin = 16260
     yOrigin = 750
     for (z = 0; z < repArr10.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -351,7 +348,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = 1810
+    xOrigin = 1730
     yOrigin = 720
     for (z = 0; z < repArr20.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -367,7 +364,7 @@ function fillingSenBuckets(methodCall) {
 }
 
 function fillingDefBuckets(methodCall) {
-    var xOrigin=  1340
+    var xOrigin=  1240
     var yOrigin = 500
     var x = 0;
     var y = 0;
@@ -382,11 +379,11 @@ function fillingDefBuckets(methodCall) {
         curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#737373').duration(1000).transition().attr('opacity', 1).duration(500);
         row++;
         if (row % 7 == 0) {
-            yOrigin += 10;
+            yOrigin += 35;
             row = 0;
-            xOrigin = 1340
+            xOrigin = 1240
         }
-        xOrigin += 60;
+        xOrigin += 70;
     });
 }
 
