@@ -70,8 +70,8 @@ function  createArrayOfElements(num) {
     var data = new Array();
     var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
     var ypos = 1;
-    var width = 25;
-    var height = 25;
+    var width = 24;
+    var height = 24;
     var columnLen = 0;
     var rowLen = 0;
     var party = null;

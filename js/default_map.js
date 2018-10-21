@@ -157,7 +157,6 @@ function default_map() {
             })
             .attr("r", 7)
             .attr("fill", function(d) {
-                console.log(path.centroid(d))
                 if (isNaN(path.centroid(d)[0])) {
                     return '#f7fcff';
                 } else {
@@ -166,7 +165,6 @@ function default_map() {
             })
             .style('stroke', '#737373')
             .style('stroke-width', function(d) {
-                console.log(path.centroid(d))
                 if (isNaN(path.centroid(d)[0])) {
                     return 0;
                 } else {
@@ -190,13 +188,10 @@ function default_map() {
                 checkIncumbent(svg);
                 if (selectedOption == 'Default') {
                     checked = false;
-
                 }
                 checkLegend();
                 updateGrid()
                 pollingPlacement(determineStateColor)
-
-
             });
 
         d3.select('#incumbent')

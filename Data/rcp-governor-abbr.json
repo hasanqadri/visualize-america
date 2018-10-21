@@ -1,6 +1,11 @@
 [
     {
         "polls": {
+            "RCP Average": {
+                "Cox (R)": "32.0",
+                "Newsom (D)": "51.3",
+                "Spread": "Newsom +19.3"
+            },
             "LA Times/USCLA Times/USC": {
                 "Cox (R)": "28",
                 "Newsom (D)": "45",
@@ -10,11 +15,6 @@
                 "Cox (R)": "31",
                 "Newsom (D)": "55",
                 "Spread": "Newsom +24"
-            },
-            "RCP Average": {
-                "Cox (R)": "32.0",
-                "Newsom (D)": "51.3",
-                "Spread": "Newsom +19.3"
             },
             "SurveyUSASUSA": {
                 "Cox (R)": "29",
@@ -26,6 +26,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Laxalt (R)": "38.0",
+                "Sisolak (D)": "44.0",
+                "Spread": "Sisolak +6.0"
+            },
             "CNN*CNN*": {
                 "Laxalt (R)": "41",
                 "Sisolak (D)": "45",
@@ -41,11 +46,6 @@
                 "Sisolak (D)": "43",
                 "Spread": "Sisolak +6"
             },
-            "RCP Average": {
-                "Laxalt (R)": "38.0",
-                "Sisolak (D)": "44.0",
-                "Spread": "Sisolak +6.0"
-            },
             "Suffolk*Suffolk*": {
                 "Laxalt (R)": "42",
                 "Sisolak (D)": "41",
@@ -56,6 +56,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Grisham (D)": "47.7",
+                "Pearce (R)": "40.3",
+                "Spread": "Grisham +7.4"
+            },
             "Albuquerque JournalAlbuquerque Journal": {
                 "Grisham (D)": "50",
                 "Pearce (R)": "43",
@@ -70,17 +75,17 @@
                 "Grisham (D)": "51",
                 "Pearce (R)": "38",
                 "Spread": "Grisham +13"
-            },
-            "RCP Average": {
-                "Grisham (D)": "47.7",
-                "Pearce (R)": "40.3",
-                "Spread": "Grisham +7.4"
             }
         },
         "state": "NM"
     },
     {
         "polls": {
+            "RCP Average": {
+                "Abbott (R)": "54.7",
+                "Spread": "Abbott +19.4",
+                "Valdez (D)": "35.3"
+            },
             "CBS 11/Dixie StrategiesDixie Strategies": {
                 "Abbott (R)": "53",
                 "Spread": "Abbott +19",
@@ -116,11 +121,6 @@
                 "Spread": "Abbott +9",
                 "Valdez (D)": "40"
             },
-            "RCP Average": {
-                "Abbott (R)": "54.7",
-                "Spread": "Abbott +19.4",
-                "Valdez (D)": "35.3"
-            },
             "Texas Lyceum*Texas Lyceum*": {
                 "Abbott (R)": "47",
                 "Spread": "Abbott +16",
@@ -136,6 +136,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Hubbell (D)": "39.5",
+                "Reynolds (R)": "36.0",
+                "Spread": "Hubbell +3.5"
+            },
             "Des Moines RegisterDM Register": {
                 "Hubbell (D)": "37",
                 "Reynolds (R)": "42",
@@ -145,26 +150,21 @@
                 "Hubbell (D)": "36",
                 "Reynolds (R)": "31",
                 "Spread": "Hubbell +5"
-            },
-            "RCP Average": {
-                "Hubbell (D)": "39.5",
-                "Reynolds (R)": "36.0",
-                "Spread": "Hubbell +3.5"
             }
         },
         "state": "IA"
     },
     {
         "polls": {
-            "NBC News/Marist*NBC News/Marist*": {
-                "Pritzker (D)": "46",
-                "Rauner (R)": "30",
-                "Spread": "Pritzker +16"
-            },
             "RCP Average": {
                 "Pritzker (D)": "43.7",
                 "Rauner (R)": "28.0",
                 "Spread": "Pritzker +15.7"
+            },
+            "NBC News/Marist*NBC News/Marist*": {
+                "Pritzker (D)": "46",
+                "Rauner (R)": "30",
+                "Spread": "Pritzker +16"
             },
             "The Simon Poll/SIU*The Simon Poll/SIU*": {
                 "Pritzker (D)": "49",
@@ -201,6 +201,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Cordray (D)": "44.0",
+                "DeWine (R)": "41.0",
+                "Spread": "Cordray +3.0"
+            },
             "NBC News/MaristNBC/Marist": {
                 "Cordray (D)": "42",
                 "DeWine (R)": "46",
@@ -210,11 +215,6 @@
                 "Cordray (D)": "42",
                 "DeWine (R)": "40",
                 "Spread": "Cordray +2"
-            },
-            "RCP Average": {
-                "Cordray (D)": "44.0",
-                "DeWine (R)": "41.0",
-                "Spread": "Cordray +3.0"
             },
             "SuffolkSuffolk": {
                 "Cordray (D)": "43",
@@ -231,6 +231,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Spread": "Wolf +16.8",
+                "Wagner (R)": "36.5",
+                "Wolf (D)": "53.3"
+            },
             "Franklin & Marshall*F&M;*": {
                 "Spread": "Wolf +17",
                 "Wagner (R)": "35",
@@ -256,11 +261,6 @@
                 "Wagner (R)": "40",
                 "Wolf (D)": "54"
             },
-            "RCP Average": {
-                "Spread": "Wolf +16.8",
-                "Wagner (R)": "36.5",
-                "Wolf (D)": "53.3"
-            },
             "Rasmussen ReportsRasmussen": {
                 "Spread": "Wolf +12",
                 "Wagner (R)": "40",
@@ -276,15 +276,15 @@
     },
     {
         "polls": {
-            "Boston Globe/SuffolkBoston Globe": {
-                "Baker (R)": "52",
-                "Gonzalez (D)": "22",
-                "Spread": "Baker +30"
-            },
             "RCP Average": {
                 "Baker (R)": "57.5",
                 "Gonzalez (D)": "24.0",
                 "Spread": "Baker +33.5"
+            },
+            "Boston Globe/SuffolkBoston Globe": {
+                "Baker (R)": "52",
+                "Gonzalez (D)": "22",
+                "Spread": "Baker +30"
             },
             "WBUR/MassINCWBUR/MassINC": {
                 "Baker (R)": "55",
@@ -306,6 +306,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Brown (D)": "44.3",
+                "Buehler (R)": "40.7",
+                "Spread": "Brown +3.6"
+            },
             "Clout Research (R)Clout Research (R)": {
                 "Brown (D)": "42",
                 "Buehler (R)": "43",
@@ -325,17 +330,17 @@
                 "Brown (D)": "46",
                 "Buehler (R)": "29",
                 "Spread": "Brown +17"
-            },
-            "RCP Average": {
-                "Brown (D)": "44.3",
-                "Buehler (R)": "40.7",
-                "Spread": "Brown +3.6"
             }
         },
         "state": "OR"
     },
     {
         "polls": {
+            "RCP Average": {
+                "Ducey (R)": "49.5",
+                "Garcia (D)": "39.0",
+                "Spread": "Ducey +11.5"
+            },
             "CNNCNN": {
                 "Ducey (R)": "49",
                 "Garcia (D)": "46",
@@ -360,11 +365,6 @@
                 "Ducey (R)": "51",
                 "Garcia (D)": "43",
                 "Spread": "Ducey +8"
-            },
-            "RCP Average": {
-                "Ducey (R)": "49.5",
-                "Garcia (D)": "39.0",
-                "Spread": "Ducey +10.5"
             },
             "Suffolk*Suffolk*": {
                 "Ducey (R)": "50",
@@ -460,6 +460,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Johnson (R)": "37.5",
+                "Spread": "Walz +7.0",
+                "Walz (D)": "44.5"
+            },
             "EmersonEmerson": {
                 "Johnson (R)": "33",
                 "Spread": "Walz +7",
@@ -469,11 +474,6 @@
                 "Johnson (R)": "40",
                 "Spread": "Walz +7",
                 "Walz (D)": "47"
-            },
-            "RCP Average": {
-                "Johnson (R)": "37.5",
-                "Spread": "Walz +7.0",
-                "Walz (D)": "44.5"
             },
             "Star Tribune/Mason-DixonStar Tribune": {
                 "Johnson (R)": "36",
@@ -490,6 +490,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Evers (D)": "48.0",
+                "Spread": "Evers +4.7",
+                "Walker (R)": "43.3"
+            },
             "EmersonEmerson": {
                 "Evers (D)": "48",
                 "Spread": "Evers +7",
@@ -515,11 +520,6 @@
                 "Spread": "Evers +5",
                 "Walker (R)": "44"
             },
-            "RCP Average": {
-                "Evers (D)": "48.0",
-                "Spread": "Evers +4.7",
-                "Walker (R)": "43.3"
-            },
             "SuffolkSuffolk": {
                 "Evers (D)": "46",
                 "Spread": "Evers +2",
@@ -530,6 +530,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Schuette (R)": "37.8",
+                "Spread": "Whitmer +9.7",
+                "Whitmer (D)": "47.5"
+            },
             "Detroit News/WDIV-TVDetroit News": {
                 "Schuette (R)": "33",
                 "Spread": "Whitmer +7",
@@ -565,11 +570,6 @@
                 "Spread": "Whitmer +9",
                 "Whitmer (D)": "47"
             },
-            "RCP Average": {
-                "Schuette (R)": "37.8",
-                "Spread": "Whitmer +9.7",
-                "Whitmer (D)": "47.5"
-            },
             "Target InsyghtTarget Insyght": {
                 "Schuette (R)": "37",
                 "Spread": "Whitmer +5",
@@ -585,21 +585,21 @@
     },
     {
         "polls": {
-            "EmersonEmerson": {
-                "Black (R)": "35",
-                "Dean (D)": "39",
-                "Spread": "Dean +4"
-            },
-            "GravisGravis": {
-                "Black (R)": "40",
-                "Dean (D)": "31",
-                "Spread": "Black +9"
+            "FOX News": {
+                "Lee (R)": "53",
+                "Dean (D)": "36",
+                "Spread": "Lee +17"
             }
         },
         "state": "TN"
     },
     {
         "polls": {
+            "RCP Average": {
+                "DeSantis (R)": "42.8",
+                "Gillum (D)": "46.5",
+                "Spread": "Gillum +3.7"
+            },
             "Florida Atlantic UniversityFAU": {
                 "DeSantis (R)": "39",
                 "Gillum (D)": "41",
@@ -624,11 +624,6 @@
                 "DeSantis (R)": "47",
                 "Gillum (D)": "50",
                 "Spread": "Gillum +3"
-            },
-            "RCP Average": {
-                "DeSantis (R)": "42.8",
-                "Gillum (D)": "46.5",
-                "Spread": "Gillum +3.7"
             },
             "Rasmussen ReportsRasmussen": {
                 "DeSantis (R)": "42",
@@ -655,6 +650,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Hogan (R)": "52.7",
+                "Jealous (D)": "35.0",
+                "Spread": "Hogan +17.7"
+            },
             "Gonzales ResearchGonzales Research": {
                 "Hogan (R)": "49",
                 "Jealous (D)": "36",
@@ -675,11 +675,6 @@
                 "Jealous (D)": "33",
                 "Spread": "Hogan +16"
             },
-            "RCP Average": {
-                "Hogan (R)": "52.7",
-                "Jealous (D)": "35.0",
-                "Spread": "Hogan +17.7"
-            },
             "Washington PostWash Post": {
                 "Hogan (R)": "51",
                 "Jealous (D)": "39",
@@ -690,6 +685,11 @@
     },
     {
         "polls": {
+            "RCP Average": {
+                "Lamont (D)": "51.0",
+                "Spread": "Lamont +12.5",
+                "Stefanowski (R)": "38.5"
+            },
             "GravisGravis": {
                 "Lamont (D)": "49",
                 "Spread": "Lamont +9",
@@ -699,11 +699,6 @@
                 "Lamont (D)": "53",
                 "Spread": "Lamont +16",
                 "Stefanowski (R)": "37"
-            },
-            "RCP Average": {
-                "Lamont (D)": "51.0",
-                "Spread": "Lamont +12.5",
-                "Stefanowski (R)": "38.5"
             }
         },
         "state": "CT"
