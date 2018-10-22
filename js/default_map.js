@@ -56,6 +56,18 @@ var legend = null;
 var selectedOption = null;
 var tooltip = null;
 /**
+ * On page reload, we want all the settings to reset.
+ * @param e
+ */
+window.onbeforeunload = function(e) {
+    document.getElementById('current-map').checked = false;
+    currentMapChecked = false;
+    document.getElementById('incumbent').checked = false;
+    checked = false;
+    document.getElementById('raceDropdown').options[0].selected = true;
+};
+
+/**
  * United States of America map
  * Transitions default usa map with different colors
  */

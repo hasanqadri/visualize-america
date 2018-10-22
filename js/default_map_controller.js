@@ -5,10 +5,10 @@ function createLegend() {
     //Create a legend
     // Define linear scale for output
     var color = d3.scale.linear()
-        .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+        .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#bdbdbd", "#737373"]);
     color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-    var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
+    var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican",  "No Data", "No Election"];
 
     // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
     legend = d3.select(".lastLegend")
@@ -44,10 +44,10 @@ function checkLegend() {
         legend.remove();
         // Define linear scale for output
         var color = d3.scale.linear()
-            .range([strongDem, weakDem, leanDem,  indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+            .range([strongDem, weakDem, leanDem,  indep, leanRep, weakRep, strongRep, "#bdbdbd", "#737373"]);
         color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-        var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
+        var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Data", "No Election"];
 
         // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
         legend = d3.select(".lastLegend").append("svg")
@@ -114,10 +114,10 @@ function checkLegend() {
             legend.remove();
             // Define linear scale for output
             var color = d3.scale.linear()
-                .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#737373", "#bdbdbd"]);
+                .range([strongDem, weakDem, leanDem, indep, leanRep, weakRep, strongRep, "#bdbdbd", "#737373"]);
             color.domain([0, 1, 2, 3, 4, 5, 6, 7, 8]); // setting the range of the input data
 
-            var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican", "No Election", "No Data",];
+            var legendText = ["Strongly Democrat", "Likely Democrat", "Lean Democrat", "Independent",  "Lean Republican", "Likely Republican", "Strong Republican",  "No Data", "No Election"];
 
             // Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
             legend = d3.select(".lastLegend").append("svg")
