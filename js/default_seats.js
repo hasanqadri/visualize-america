@@ -39,7 +39,7 @@ function default_seats() {
         .attr("width", function(d) { return d.width; })
         .attr("height", function(d) { return d.height; })
         .style("fill", function(d) { return d.party[count++] })
-        .style("stroke", "#f7fcff")
+        .style("stroke", "#ffffff")
         .style("stroke-width", 2);
 
 }
@@ -62,10 +62,11 @@ function updateGrid() {
         if (party[count] == strongDem || party[count] == strongRep || party[count] == indep || party[count] == '#737373') {
             return party[count++]
         } else {
-            return "fff"
+            return '#ffffff'
         }
     }).duration(2000)
 }
+
 function  createArrayOfElements(num) {
     var data = new Array();
     var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below

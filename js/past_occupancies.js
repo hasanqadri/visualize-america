@@ -21,6 +21,7 @@ function drawPastOccupancies(data, past_senators) {
             .attr("height", height)
             .style("display", 'block')
             .style('margin', 'auto')
+            .style('margin-bottom', 80)
             .style('preserveAspectRatio', 'xMidYMid')
 
         chart.selectAll('rect').data(dataArr)

@@ -56,8 +56,8 @@ function federal_balance() {
             .attr('id', function(d) { return d.properties.STATE_ABBR})
             .attr("d", path)
             .attr('fill', determineStateColor)
-            .style("stroke", "#fff")
-            .style("stroke-width", "1");
+            .attr("stroke", "#fff")
+            .attr("stroke-width", "1");
         // d3.select('#AL').transition().attr('transform', 'translate(0,' + -50 +')').duration(3000);
         initialPlacement()
     }
@@ -114,7 +114,7 @@ function fillingDefBuckets(methodCall) {
         x = getOffset(obj).left;
         y = getOffset(obj).top;
         str = '#' + obj.id;
-        curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#737373').duration(1000).transition().attr('opacity', 1).duration(500);
+        curr_tran0 = d3.selectAll(str).transition().attr('stroke', 'white').attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', '#737373').duration(1000).transition().attr('opacity', 1);
         row++;
         if (row % 7 == 0) {
             yOrigin += 20;
@@ -150,7 +150,7 @@ function pollingPlacement(methodCall) {
         str = '#' + obj.id;
         if (map === undefined || map === null) {
             //var curr_tran = d3.selectAll(str).transition().attr('transform', 'translate(0, -1000)').duration(1000)
-            d3.selectAll(str).transition().attr('opacity', "0").duration(1000)
+            d3.selectAll(str).transition().attr('opacity', "0").attr('stroke', 'white').duration(1000)
         } else {
             map['obj'] = obj
             x = getOffset(obj).left;
@@ -196,7 +196,7 @@ function fillingSenBuckets(methodCall) {
     var parentObj = document.getElementById('federal-balance');
     var parentPos =  { left: getOffset(parentObj).left, top: getOffset(parentObj).top};
     var xOrigin=   parentPos.left;
-    var yOrigin =  parentPos.top + 300;
+    var yOrigin =  parentPos.top + 310;
     var x = 0;
     var y = 0;
     var z = 0;
@@ -208,8 +208,22 @@ function fillingSenBuckets(methodCall) {
                 x = getOffset(obj).left;
                 y = getOffset(obj).top;
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
-                yOrigin = yOrigin - 60;
+                if (getView() == "United States Senator") {
+                    if (str === '#CT') {
+                        yOrigin += 10;
+                    } else if (str === '#MD') {
+                        yOrigin += 15;
+                    } else if (str === '#NM') {
+                        yOrigin -= 20;
+                    }
+                }
+                    curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).attr('stroke', 'white').duration(500)
+                if (getView() === "United States Governor" && getCurrentGovernor(obj.id) !== strongDem ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id));
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongDem) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id));
+                }
+                yOrigin = yOrigin - 40;
             }
         });
     }
@@ -225,15 +239,30 @@ function fillingSenBuckets(methodCall) {
                 if (getView() == "United States Governor") {
                     if (str === '#CA') {
                         yOrigin -= 50;
+                    } else if (str === '#CT') {
+                        yOrigin += 20;
+                    } else if (str == '#IL') {
+                        yOrigin -= 10;
+                    }
+                } else if (getView() == "United States Senator") {
+                    if (str === '#RI') {
+                        yOrigin += 30;
+                    } else if (str === '#MI') {
+                        yOrigin -= 15;
                     }
                 }
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
-                yOrigin = yOrigin - 50;
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongDem ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id));
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongDem) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id));
+                }
+                yOrigin = yOrigin - 40;
             }
         });
     }
 
-    xOrigin = parentPos.left + 140;
+    xOrigin = parentPos.left + 150;
     yOrigin = parentPos.top + 300;
     for (z = 0; z < demArr5.length; z++) {
         $('.balance').each(function (i, obj) {
@@ -249,8 +278,15 @@ function fillingSenBuckets(methodCall) {
                     } else if (str === '#OK') {
                         yOrigin += 20;
                     }
+                } else if (getView() == 'United States Senator') {
+
                 }
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongDem ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id));
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongDem) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id));
+                }
                 yOrigin = yOrigin - 60;
                 if (getView() == "United States Governor") {
                     if (str === '#NV') {
@@ -261,7 +297,7 @@ function fillingSenBuckets(methodCall) {
         });
     }
 
-    xOrigin = parentPos.left + 170;
+    xOrigin = parentPos.left + 205;
     yOrigin = parentPos.top + 300;
     if (getView() == 'United States Governor') {
         xOrigin += 40;
@@ -276,13 +312,28 @@ function fillingSenBuckets(methodCall) {
 
                 if (getView() == "United States Governor") {
                     if (str === '#RI') {
-                        yOrigin += 10;
+                        yOrigin += 20;
+                    } else if (str === '#OR') {
+                        yOrigin -= 10;
+                    }
+                } else if (getView() == "United States Senator") {
+                    if (str === '#MT') {
+                        xOrigin -= 20;
                     }
                 }
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate(' + (xOrigin - newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) + ')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongDem) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id));
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongDem) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id));
+                }
                 yOrigin = yOrigin - 60;
                 if (getView() == 'United States Governor') {
                     yOrigin += 20;
+                } else if (getView() == "United States Senator") {
+                    if (str === '#MT') {
+                        xOrigin += 20;
+                    }
                 }
             }
         });
@@ -297,7 +348,12 @@ function fillingSenBuckets(methodCall) {
                 y = getOffset(obj).top;
 
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== indep ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id));
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== indep) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id));
+                }
                 yOrigin = yOrigin - 40;
 
             }
@@ -314,7 +370,12 @@ function fillingSenBuckets(methodCall) {
                 y = getOffset(obj).top;
 
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongRep ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id)).attr('stroke-width', 1.5);
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongRep) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id)).attr('stroke-width', 1.5);
+                }
                 yOrigin = yOrigin - 46;
 
             }
@@ -334,7 +395,12 @@ function fillingSenBuckets(methodCall) {
                 y = getOffset(obj).top;
 
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongRep ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id)).attr('stroke-width', 1.5);
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongRep) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id)).attr('stroke-width', 1.5);
+                }
                 yOrigin = yOrigin - 80;
 
             }
@@ -363,7 +429,12 @@ function fillingSenBuckets(methodCall) {
                         yOrigin -= 20;
                     }
                 }
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongRep ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id)).attr('stroke-width', 1.5);
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongRep) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id)).attr('stroke-width', 1.5);
+                }
                 yOrigin = yOrigin - 40;
                 if (getView() == "United States Governor") {
                     if (str == '#NH') {
@@ -389,7 +460,12 @@ function fillingSenBuckets(methodCall) {
                 x = getOffset(obj).left;
                 y = getOffset(obj).top;
                 str = '#' + obj.id;
-                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500)
+                curr_tran0 = d3.selectAll(str).transition().attr('transform', 'translate('+ (xOrigin -newDict[str][0]) + ',' + (yOrigin - newDict[str][1]) +')').duration(1000).attr('fill', methodCall).duration(1000).transition().attr('opacity', 1).duration(500).attr('stroke', 'white');
+                if (getView() == "United States Governor" && getCurrentGovernor(obj.id) !== strongRep ) {
+                    curr_tran0.transition().attr('stroke', getCurrentGovernor(obj.id)).attr('stroke-width', 1.5);
+                } else if (getView() === "United States Senator" && getCurrentSenator(obj.id) !== strongRep) {
+                    curr_tran0.transition().attr('stroke', getCurrentSenator(obj.id)).attr('stroke-width', 1.5);
+                }
                 yOrigin = yOrigin - 40;
             }
         });
@@ -444,4 +520,34 @@ function getOffset(el) {
         left: rect.left + window.scrollX,
         top: rect.top + window.scrollY
     };
+}
+
+function getCurrentGovernor(state_abbr) {
+    for (var x = 0; x < governorD.length; x++) {
+        if (state_abbr === governorD[x].state_code) {
+            if (governorD[x].party === "democrat") {
+                return strongDem
+            } else if (governorD[x].party === "republican") {
+                return strongRep
+            } else {
+                return indep
+            }
+        }
+    }
+    return 'white';
+}
+
+function getCurrentSenator(state_abbr) {
+    for (var x = 0; x < senateD.results[0].members.length; x++) {
+        if (state_abbr === senateD.results[0].members[x].state && senateD.results[0].members[x].senate_class == 1) {
+            if (senateD.results[0].members[x].party === "D") {
+                return strongDem
+            } else if (senateD.results[0].members[x].party === "R") {
+                return strongRep
+            } else {
+                return indep;
+            }
+        }
+    }
+    return 'white'
 }
